@@ -16,7 +16,7 @@ history = CNN_model.fit_generator(
     validation_steps=50
 )
 
-CNN_model.save('blood_cells_1')
+CNN_model.save('blood_cells_1.h5')
 Plotter.plot_history(history=history)
 
 # conclusions:
