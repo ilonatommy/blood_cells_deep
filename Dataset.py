@@ -39,7 +39,7 @@ class Dataset:
             os.mkdir(os.path.join(self.validation_dir, category_name))
 
             category_frames = [os.path.join(category_path, f)
-                               for f in listdir(category_path) if isfile(join(category_path, f))]
+                               for f in os.listdir(category_path) if os.isfile(os.path.join(category_path, f))]
             num_elem_category = int(round(len(category_frames) * percentage / 100))
             validation_set = category_frames[num_elem_category:]
             for moved_frame in validation_set:
@@ -73,6 +73,38 @@ class Dataset:
 
         # decode JPEG to RGB, convert into floating-point tensors, rescale the values to range [0:1]
         print("Preprocessing data...")
+        """
+        train_datagen = ImageDataGenerator(
+            rescale=1. / 255,
+            rotation_range=40,
+            width_shift_range=0.2,
+            height_shift_range=0.2,
+            shear_range=0.2,
+            zoom_range=0.2,
+            horizontal_flip=True,
+            fill_mode='nearest'
+        )
+        test_datagen = ImageDataGenerator(
+            rescale=1. / 255,
+            rotation_range=40,
+            width_shift_range=0.2,
+            height_shift_range=0.2,
+            shear_range=0.2,
+            zoom_range=0.2,
+            horizontal_flip=True,
+            fill_mode='nearest'
+        )
+        validation_datagen = ImageDataGenerator(
+            rescale=1. / 255,
+            rotation_range=40,
+            width_shift_range=0.2,
+            height_shift_range=0.2,
+            shear_range=0.2,
+            zoom_range=0.2,
+            horizontal_flip=True,
+            fill_mode='nearest'
+        )
+        """
         train_datagen = ImageDataGenerator(rescale=1. / 255)
         test_datagen = ImageDataGenerator(rescale=1. / 255)
         validation_datagen = ImageDataGenerator(rescale=1. / 255)

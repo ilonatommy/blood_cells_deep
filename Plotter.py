@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 
 class Plotter:
-    def plot_history(self, history):
+    def plot_history(history):
         acc = history.history['acc']
         val_acc = history.history['val_acc']
         loss = history.history['loss']
@@ -19,7 +19,7 @@ class Plotter:
 
         plt.plot(epochs, loss, 'bo', label='Training loss')
         plt.plot(epochs, val_loss, 'b', label='Validation loss')
-        plt.title('Training and validation accuracy')
+        plt.title('Training and validation loss')
         plt.legend()
 
         plt.show()

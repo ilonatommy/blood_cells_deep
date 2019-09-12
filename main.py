@@ -17,4 +17,9 @@ history = CNN_model.fit_generator(
 )
 
 CNN_model.save('blood_cells_1')
-Plotter.plot_history(history = history)
+Plotter.plot_history(history=history)
+
+# conclusions:
+# saw-shape of the plot - probably too many layers.
+# I also decreased the size of image to shorten the training time.
+# still acc not higher than 80%...
