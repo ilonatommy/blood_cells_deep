@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.hdf
 
 # C extensions
 *.so
@@ -103,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# --------------------------
+# saved model files
+*.h5
+*.h4
+*.hdf
+*.hdf4
+*.hdf5
