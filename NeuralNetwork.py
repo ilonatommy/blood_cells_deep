@@ -34,7 +34,7 @@ class NeuralNetwork:
         model.add(layers.Dense(4, activation='softmax'))
 
         model.compile(optimizer=optimizers.RMSprop(lr=2e-5),
-                      loss='binary_crossentropy',
+                      loss='categorical_crossentropy',
                       metrics=['acc'])
         return model
 
@@ -54,12 +54,13 @@ class NeuralNetwork:
         model.add(layers.Dense(4, activation='softmax'))
 
         model.compile(optimizer=optimizers.RMSprop(lr=2e-5),
-                      loss='binary_crossentropy',
+                      loss='categorical_crossentropy',
                       metrics=['acc'])
         return model
 
     @staticmethod
     def get_activations(model, image):
+        # layer_outputs = model.layers.get_output_at(node_index=0)
         layer_outputs = [layer.output for layer in model.layers[:8]]
         activation_model = models.Model(inputs=model.input, outputs=layer_outputs)
         activations = activation_model.predict(image)
