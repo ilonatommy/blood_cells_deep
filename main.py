@@ -23,7 +23,7 @@ def train_and_save_new_model():
     Plotter.plot_history(history=history)
 
 
-def pretrained_network_model(size, extended_version=False):
+def train_and_save_pretrained_network_model(size, extended_version=False):
     data_set = Dataset('/home/ilona/Desktop/Literatura/Bachelors_Thesis/blood_cells/blood-cells_db/dataset2-master')
     train, validation, test = data_set.get_data(size=size, rescale=1. / 255, validaion_set_percentage=80, batch_size=20)
 
@@ -88,7 +88,7 @@ def visualisation(model_name, size):
 
     # version for MobileNet:
     mn_model = model.layers[0]
-    mn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    mn_model.compile(loss='categorical_crossentropy', optimizer=optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
     activations = NeuralNetwork.get_activations(model=mn_model, image=test_simple_frames_e[0])
 
     Plotter.visualise_image_channels(layers=model.layers, activations=activations, images_per_row=8)
@@ -97,5 +97,5 @@ def visualisation(model_name, size):
     Plotter.visualise_filters(layers=model.layers[:8], model=model, shape=(test_simple_frames_e[0]).shape, test_img=(test_simple_frames_e[0]))
 
 
-pretrained_network_model(size=(160, 120), extended_version=True)
-# visualisation('blood_cells_pretrained_extended.h5', size=(160, 120))
+# train_and_save_pretrained_network_model(size=(160, 120), extended_version=True)
+visualisation('blood_cells_pretrained_extended.h5', size=(160, 120))
