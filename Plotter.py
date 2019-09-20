@@ -1,16 +1,18 @@
 import matplotlib.pyplot as plt
+from Maths import *
+from skimage.transform import resize
+from keras import models
 from Dataset import *
 from NeuralNetwork import *
-from skimage.transform import resize
 
 
 class Plotter:
     @staticmethod
-    def plot_history(history):
-        acc = history.history['acc']
-        val_acc = history.history['val_acc']
-        loss = history.history['loss']
-        val_loss = history.history['val_loss']
+    def plot_history(history_dic):
+        acc = history_dic['acc']
+        val_acc = history_dic['val_acc']
+        loss = history_dic['loss']
+        val_loss = history_dic['val_loss']
 
         epochs = range(1, len(acc) + 1)
 
@@ -55,9 +57,10 @@ class Plotter:
         plt.show()
 
     @staticmethod
-    def get_layer_filter(model, layer_name, filter_index, shape):
-        loss_tensor = NeuralNetwork.get_loss_tensor(model=model, layer_name=layer_name, filter_index=filter_index)
-        loss_tensor_grad = NeuralNetwork.get_loss_tensor_grad(model=model, layer_name=layer_name,
+    def _get_layer_filter(model, layer_name, filter_index, shape):
+        print(filter_index)
+        loss_tensor = Maths.get_loss_tensor(model=model, layer_name=layer_name, filter_index=filter_index)
+        loss_tensor_grad = Maths.get_loss_tensor_grad(model=model, layer_name=layer_name,
                                                               filter_index=filter_index)
         iterate = backend.function([model.input], [loss_tensor, loss_tensor_grad])
         gray_image_with_noise = np.random.random(shape) * 20 + 128.
@@ -87,7 +90,7 @@ class Plotter:
             # we look only on 32 filters
             for width in range(rows):
                 for height in range(cols):
-                    layer_filter = Plotter.get_layer_filter(model=model,
+                    layer_filter = Plotter._get_layer_filter(model=model,
                                                             layer_name=layer_names[index],
                                                             filter_index=width + (height * 4),
                                                             shape=shape)
@@ -98,3 +101,22 @@ class Plotter:
             plt.imshow(results)
             plt.title(layer_names[index])
             plt.show()
+
+    @staticmethod
+    def full_model_visualisation(model, size):
+        set_e, set_l, set_m, set_n = Dataset.get_class_sets(frames_size=size)
+        # ------------------------------------------------------------------------------------------------------------------
+        # visualise channels:
+
+        # version for non-pretrained network or pretrained network other than MobileNet
+        # activations = NeuralNetwork.get_activations(model=model, image=test_simple_frames_e[0])
+
+        # version for MobileNet - not working. Why I cannot visualise this model?:
+        # mn_model = model.layers[0]
+        # mn_model.compile(loss='categorical_crossentropy', optimizer=optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
+        # activations = NeuralNetwork.get_activations(model=mn_model, image=test_simple_frames_e[0])
+
+        # Plotter.visualise_image_channels(layers=model.layers, activations=activations, images_per_row=8)
+        # ------------------------------------------------------------------------------------------------------------------
+        # visualise filters (we have only 32 of them):
+        Plotter.visualise_filters(layers=model.layers[:8], model=model, shape=(set_e[0]).shape, test_img=(set_e[0]))

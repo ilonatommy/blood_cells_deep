@@ -56,7 +56,20 @@ class Dataset:
                                 )))
         print("Validation set ready.")
 
-    def get_data(self, size, rescale, validaion_set_percentage, batch_size):
+    @staticmethod
+    def get_class_sets(frames_size):
+        data_set = Dataset('/home/ilona/Desktop/Literatura/Bachelors_Thesis/blood_cells/blood-cells_db/dataset2-master')
+        test_simple_frames_e = data_set.get_frames(path=os.path.join(
+            data_set.base_path, 'images/TEST_SIMPLE/EOSINOPHIL'), size=frames_size, rescale=1. / 255)
+        test_simple_frames_l = data_set.get_frames(path=os.path.join(
+            data_set.base_path, 'images/TEST_SIMPLE/LYMPHOCYTE'), size=frames_size, rescale=1. / 255)
+        test_simple_frames_m = data_set.get_frames(path=os.path.join(
+            data_set.base_path, 'images/TEST_SIMPLE/MONOCYTE'), size=frames_size, rescale=1. / 255)
+        test_simple_frames_n = data_set.get_frames(path=os.path.join(
+            data_set.base_path, 'images/TEST_SIMPLE/NEUTROPHIL'), size=frames_size, rescale=1. / 255)
+        return test_simple_frames_e, test_simple_frames_l, test_simple_frames_m, test_simple_frames_n
+
+    def get_train_val_test_sets(self, size, rescale, validaion_set_percentage, batch_size):
         print("Loading data...")
 
         frames_path = os.path.join(self.base_path, 'images')
