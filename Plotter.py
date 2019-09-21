@@ -4,6 +4,7 @@ from skimage.transform import resize
 from keras import models
 from Dataset import *
 from NeuralNetwork import *
+import cv2
 
 
 class Plotter:
@@ -120,3 +121,12 @@ class Plotter:
         # ------------------------------------------------------------------------------------------------------------------
         # visualise filters (we have only 32 of them):
         Plotter.visualise_filters(layers=model.layers[:8], model=model, shape=(set_e[0]).shape, test_img=(set_e[0]))
+
+    @staticmethod
+    def visualise_heatmap(frame, heatmap):
+        heatmap = resize(heatmap, (frame.shape[0], frame.shape[1]))
+        heatmap = np.uint8(255 * heatmap)
+        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        result = heatmap * 0.001 + frame * 0.999
+        plt.imshow(result)
+        plt.show()

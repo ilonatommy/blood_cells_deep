@@ -171,3 +171,26 @@ class NeuralNetwork:
     def load_training_history(your_history_path):
         history = json.load(open(your_history_path, 'r'))
         return history
+
+    @staticmethod
+    def decode_predictions_for_classes(model, frames_classes, print_detailed_predictions):
+        for frames_class in frames_classes:
+            results = NeuralNetwork.decode_predictions_for_one_class(model=model, frames=frames_class,
+                                                                       print_detailed_predictions=False)
+            print(results)
+
+    @staticmethod
+    def decode_predictions_for_one_class(model, frames, print_detailed_predictions):
+        results = []
+        for frame in frames:
+            preds = model.predict(frame)
+            results.append(preds[0])
+            if print_detailed_predictions:
+                print('Predicted: ' +
+                        '\neosinophil:    ' + str(preds[0][0]) +
+                        '\nlymphocyte:    ' + str(preds[0][1]) +
+                        '\nmonocyte:      ' + str(preds[0][2]) +
+                        '\nneutrophil:    ' + str(preds[0][3]))
+        mean_result = np.mean(results, axis=0)
+        print('Index of frame with highest probability: ', np.argmax(results, axis=0))
+        return mean_result
