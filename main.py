@@ -46,42 +46,43 @@ def main(argv):
     # ------------------------------------------------------------------------------------------------------------------
     # if you don't have any saved model and want to create one:
     # ------------------------------------------------------------------------------------------------------------------
-    # use functions form NeuralNetwork to create and train a model:
-    # train_and_save_new_model / train_and_save_pretrained_network_model
+    # use functions form old_NeuralNetwork to create a model:
+    frame_size = (120, 160)
+    activation = 'relu'
+    output_activation = 'softmax'
+    optimizer = optimizers.RMSprop(lr=1e-4)
     """
-    history = NeuralNetwork.train_and_save_new_model(model_name='blood_cells_2',
-                                                     path_to_db=input_path,
-                                                     size=(160, 120),
-                                                     rescale=1. / 255,
-                                                     batch_size=20,
-                                                     validation_set_percentage=80,
-                                                     epochs=30)
-    NeuralNetwork.save_training_history(history=history, your_history_path=os.path.join(output_path, 'training_1'))
+    simple_model = NeuralNetwork.create_model_from_scratch((frame_size[0], frame_size[1], 3), activation, optimizer, output_activation)
+    NeuralNetwork.save_model(simple_model, 'simple_model', output_path)
+    MobileNet_basic = NeuralNetwork.create_MobileNet(frame_size, basic=True)
+    NeuralNetwork.save_model(MobileNet_basic, 'MobileNet_basic', output_path)
+    VGG16_basic = NeuralNetwork.create_VGG16(frame_size, basic=True)
+    NeuralNetwork.save_model(VGG16_basic, 'VGG16_basic', output_path)
+    MobileNet_extended = NeuralNetwork.create_MobileNet(frame_size, basic=False, freeze_layers=range(0, 70))
+    NeuralNetwork.save_model(MobileNet_extended, 'MobileNet_extended', output_path)
+    VGG16_extended = NeuralNetwork.create_VGG16(frame_size, basic=False, freeze_layers=range(0, 10))
+    NeuralNetwork.save_model(VGG16_extended, 'VGG16_extended', output_path)
     """
+
+    # ------------------------------------------------------------------------------------------------------------------
+    # if you don't have a saved model and want to train it:
+    # ------------------------------------------------------------------------------------------------------------------
+    simple_model = NeuralNetwork.load_model(output_path, 'simple_model')
+    simple_model.summary()
+    history = NeuralNetwork.train_network(path_to_db=input_path, model=simple_model, frame_size=frame_size,
+                                          rescale=1./255, validation_set_percentage=80, batch_size=20, epochs=30)
+    NeuralNetwork.save_training_history(history,'simple_model', output_path)
 
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved training history and want to visualise it:
     # ------------------------------------------------------------------------------------------------------------------
     # load and plot training history:
-    """
-    history = NeuralNetwork.load_training_history(os.path.join(output_path,'training_1'))
-    Plotter.plot_history(history)
-    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved model and want to visualise its results:
     # -----------------------------------------------------------------------------------------------------------------
     # load model and use Plotter functions to visualise chosen parts:
-    model = models.load_model('blood_cells_1.h5')
-    # model.summary() # the last conv layer is 'conv2d_4'
-    frames = Dataset.get_class_sets(frames_size=(80, 60))
 
-    # check how the model handles new frames:
-    # NeuralNetwork.decode_predictions_for_classes(model=model, frames_classes=frames, print_detailed_predictions=False)
-
-    # NeuralNetwork.decode_predictions_for_one_class(model=model, frames=frames[0], print_detailed_predictions=True)
-    heatmap = Maths.get_heatmap(model=model, frame=frames[0][0], layer_name='conv2d_4', class_number=0)
-    Plotter.visualise_heatmap(frames[0][0][0], heatmap=heatmap)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

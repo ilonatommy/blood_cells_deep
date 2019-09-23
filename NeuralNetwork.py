@@ -1,196 +1,111 @@
-import pickle
-from keras import layers
-from keras import models
-from keras import optimizers
-from Dataset import *
-from keras.applications import VGG16
-from keras.applications import MobileNet
 import json
+from keras import models, layers
+from keras.applications import VGG16, MobileNet
+from Dataset import Dataset
+import os
 
 
 class NeuralNetwork:
     @staticmethod
-    def create_cnn_model(data_shape):
+    def create_model_from_scratch(input_data_shape, activation, optimizer, out_activation):
         model = models.Sequential()
-        model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=data_shape))
+        model.add(layers.Conv2D(32, (3, 3), activation=activation, input_shape=input_data_shape))
         model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+        model.add(layers.Conv2D(64, (3, 3), activation=activation))
         model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(128, (3, 3), activation='relu'))
+        model.add(layers.Conv2D(128, (3, 3), activation=activation))
         model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(128, (3, 3), activation='relu'))
+        model.add(layers.Conv2D(128, (3, 3), activation=activation))
         model.add(layers.MaxPooling2D((2, 2)))
         model.add(layers.Flatten())
-        model.add(layers.Dense(512, activation='relu'))
-        model.add(layers.Dense(4, activation='softmax'))
+        model.add(layers.Dense(512, activation=activation))
+        model.add(layers.Dense(4, activation=out_activation))
 
         model.compile(loss='categorical_crossentropy',
-                      optimizer=optimizers.RMSprop(lr=1e-4),
+                      optimizer=optimizer,
                       metrics=['acc'])
         return model
 
     @staticmethod
-    def create_classifier_for_conv_base(shape, dropout):
-        model = models.Sequential()
-        model.add(layers.Dense(256, activation='relu', input_dim=shape[0] * shape[1] * shape[2]))
-        model.add(layers.Dropout(dropout))
-        model.add(layers.Dense(4, activation='softmax'))
-
-        model.compile(optimizer=optimizers.RMSprop(lr=2e-5),
-                      loss='categorical_crossentropy',
-                      metrics=['acc'])
-        return model
+    def __create_top_model(input_shape, activation, weights, dropout=0.5, output_shape=4, output_activation='softmax'):
+        top_model = models.Sequential()
+        merging_layer = layers.Flatten(input_shape=input_shape)
+        top_model.add(merging_layer)
+        top_model.add(layers.Dense(256, activation=activation))
+        top_model.add(layers.Dropout(dropout))
+        top_model.add(layers.Dense(output_shape, activation=output_activation))
+        return top_model
 
     @staticmethod
-    def merge_classifier_and_conv_base(conv_base, freeze_layers):
-        model = models.Sequential()
+    def add_top_to_base_model(base_model, freeze_layers, activation, dropout=0.5, output_shape=4,
+                              output_activation='softmax'):
         # freeze certain layers to prevent changes in its weights during the training:
-        conv_base.trainable = True
+        base_model.trainable = True
         for layer_index in freeze_layers:
-            layer = conv_base.layers[layer_index]
+            layer = base_model.layers[layer_index]
             layer.trainable = False
-
-        conv_base.trainable = True
-        model.add(conv_base)
-        model.add(layers.Flatten())
-        model.add(layers.Dense(256, activation='relu'))
-        model.add(layers.Dense(4, activation='softmax'))
-
-        model.compile(optimizer=optimizers.RMSprop(lr=2e-5),
-                      loss='categorical_crossentropy',
-                      metrics=['acc'])
+        top_model = NeuralNetwork.__create_top_model(input_shape=base_model.output_shape[1:], activation=activation,
+                                                   dropout=dropout, output_shape=output_shape,
+                                                   weights=base_model.get_weights(),
+                                                   output_activation=output_activation)
+        model = models.Model(input=base_model.input, output=top_model(base_model.output))
         return model
 
     @staticmethod
-    def get_activations(model, image):
-        # layer_outputs = model.layers.get_output_at(node_index=0)
-        layer_outputs = [layer.get_output_at(-1) for layer in model.layers[:8]]
-        activation_model = models.Model(inputs=model.input, outputs=layer_outputs)
-        activations = activation_model.predict(image)
-        return activations
-
-    @staticmethod
-    def get_layer_names(layers):
-        layer_names = []
-        for layer in layers:
-            layer_names.append(layer.name)
-        return layer_names
-
-    @staticmethod
-    def extract_features(conv_base, dataset, shape, batch_size, flatten):
-        sample_count_dividable_by_batch_size = (len(dataset) // batch_size) * batch_size
-        shape = (sample_count_dividable_by_batch_size, shape[1], shape[2], shape[3])
-        features = np.zeros(shape=shape)
-        labels = np.zeros(shape=(shape[0], 4))
-        counter = 0
-        for inputs_batch, labels_batch in dataset:
-            features_batch = conv_base.predict(inputs_batch)
-            if (counter + 1) * 20 > sample_count_dividable_by_batch_size:
-                break
-            features[counter * batch_size: (counter + 1) * batch_size] = features_batch
-            labels[counter * batch_size: (counter + 1) * batch_size] = labels_batch
-            counter += 1
-        if flatten:
-            features = np.reshape(features, (sample_count_dividable_by_batch_size, shape[1] * shape[2] * shape[3]))
-        return features, labels
-
-    @staticmethod
-    def train_and_save_new_model(path_to_db, model_name, size, validation_set_percentage, epochs, rescale, batch_size):
-        data_set = Dataset(path_to_db)
-        train, validation, test = data_set.get_train_val_test_sets(size=size,
-                                                    rescale=rescale,
-                                                    validaion_set_percentage=validation_set_percentage,
-                                                    batch_size=batch_size)
-
-        data_batch, labels_batch = train[0]
-
-        CNN_model = NeuralNetwork.create_cnn_model(data_shape=data_batch[0].shape)
-        history = CNN_model.fit_generator(
-            train,
-            steps_per_epoch=100,
-            epochs=epochs,
-            validation_data=validation,
-            validation_steps=50
-        )
-
-        CNN_model.save(str(model_name) + '.h5')
-        return history
-
-    @staticmethod
-    def train_and_save_pretrained_network_model(path_to_db, model_name, size, extended_version=False):
-        data_set = Dataset(path_to_db)
-        train, validation, test = data_set.get_train_val_test_sets(size=size, rescale=1. / 255, validaion_set_percentage=80,
-                                                    batch_size=20)
-
-        data_batch, labels_batch = train[0]
-
-        conv_base = MobileNet(weights='imagenet',
-                              include_top=False,  # I will add my own classifier defining my 4 classes
-                              input_shape=data_batch[0].shape)
-
-        # check the shape of the last layer there (e.g. block5_pool for VGG16 base is (None, 5, 3, 512)):
-        # conv_base.summary()
-
-        if extended_version:
-            # merge the base and classifier together and then run it on the dataset
-            model = NeuralNetwork.merge_classifier_and_conv_base(conv_base=conv_base, freeze_layers=range(0, 70))
-            model.save(str(model_name) + '_pretrained_extended.h5')
-            history = model.fit_generator(train, steps_per_epoch=100, epochs=30, validation_data=validation,
-                                          validation_steps=50)
+    def create_VGG16(frame_size, basic=True, freeze_layers=range(0), activation='relu', dropout=0.5, output_shape=4,
+                     output_activation='softmax'):
+        input_shape = (frame_size[0], frame_size[1], 3)
+        if basic:
+            # When setting `include_top=True` and loading `imagenet` weights, `input_shape` should be (224, 224, 3)
+            return VGG16(weights='imagenet', include_top=True, input_shape=(224, 224, 3))
         else:
-            # running a pretrained base on the dataset, save the output, then put it to standalone Dense classifier
-            train_features, train_labels = NeuralNetwork.extract_features(conv_base=conv_base,
-                                                                          dataset=train,
-                                                                          shape=(len(train), 5, 3, 1024),  # 5, 3, 512),
-                                                                          batch_size=20)
-            validation_features, validation_labels = NeuralNetwork.extract_features(conv_base=conv_base,
-                                                                                    dataset=validation,
-                                                                                    shape=(len(validation), 5, 3, 1024),
-                                                                                    # 5, 3, 512),
-                                                                                    batch_size=20)
-            test_features, test_labels = NeuralNetwork.extract_features(conv_base=conv_base,
-                                                                        dataset=test,
-                                                                        shape=(len(test), 5, 3, 1024),  # 5, 3, 512),
-                                                                        batch_size=20)
-
-            model = NeuralNetwork.create_classifier_for_conv_base(shape=(5, 3, 1024),
-                                                                  dropout=0.5)  # 5, 3, 512), dropout=0)
-            model.save(str(model_name) + '_pretrained_basic.h5')
-            history = model.fit(train_features, train_labels,
-                                epochs=30,
-                                batch_size=20,
-                                validation_data=(validation_features, validation_labels))
-        return history
+            base = VGG16(weights='imagenet', include_top=False, input_shape=input_shape)
+            return NeuralNetwork.add_top_to_base_model(base, freeze_layers, activation, dropout, output_shape,
+                                                       output_activation)
 
     @staticmethod
-    def save_training_history(history, your_history_path):
+    def create_MobileNet(frame_size, basic=True, freeze_layers=range(0), activation='relu', dropout=0.5, output_shape=4,
+                     output_activation='softmax'):
+        input_shape = (frame_size[0], frame_size[1], 3)
+        if basic:
+            # When setting `include_top=True` and loading `imagenet` weights, `input_shape` should be (224, 224, 3)
+            return MobileNet(weights='imagenet', include_top=True, input_shape=(224, 224, 3))
+        else:
+            base = MobileNet(weights='imagenet', include_top=False, input_shape=input_shape)
+            return NeuralNetwork.add_top_to_base_model(base, freeze_layers, activation, dropout, output_shape,
+                                                       output_activation)
+
+    @staticmethod
+    def save_model(model, model_name, output_path):
+        if not os.path.exists(os.path.join(output_path, model_name)):
+            os.makedirs(os.path.join(output_path, model_name))
+        model.save(os.path.join(output_path, model_name, str(model_name) + '.h5'))
+        print('Model', model_name, 'was saved.')
+
+    @staticmethod
+    def load_model(output_path, model_name):
+        model = models.load_model(os.path.join(output_path, model_name, str(model_name) + '.h5'))
+        return model
+
+    @staticmethod
+    def save_training_history(history, model_name, output_path):
+        if not os.path.exists(os.path.join(output_path, model_name)):
+            os.makedirs(os.path.join(output_path, model_name))
         history_dict = history.history
-        json.dump(history_dict, open(your_history_path, 'w'))
+        json.dump(history_dict, open(os.path.join(output_path, model_name, str(model_name) + '_training'), 'w'))
+        print('Training', str(model_name) + '_training', 'was saved.')
 
     @staticmethod
-    def load_training_history(your_history_path):
-        history = json.load(open(your_history_path, 'r'))
+    def load_training_history(output_path, model_name):
+        history = json.load(open(os.path.join(output_path, model_name, str(model_name) + '_training'), 'r'))
         return history
 
     @staticmethod
-    def decode_predictions_for_classes(model, frames_classes, print_detailed_predictions):
-        for frames_class in frames_classes:
-            results = NeuralNetwork.decode_predictions_for_one_class(model=model, frames=frames_class,
-                                                                       print_detailed_predictions=False)
-            print(results)
-
-    @staticmethod
-    def decode_predictions_for_one_class(model, frames, print_detailed_predictions):
-        results = []
-        for frame in frames:
-            preds = model.predict(frame)
-            results.append(preds[0])
-            if print_detailed_predictions:
-                print('Predicted: ' +
-                        '\neosinophil:    ' + str(preds[0][0]) +
-                        '\nlymphocyte:    ' + str(preds[0][1]) +
-                        '\nmonocyte:      ' + str(preds[0][2]) +
-                        '\nneutrophil:    ' + str(preds[0][3]))
-        mean_result = np.mean(results, axis=0)
-        print('Index of frame with highest probability: ', np.argmax(results, axis=0))
-        return mean_result
+    def train_network(path_to_db, model, frame_size, rescale, validation_set_percentage, batch_size, epochs):
+        data_set = Dataset(path_to_db)
+        train, validation, test = data_set.get_train_val_test_sets(size=frame_size, rescale=rescale,
+                                                                   validaion_set_percentage=validation_set_percentage,
+                                                                   batch_size=batch_size)
+        history = model.fit_generator(train, steps_per_epoch=100, epochs=epochs, validation_data=validation,
+                                      validation_steps=50)
+        return history

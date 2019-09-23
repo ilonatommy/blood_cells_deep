@@ -3,7 +3,7 @@ from Maths import *
 from skimage.transform import resize
 from keras import models
 from Dataset import *
-from NeuralNetwork import *
+from old_NeuralNetwork import *
 import cv2
 
 
@@ -34,7 +34,7 @@ class Plotter:
     @staticmethod
     def visualise_image_channels(layers, activations, images_per_row):
         print("Channels visualisation started.")
-        layer_names = NeuralNetwork.get_layer_names(layers=layers)
+        layer_names = old_NeuralNetwork.get_layer_names(layers=layers)
         for layer_name, layer_activation in zip(layer_names, activations):
             n_features = layer_activation.shape[-1]
             size_1 = layer_activation.shape[1]
@@ -76,7 +76,7 @@ class Plotter:
     @staticmethod
     def visualise_filters(layers, model, shape, test_img):
         print("Filters visualisation started.")
-        layer_names = NeuralNetwork.get_layer_names(layers=layers)
+        layer_names = old_NeuralNetwork.get_layer_names(layers=layers)
 
         # layer_names = ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1']
         # what do they mean by looking only on the first layer but on the first 64 filters in this layer?
@@ -110,12 +110,12 @@ class Plotter:
         # visualise channels:
 
         # version for non-pretrained network or pretrained network other than MobileNet
-        # activations = NeuralNetwork.get_activations(model=model, image=test_simple_frames_e[0])
+        # activations = old_NeuralNetwork.get_activations(model=model, image=test_simple_frames_e[0])
 
         # version for MobileNet - not working. Why I cannot visualise this model?:
         # mn_model = model.layers[0]
         # mn_model.compile(loss='categorical_crossentropy', optimizer=optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
-        # activations = NeuralNetwork.get_activations(model=mn_model, image=test_simple_frames_e[0])
+        # activations = old_NeuralNetwork.get_activations(model=mn_model, image=test_simple_frames_e[0])
 
         # Plotter.visualise_image_channels(layers=model.layers, activations=activations, images_per_row=8)
         # ------------------------------------------------------------------------------------------------------------------
@@ -124,9 +124,14 @@ class Plotter:
 
     @staticmethod
     def visualise_heatmap(frame, heatmap):
-        heatmap = resize(heatmap, (frame.shape[0], frame.shape[1]))
+        width = frame.shape[1]
+        height = frame.shape[0]
+        display_grid = np.zeros((height, width * 2, 3))
+        heatmap = resize(heatmap, (height, width))
         heatmap = np.uint8(255 * heatmap)
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
         result = heatmap * 0.001 + frame * 0.999
-        plt.imshow(result)
+        display_grid[0: height, 0: width, :] = result
+        display_grid[0: height, width: 2*width, :] = frame
+        plt.imshow(display_grid)
         plt.show()
