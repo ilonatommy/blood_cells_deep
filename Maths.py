@@ -36,17 +36,3 @@ class Maths:
         heatmap /= np.max(heatmap)
         return heatmap
 
-    @staticmethod
-    def visualise_class_activation_map(model, layer_name, frame, class_number):
-        loss = model.output[:, class_number]
-        last_conv_layer = model.get_layer(layer_name)
-        grads = backend.gradients(loss, last_conv_layer.output)[0]
-        pooled_grad = backend.mean(grads, axis=(0, 1, 2))
-        iterate = backend.function([model.input], [pooled_grad, last_conv_layer.output[0]])
-        pooled_grads_value, conv_layer_output_value = iterate([frame])
-        for i in range(128):
-            conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
-        heatmap = np.mean(conv_layer_output_value, axis=-1)
-        heatmap = np.maximum(heatmap, 0)
-        heatmap /= np.max(heatmap)
-        return heatmap

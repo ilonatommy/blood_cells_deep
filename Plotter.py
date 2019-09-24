@@ -135,3 +135,38 @@ class Plotter:
         display_grid[0: height, width: 2*width, :] = frame
         plt.imshow(display_grid)
         plt.show()
+    """
+    @staticmethod
+    def visualise_heatmap_2(model, layer_name, frame, class_number):
+        loss = model.output[:, class_number]
+        last_conv_layer = model.get_layer(layer_name)
+        grads = backend.gradients(loss, last_conv_layer.output)[0]
+        pooled_grad = backend.mean(grads, axis=(0, 1, 2))
+        iterate = backend.function([model.input], [pooled_grad, last_conv_layer.output[0]])
+        pooled_grads_value, conv_layer_output_value = iterate([frame])
+        for i in range(128):
+            conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
+        heatmap = np.mean(conv_layer_output_value, axis=-1)
+        heatmap = np.maximum(heatmap, 0)
+        heatmap /= np.max(heatmap)
+        return heatmap
+
+    def visualize_class_activation_map(model, frame, layer_name):
+        # Reshape to the network input shape (3, w, h).
+        img = np.array([np.transpose(np.float32(frame), (2, 0, 1))])
+
+        # Get the 512 input weights to the softmax.
+        class_weights = model.layers[-1].get_weights()[0]
+        final_conv_layer = model.get_layer(layer_name)
+        get_output = K.function([model.layers[0].input], \
+                                [final_conv_layer.get_output_at(0),
+                                 model.layers[-1].get_output_at(0)])
+        [conv_outputs, predictions] = get_output([img])
+        conv_outputs = conv_outputs[0, :, :, :]
+
+        # Create the class activation map.
+        cam = np.zeros(dtype=np.float32, shape=conv_outputs.shape[1:3])
+        target_class = 1
+        for i, w in enumerate(class_weights[:, target_class]):
+            cam += w * conv_outputs[i, :, :]
+    """
