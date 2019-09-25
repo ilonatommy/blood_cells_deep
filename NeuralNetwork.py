@@ -3,7 +3,7 @@ from keras import models, layers
 from keras.applications import VGG16, MobileNet
 from Dataset import Dataset
 import os
-
+import numpy as np
 
 class NeuralNetwork:
     @staticmethod
@@ -143,3 +143,26 @@ class NeuralNetwork:
             if 'conv' in layer.name:
                 conv_layers.append(layer)
         return conv_layers
+
+    @staticmethod
+    def decode_predictions_for_classes(model, frames_classes):
+        for frames_class in frames_classes:
+            results = NeuralNetwork.decode_predictions_for_one_class(model=model, frames=frames_class,
+                                                                     print_detailed_predictions=True)
+            print(results)
+
+    @staticmethod
+    def decode_predictions_for_one_class(model, frames, print_detailed_predictions):
+        results = []
+        for frame in frames:
+            preds = model.predict(frame)
+            results.append(preds[0])
+            if print_detailed_predictions:
+                print('Predicted: ' +
+                      '\neosinophil:    ' + str(preds[0][0]) +
+                      '\nlymphocyte:    ' + str(preds[0][1]) +
+                      '\nmonocyte:      ' + str(preds[0][2]) +
+                      '\nneutrophil:    ' + str(preds[0][3]))
+        mean_result = np.mean(results, axis=0)
+        print('Index of frame with highest probability: ', np.argmax(results, axis=0))
+        return mean_result

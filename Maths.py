@@ -26,6 +26,6 @@ class Maths:
             conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
         heatmap = np.mean(conv_layer_output_value, axis=-1)
         heatmap = np.maximum(heatmap, 0)
-        heatmap /= np.max(heatmap)
+        heatmap /= (np.max(heatmap) + 1e-5)
         return heatmap
 
