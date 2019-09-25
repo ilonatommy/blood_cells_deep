@@ -1,13 +1,6 @@
-from NeuralNetwork import *
+from keras import optimizers
 from Plotter import *
 import sys, getopt
-# PLAN FOR TOMORROW:
-# 1) make a heatmaps visualisation
-# 2) try to use it on each saved model
-# 3) come back to channels visualisation and check which function is responsible for it
-# 4) check it on each model
-# 5) go on to filters visualisation and correct it
-# 6) evaluate its correctness on each model
 
 
 def main(argv):
@@ -64,13 +57,11 @@ def main(argv):
     VGG16_extended = NeuralNetwork.create_VGG16(frame_size, basic=False, freeze_layers=range(0, 10))
     NeuralNetwork.save_model(VGG16_extended, 'VGG16_extended', output_path)
     """
-    VGG16_extended = NeuralNetwork.create_VGG16(frame_size, basic=False, freeze_layers=range(0, 0))
-    NeuralNetwork.save_model(VGG16_extended, 'VGG16_extended', output_path)
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved model and want to train it:
     # ------------------------------------------------------------------------------------------------------------------
 
-    model_name = 'simple_model'
+    model_name = 'VGG16_extended'
     optimizer = optimizers.RMSprop(lr=1e-4)
     loss = 'categorical_crossentropy'
     metrics = ['acc']
@@ -96,15 +87,8 @@ def main(argv):
     # -----------------------------------------------------------------------------------------------------------------
 
     frames = Dataset.get_class_sets(frames_size=frame_size)
-    # activation visualisation does not work for pretrained models so far -
-    # look at comment in NeuralNetwork.get_activations line 127
-    activations = NeuralNetwork.get_activations(model, frames[0][0])
-    Plotter.visualise_image_channels(model.layers, activations, 16)
-
-    # when model is ened with Sequential layer then I have problems with my functions
-    # I need to end models with dense layers
-    return activations
+    Plotter.full_model_visualisation(model, frames[0][0][0])
 
 if __name__ == "__main__":
-    f = main(sys.argv[1:])
+    main(sys.argv[1:])
 

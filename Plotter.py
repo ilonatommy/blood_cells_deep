@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
 from Maths import *
 from skimage.transform import resize
-from keras import models
 from Dataset import *
-from old_NeuralNetwork import *
+from NeuralNetwork import *
 import cv2
 
 
@@ -32,95 +31,88 @@ class Plotter:
         plt.show()
 
     @staticmethod
-    def visualise_image_channels(layers, activations, images_per_row):
-        print("Channels visualisation started.")
-        layer_names = old_NeuralNetwork.get_layer_names(layers=layers)
-        for layer_name, layer_activation in zip(layer_names, activations):
-            n_features = layer_activation.shape[-1]
-            size_1 = layer_activation.shape[1]
-            size_2 = layer_activation.shape[2]
-            n_cols = n_features // images_per_row
-            display_grid = np.zeros((size_1 * n_cols, images_per_row * size_2))
+    def normalise_before_display(image):
+        result = np.copy(image)
+        result -= result.mean(axis=0)
+        result /= result.std(axis=0) + 1e-5
+        result *= 0.1
 
-            for col in range(n_cols):
-                for row in range(images_per_row):
-                    channel_image = layer_activation[0, :, :, col * images_per_row + row]
-                    channel_image = Dataset.normalise_before_display(channel_image)
-                    display_grid[col * size_1: (col + 1) * size_1,
-                    row * size_2: (row + 1) * size_2] = channel_image
+        result += 0.5
+        result = np.clip(result, 0, 1)
 
-            scale_1 = 1. / size_1
-            scale_2 = 1. / size_2
-            plt.figure(figsize=(scale_1 * display_grid.shape[1], scale_2 * display_grid.shape[0]))
-            plt.title(layer_name)
-            plt.imshow(display_grid, aspect='auto', cmap='viridis')
+        result *= 255
+        result = np.clip(result, 0, 255).astype('uint8')
+        return result
 
+    @staticmethod
+    def visualise_model_filters(model, frame_size):
+        print("Filters visualisation started.")
+        accepted_layers = ['conv']
+        layer_names = NeuralNetwork.get_layer_names(model)
+        figure_index = 1
+        for layer_name in layer_names:
+            # if the layer name contains accepted keyword
+            if any(elem in layer_name for elem in accepted_layers):
+                Plotter.visualise_layer_filters(model=model, layer_name=layer_name, frame_size=frame_size,
+                                                  figure_index=figure_index)
+                figure_index += 1
         plt.show()
 
     @staticmethod
-    def _get_layer_filter(model, layer_name, filter_index, shape):
-        print(filter_index)
-        loss_tensor = Maths.get_loss_tensor(model=model, layer_name=layer_name, filter_index=filter_index)
-        loss_tensor_grad = Maths.get_loss_tensor_grad(model=model, layer_name=layer_name,
-                                                              filter_index=filter_index)
-        iterate = backend.function([model.input], [loss_tensor, loss_tensor_grad])
-        gray_image_with_noise = np.random.random(shape) * 20 + 128.
+    def visualise_layer_filters(model, layer_name, frame_size, figure_index):
+        print('Filters visualisation for layer', layer_name, 'started.')
+        layer_output = model.get_layer(layer_name).output
+        cols = layer_output.shape[-1] // 4.
+        rows = layer_output.shape[-1] // cols
+        margin = 2
+
+        size_h = frame_size[0]
+        size_w = frame_size[1]
+        results = np.zeros((rows * size_h + (rows - 1) * margin, cols * size_w + (cols - 1) * margin, 3))
+        for width in range(cols):
+            for height in range(rows):
+                filter_img = Plotter.__generate_pattern(model, width + (height * rows), frame_size, layer_name)
+                v_start = width * size_w + width * margin
+                v_end = v_start + size_w
+                h_start = height * size_h + height * margin
+                h_end = h_start + size_h
+                results[h_start: h_end, v_start: v_end, :] = filter_img / 255
+        plt.figure(figure_index)
+        plt.imshow(results)
+        plt.title(layer_name)
+
+    @staticmethod
+    def __generate_pattern(model, filter_index, frame_size, layer_name):
+        loss = Maths.get_loss_tensor(model, layer_name, filter_index)
+        grads = Maths.get_loss_tensor_grad(loss_tensor=loss, model=model)
+        iterate = backend.function([model.input], [loss, grads])
+        input_img = np.random.random((1, frame_size[0], frame_size[1], 3)) * 20 + 128.
         step = 1.
         for i in range(40):
-            loss_tensor, loss_tensor_grad = iterate([gray_image_with_noise])
-            gray_image_with_noise += loss_tensor_grad * step
-        img = gray_image_with_noise[0]
-        img = Dataset.normalise_before_display(img)
+            loss_tensor, loss_tensor_grad = iterate([input_img])
+            input_img += loss_tensor_grad * step
+        img = input_img[0]
+        img = Plotter.normalise_before_display(img)
         return img
 
     @staticmethod
-    def visualise_filters(layers, model, shape, test_img):
-        print("Filters visualisation started.")
-        layer_names = old_NeuralNetwork.get_layer_names(layers=layers)
+    def full_model_visualisation(model, frame):
+        """
+        # activations:
+        # activation visualisation does not work for pretrained models so far -
+        # look at comment in NeuralNetwork.get_activations line 127
+        activations = NeuralNetwork.get_activations(model, frame)
+        Plotter.visualise_image_channels(model.layers, activations, 4)
 
-        # layer_names = ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1']
-        # what do they mean by looking only on the first layer but on the first 64 filters in this layer?
-        for index in range(len(layer_names)):
-            size_w = shape[1]
-            size_h = shape[2]
-            margin = 1
-            rows = 4
-            cols = 8
-            results = np.zeros((rows * size_w + (rows - 1) * margin, cols * size_h + (cols - 1) * margin, 3))
-
-            # we look only on 32 filters
-            for width in range(rows):
-                for height in range(cols):
-                    layer_filter = Plotter._get_layer_filter(model=model,
-                                                            layer_name=layer_names[index],
-                                                            filter_index=width + (height * 4),
-                                                            shape=shape)
-
-                    layer_filter = resize(image=layer_filter, output_shape=(size_w, size_h, 3))
-                    results[width * size_w + width * margin: width * size_w + width * margin + size_w,
-                    height * size_h + height * margin: height * size_h + height * margin + size_h, :] = layer_filter
-            plt.imshow(results)
-            plt.title(layer_names[index])
-            plt.show()
-
-    @staticmethod
-    def full_model_visualisation(model, size):
-        set_e, set_l, set_m, set_n = Dataset.get_class_sets(frames_size=size)
-        # ------------------------------------------------------------------------------------------------------------------
-        # visualise channels:
-
-        # version for non-pretrained network or pretrained network other than MobileNet
-        # activations = old_NeuralNetwork.get_activations(model=model, image=test_simple_frames_e[0])
-
-        # version for MobileNet - not working. Why I cannot visualise this model?:
-        # mn_model = model.layers[0]
-        # mn_model.compile(loss='categorical_crossentropy', optimizer=optimizers.RMSprop(lr=2e-5), metrics=['accuracy'])
-        # activations = old_NeuralNetwork.get_activations(model=mn_model, image=test_simple_frames_e[0])
-
-        # Plotter.visualise_image_channels(layers=model.layers, activations=activations, images_per_row=8)
-        # ------------------------------------------------------------------------------------------------------------------
-        # visualise filters (we have only 32 of them):
-        Plotter.visualise_filters(layers=model.layers[:8], model=model, shape=(set_e[0]).shape, test_img=(set_e[0]))
+        # filters:
+        # takes a lot of time, but works - uncomment if needed:
+        Plotter.visualise_model_filters(model=model, frame_size=frame.shape)
+        """
+        # heatmaps:
+        conv_layers = NeuralNetwork.get_conv_layers(model)
+        for conv_layer in conv_layers:
+            hm = Maths.get_heatmap(model, [frame], conv_layer, 1)
+            Plotter.visualise_heatmap(frame, hm)
 
     @staticmethod
     def visualise_heatmap(frame, heatmap):
@@ -130,43 +122,10 @@ class Plotter:
         heatmap = resize(heatmap, (height, width))
         heatmap = np.uint8(255 * heatmap)
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
-        result = heatmap * 0.001 + frame * 0.999
+        heatmap = heatmap /255
+        result = heatmap * 0.4 + frame * 0.6
         display_grid[0: height, 0: width, :] = result
         display_grid[0: height, width: 2*width, :] = frame
         plt.imshow(display_grid)
+        plt.text(60, -10, 'in order of increasing weight: blue - yellow - red', style='italic')
         plt.show()
-    """
-    @staticmethod
-    def visualise_heatmap_2(model, layer_name, frame, class_number):
-        loss = model.output[:, class_number]
-        last_conv_layer = model.get_layer(layer_name)
-        grads = backend.gradients(loss, last_conv_layer.output)[0]
-        pooled_grad = backend.mean(grads, axis=(0, 1, 2))
-        iterate = backend.function([model.input], [pooled_grad, last_conv_layer.output[0]])
-        pooled_grads_value, conv_layer_output_value = iterate([frame])
-        for i in range(128):
-            conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
-        heatmap = np.mean(conv_layer_output_value, axis=-1)
-        heatmap = np.maximum(heatmap, 0)
-        heatmap /= np.max(heatmap)
-        return heatmap
-
-    def visualize_class_activation_map(model, frame, layer_name):
-        # Reshape to the network input shape (3, w, h).
-        img = np.array([np.transpose(np.float32(frame), (2, 0, 1))])
-
-        # Get the 512 input weights to the softmax.
-        class_weights = model.layers[-1].get_weights()[0]
-        final_conv_layer = model.get_layer(layer_name)
-        get_output = K.function([model.layers[0].input], \
-                                [final_conv_layer.get_output_at(0),
-                                 model.layers[-1].get_output_at(0)])
-        [conv_outputs, predictions] = get_output([img])
-        conv_outputs = conv_outputs[0, :, :, :]
-
-        # Create the class activation map.
-        cam = np.zeros(dtype=np.float32, shape=conv_outputs.shape[1:3])
-        target_class = 1
-        for i, w in enumerate(class_weights[:, target_class]):
-            cam += w * conv_outputs[i, :, :]
-    """

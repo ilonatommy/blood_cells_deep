@@ -122,20 +122,6 @@ class Dataset:
         return train_datagen, validation_generator, test_datagen
 
     @staticmethod
-    def normalise_before_display(image):
-        result = np.copy(image)
-        result -= result.mean(axis=0)
-        result /= result.std(axis=0) + 1e-5
-        result *= 0.1
-
-        result += 0.5
-        result = np.clip(result, 0, 1)
-
-        result *= 255
-        result = np.clip(result, 0, 255).astype('uint8')
-        return result
-
-    @staticmethod
     def augmentation():
         train_datagen = ImageDataGenerator(
             rescale=1. / 255,

@@ -3,7 +3,6 @@ from keras import models, layers
 from keras.applications import VGG16, MobileNet
 from Dataset import Dataset
 import os
-from keras import backend
 
 
 class NeuralNetwork:
@@ -129,3 +128,18 @@ class NeuralNetwork:
         # which is caused by the first layer of pretrained network. How to modify those models to avoid this error?
         activations = activation_model.predict(frame)
         return activations
+
+    @staticmethod
+    def get_layer_names(model):
+        layer_names = []
+        for layer in model.layers:
+            layer_names.append(layer.name)
+        return layer_names
+
+    @staticmethod
+    def get_conv_layers(model):
+        conv_layers = []
+        for layer in model.layers:
+            if 'conv' in layer.name:
+                conv_layers.append(layer)
+        return conv_layers
