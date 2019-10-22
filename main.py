@@ -43,7 +43,7 @@ def main(argv):
     frame_size = (120, 160)
     activation = 'relu'
     output_activation = 'softmax'
-    model_name = 'delete_me'
+    model_name = 'MobileNet_extended'
     """
     ideal_model = NeuralNetwork.create_article_1_model((frame_size[0], frame_size[1], 3), kernel_size=(3,3))
     NeuralNetwork.save_model(ideal_model, model_name, output_path)
@@ -52,12 +52,10 @@ def main(argv):
     # model from keras kernel does not work for me - terrible results:
     ideal_model = NeuralNetwork.create_keras_kernel_model((frame_size[0], frame_size[1], 3))
     NeuralNetwork.save_model(ideal_model, model_name, output_path)
-    """
     simple_model = NeuralNetwork.create_model_from_scratch((frame_size[0], frame_size[1], 3), activation,
                                                            output_activation, kernel_size=(3, 3), dense_units=512,
                                                            features_num_sequence=(32, 64, 128, 128))
     NeuralNetwork.save_model(simple_model, model_name, output_path)
-    """
     simple_model = NeuralNetwork.create_model_from_scratch((frame_size[0], frame_size[1], 3), activation,
     output_activation, kernel_size=(3, 3), dense_units=512, features_num_sequence=(32, 64, 128, 128))    
     NeuralNetwork.save_model(simple_model, model_name, output_path)
@@ -69,7 +67,7 @@ def main(argv):
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved model and want to train it:
     # ------------------------------------------------------------------------------------------------------------------
-    """
+
     optimizer = optimizers.RMSprop(lr=1e-4)
     loss = 'categorical_crossentropy'
     metrics = ['acc']
@@ -77,13 +75,13 @@ def main(argv):
     NeuralNetwork.save_summary(model, model_name, output_path)
     history = NeuralNetwork.load_training_history(output_path, model_name)
 
-
+    """
     history = NeuralNetwork.train_network(path_to_db=input_path, model=model, frame_size=frame_size,
                                           rescale=1./255, validation_set_percentage=80, batch_size=20, epochs=30,
                                           optimizer=optimizer, loss=loss, metrics=metrics)
     NeuralNetwork.save_training_history(history, model_name, output_path)
     
-    
+    """
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved training history and want to visualise it:
     # ------------------------------------------------------------------------------------------------------------------
@@ -98,7 +96,7 @@ def main(argv):
     frames = Dataset.get_class_sets(frames_size=frame_size)
     NeuralNetwork.decode_predictions_for_classes(model=model, frames_classes=frames)
 
-    
+    """
     Plotter.full_model_visualisation(model, frames[0][0][0])
     """
 if __name__ == "__main__":
