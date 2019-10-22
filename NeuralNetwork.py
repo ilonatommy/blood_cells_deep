@@ -5,21 +5,97 @@ from Dataset import Dataset
 import os
 import numpy as np
 
+
 class NeuralNetwork:
     @staticmethod
-    def create_model_from_scratch(input_data_shape, activation, out_activation):
+    def create_model_from_scratch(input_data_shape, activation, out_activation, kernel_size, dense_units,
+                                  features_num_sequence):
         model = models.Sequential()
-        model.add(layers.Conv2D(32, (3, 3), activation=activation, input_shape=input_data_shape))
-        model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(64, (3, 3), activation=activation))
-        model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(128, (3, 3), activation=activation))
-        model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(128, (3, 3), activation=activation))
-        model.add(layers.MaxPooling2D((2, 2)))
+        for features_num in features_num_sequence:
+            model.add(layers.Conv2D(features_num, kernel_size, activation=activation, input_shape=input_data_shape))
+            model.add(layers.MaxPooling2D((kernel_size[0]-1, kernel_size[1]-1)))
+            model.add(layers.Dropout(0.2))
         model.add(layers.Flatten())
-        model.add(layers.Dense(512, activation=activation))
+        model.add(layers.Dense(dense_units, activation=activation))
         model.add(layers.Dense(4, activation=out_activation))
+        return model
+
+    @staticmethod
+    def create_keras_kernel_model(input_data_shape):
+        input = layers.Input(shape=input_data_shape)
+        x = layers.Conv2D(16, 5, strides=(2, 2), padding='same', activation='relu')(input)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Conv2D(8, 5, strides=(2, 2), padding='same', activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Conv2D(4, 5, strides=(2, 2), padding='same', activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Conv2D(4, 5, strides=(2, 2), padding='same', activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Flatten()(x)
+        x = layers.Dense(32, activation='relu')(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Dense(16, activation='relu')(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Dense(8, activation='relu')(x)
+        x = layers.Dropout(0.2)(x)
+        x = layers.Dense(4, activation='softmax')(x)
+        model = models.Model(inputs=input, outputs=x)
+        return model
+
+    @staticmethod
+    def create_article_1_model(input_data_shape, kernel_size):
+        input = layers.Input(shape=input_data_shape)
+        x = layers.Conv2D(64, kernel_size=kernel_size, activation='relu')(input)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(64, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
+
+        x = layers.Conv2D(128, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(128, kernel_size=kernel_size,  activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
+
+        x = layers.Conv2D(256, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(256, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(256, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
+
+        x = layers.Conv2D(512, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(512, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
+
+        x = layers.Conv2D(512, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.Conv2D(512, kernel_size=kernel_size, activation='relu')(x)
+        x = layers.BatchNormalization()(x)
+        x = layers.Dropout(0.7)(x)
+        x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
+
+        x = layers.Dense(512, activation='relu')(x)
+        x = layers.Dense(4, activation='softmax')(x)
+
+        model = models.Model(inputs=input, outputs=x)
         return model
 
     @staticmethod
@@ -75,6 +151,14 @@ class NeuralNetwork:
             base = MobileNet(weights='imagenet', include_top=False, input_shape=input_shape)
             return NeuralNetwork.add_top_to_base_model(base, freeze_layers, activation, dropout, output_shape,
                                                        output_activation)
+
+    @staticmethod
+    def save_summary(model, model_name, output_path):
+        if not os.path.exists(os.path.join(output_path, model_name)):
+            os.makedirs(os.path.join(output_path, model_name))
+        with open(os.path.join(output_path, model_name, str(model_name) + '_summary.txt'), 'w') as fh:
+            # Pass the file handle in as a lambda function to make it callable
+            model.summary(print_fn=lambda x: fh.write(x + '\n'))
 
     @staticmethod
     def save_model(model, model_name, output_path):
