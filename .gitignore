@@ -1,3 +1,6 @@
+#Custom user files:
+tensorflow/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
