@@ -255,7 +255,7 @@ class NeuralNetwork:
         results = []
         cnt = 0
         for frames_class in frames_classes:
-            f.write("\n----------------------\nclass " + cnt)
+            f.write("\n----------------------\nclass " + str(cnt))
             results = NeuralNetwork.__decode_predictions_for_one_class(model=model, frames=frames_class, file_to_save=f)
             cnt = cnt + 1
 
