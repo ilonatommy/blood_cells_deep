@@ -13,7 +13,7 @@ class NeuralNetwork:
         model = models.Sequential()
         for features_num in features_num_sequence:
             model.add(layers.Conv2D(features_num, kernel_size, activation=activation, input_shape=input_data_shape))
-            model.add(layers.MaxPooling2D((kernel_size[0]-1, kernel_size[1]-1)))
+            model.add(layers.MaxPooling2D((kernel_size[0] - 1, kernel_size[1] - 1)))
             model.add(layers.Dropout(0.2))
         model.add(layers.Flatten())
         model.add(layers.Dense(dense_units, activation=activation))
@@ -60,7 +60,7 @@ class NeuralNetwork:
         x = layers.Conv2D(128, kernel_size=kernel_size, activation='relu')(x)
         x = layers.BatchNormalization()(x)
         x = layers.Dropout(0.7)(x)
-        x = layers.Conv2D(128, kernel_size=kernel_size,  activation='relu')(x)
+        x = layers.Conv2D(128, kernel_size=kernel_size, activation='relu')(x)
         x = layers.BatchNormalization()(x)
         x = layers.Dropout(0.7)(x)
         x = layers.MaxPooling2D(pool_size=(3, 3), border_mode='same')(x)
@@ -142,7 +142,7 @@ class NeuralNetwork:
 
     @staticmethod
     def create_MobileNet(frame_size, basic=True, freeze_layers=range(0), activation='relu', dropout=0.5, output_shape=4,
-                     output_activation='softmax'):
+                         output_activation='softmax'):
         input_shape = (frame_size[0], frame_size[1], 3)
         if basic:
             # When setting `include_top=True` and loading `imagenet` weights, `input_shape` should be (224, 224, 3)
@@ -229,24 +229,35 @@ class NeuralNetwork:
         return conv_layers
 
     @staticmethod
-    def decode_predictions_for_classes(model, frames_classes):
-        for frames_class in frames_classes:
-            results = NeuralNetwork.decode_predictions_for_one_class(model=model, frames=frames_class,
-                                                                     print_detailed_predictions=True)
-            print(results)
-
-    @staticmethod
-    def decode_predictions_for_one_class(model, frames, print_detailed_predictions):
+    def __decode_predictions_for_one_class(model, frames, file_to_save):
         results = []
         for frame in frames:
             preds = model.predict(frame)
             results.append(preds[0])
-            if print_detailed_predictions:
-                print('Predicted: ' +
-                      '\neosinophil:    ' + str(preds[0][0]) +
-                      '\nlymphocyte:    ' + str(preds[0][1]) +
-                      '\nmonocyte:      ' + str(preds[0][2]) +
-                      '\nneutrophil:    ' + str(preds[0][3]))
+            file_to_save.write(str(preds[0]))
+            file_to_save.write('\n--------------------- ' +
+                               '\neosinophil:    ' + str(preds[0][0]) +
+                               '\nlymphocyte:    ' + str(preds[0][1]) +
+                               '\nmonocyte:      ' + str(preds[0][2]) +
+                               '\nneutrophil:    ' + str(preds[0][3]) +
+                               '\n')
         mean_result = np.mean(results, axis=0)
-        print('Index of frame with highest probability: ', np.argmax(results, axis=0))
-        return mean_result
+        file_to_save.write('\n' + str(mean_result))
+        file_to_save.write('\nIndex of frame with highest probability: ' + str(np.argmax(results, axis=0)))
+        return results
+
+    @staticmethod
+    def decode_and_save_predictions(model, frames_classes, model_name, output_path):
+        if not os.path.exists(os.path.join(output_path, model_name)):
+            os.makedirs(os.path.join(output_path, model_name))
+        f = open(os.path.join(output_path, model_name, str(model_name) + '_predictions.txt'), "w+")
+
+        results = []
+        cnt = 0
+        for frames_class in frames_classes:
+            f.write("\n----------------------\nclass " + cnt)
+            results = NeuralNetwork.__decode_predictions_for_one_class(model=model, frames=frames_class, file_to_save=f)
+            cnt = cnt + 1
+
+        f.close()
+        print('Predictions', str(model_name) + '_predictions', 'was saved.')

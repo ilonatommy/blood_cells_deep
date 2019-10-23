@@ -92,9 +92,10 @@ def main(argv):
     # ------------------------------------------------------------------------------------------------------------------
     # if you have a saved model and want to visualise its results:
     # -----------------------------------------------------------------------------------------------------------------
-    
+
     frames = Dataset.get_class_sets(frames_size=frame_size)
-    NeuralNetwork.decode_predictions_for_classes(model=model, frames_classes=frames)
+    NeuralNetwork.decode_and_save_predictions(model=model, frames_classes=frames, model_name=model_name,
+                                                      output_path=output_path)
 
     """
     Plotter.full_model_visualisation(model, frames[0][0][0])
