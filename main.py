@@ -43,7 +43,7 @@ def main(argv):
     frame_size = (120, 160)
     activation = 'relu'
     output_activation = 'softmax'
-    model_name = 'MobileNet_extended'
+    model_name = 'book_model_1'
     """
     ideal_model = NeuralNetwork.create_article_1_model((frame_size[0], frame_size[1], 3), kernel_size=(3,3))
     NeuralNetwork.save_model(ideal_model, model_name, output_path)
@@ -73,8 +73,6 @@ def main(argv):
     metrics = ['acc']
     model = NeuralNetwork.load_model(output_path, model_name)
     NeuralNetwork.save_summary(model, model_name, output_path)
-    history = NeuralNetwork.load_training_history(output_path, model_name)
-
     """
     history = NeuralNetwork.train_network(path_to_db=input_path, model=model, frame_size=frame_size,
                                           rescale=1./255, validation_set_percentage=80, batch_size=20, epochs=30,
@@ -86,7 +84,7 @@ def main(argv):
     # if you have a saved training history and want to visualise it:
     # ------------------------------------------------------------------------------------------------------------------
     # load and plot training history:
-
+    history = NeuralNetwork.load_training_history(output_path, model_name)
     Plotter.plot_history(history_dic=history)
 
     # ------------------------------------------------------------------------------------------------------------------
