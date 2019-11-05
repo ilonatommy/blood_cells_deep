@@ -1,9 +1,12 @@
+from os.path import isfile, join
+
 import numpy as np
 import glob
 import os
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 import shutil
+import random
 
 
 class Dataset:
@@ -18,6 +21,66 @@ class Dataset:
     def __init__(self, path):
         assert isinstance(path, str), 'Argument of wrong type! Expected string.'
         self.base_path = path
+
+    @staticmethod
+    def shuffle_dataset(path='/home/ilona/Desktop/Literatura/Bachelors_Thesis/blood_cells/blood-cells_db/dataset2-shuffled',
+                        percentage_tr_val_test=[60,15,25]):
+        if sum(percentage_tr_val_test) == 100:
+            # do not make dirs if they already exist - instead stop execution
+            if os.path.exists(os.path.join(path, 'TRAIN')) or \
+                    os.path.exists(os.path.join(path, 'VALIDATION')) or \
+                    os.path.exists(os.path.join(path, 'TEST')):
+                print("Delete TRAIN, VALIDATION and TEST directories from the main dir first.")
+                return
+            os.mkdir(os.path.join(path, 'TRAIN'))
+            os.mkdir(os.path.join(path, 'VALIDATION'))
+            os.mkdir(os.path.join(path, 'TEST'))
+
+            categories = ['EOSINOPHIL', 'LYMPHOCYTE', 'MONOCYTE', 'NEUTROPHIL']
+            for category in categories:
+                category_path = os.path.join(path, category)
+                category_frames = [os.path.join(category_path, f) for f in os.listdir(category_path) if isfile(join(category_path, f))]
+                random.shuffle(category_frames)
+                # shuffled, so high time to move into dirs according to percentages:
+                category_size = len(category_frames)
+                number_tr_val_test = [(category_size * percentage_tr_val_test[0]) //100,
+                                      (category_size * percentage_tr_val_test[1]) //100,
+                                      (category_size * percentage_tr_val_test[2]) //100]
+
+                print(category_size)
+                print(number_tr_val_test)
+
+                train_set = category_frames[0:number_tr_val_test[1]]
+                validation_set = category_frames[number_tr_val_test[1]:(number_tr_val_test[1] + number_tr_val_test[2])]
+                test_set = category_frames[number_tr_val_test[1] + number_tr_val_test[2]:]
+
+                os.mkdir(os.path.join(path, 'TRAIN', category))
+                for moved_frame in train_set:
+                    shutil.copyfile(moved_frame,
+                                os.path.join(path, 'TRAIN', category,
+                                             os.path.basename(
+                                    os.path.normpath(moved_frame)
+                                )))
+
+                os.mkdir(os.path.join(path, 'VALIDATION', category))
+                for moved_frame in validation_set:
+                    shutil.copyfile(moved_frame,
+                                os.path.join(path, 'VALIDATION', category,
+                                             os.path.basename(
+                                    os.path.normpath(moved_frame)
+                                )))
+
+                os.mkdir(os.path.join(path, 'TEST', category))
+                for moved_frame in test_set:
+                    shutil.copyfile(moved_frame,
+                                os.path.join(path, 'TEST', category,
+                                             os.path.basename(
+                                    os.path.normpath(moved_frame)
+                                )))
+
+                print("Created dirs for " + str(category))
+
+
 
     @staticmethod
     def get_frames(path, size, rescale):
