@@ -1,0 +1,128 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{lymphocytes_nucleus}{book}{}
+    \list{publisher}{1}{%
+      {Edinburgh: Churchill Livingstone}%
+    }
+    \field{labeltitlesource}{title}
+    \field{number}{ISBN 0-8153-4072-9}
+    \field{title}{Leukocyte also known as macrophages functions and percentage
+  breakdown}
+    \field{year}{2002}
+  \endentry
+
+  \entry{tadeusiewicz_sn}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=RT}{%
+         family={R.},
+         familyi={R\bibinitperiod},
+         given={Tadeusiewicz},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RT1}
+    \strng{fullhash}{RT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{5}
+    \field{title}{Sieci neuronowe}
+    \list{location}{1}{%
+      {Kraków, Wykład plenarny XXXII Zjazdu Fizyków Polskich}%
+    }
+    \field{year}{1993}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{deep_learning_python}{book}{}
+    \list{publisher}{1}{%
+      {Manning}%
+    }
+    \field{labeltitlesource}{title}
+    \field{number}{ISBN:9781617294433}
+    \field{title}{Deep learning with Python}
+    \field{year}{2018}
+  \endentry
+
+  \entry{deep_learning}{book}{}
+    \list{publisher}{1}{%
+      {The MIT Press}%
+    }
+    \field{labeltitlesource}{title}
+    \field{number}{ISBN:0262035618 9780262035613}
+    \field{title}{Deep learning}
+    \field{year}{2016}
+  \endentry
+
+  \entry{pooling}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SSDMAB}{%
+         family={S.},
+         familyi={S\bibinitperiod},
+         given={Scherer D.; Müller A.C.;\bibnamedelima Behnke},
+         giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod M\bibinitperiod
+  A\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSDMAB1}
+    \strng{fullhash}{SSDMAB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{92–101}
+    \field{title}{Evaluation of Pooling Operations in Convolutional
+  Architectures for Object Recognition}
+    \list{location}{1}{%
+      {Artificial Neural Networks (ICANN), 20th International Conference on.
+  Thessaloniki, Greece}%
+    }
+    \field{year}{2010}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{augmentation}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=MSCWAGVSMD}{%
+         family={McDonnell},
+         familyi={M\bibinitperiod},
+         given={Sebastien C. Wong; Adam Gatt; Victor Stamatescu;
+  Mark\bibnamedelima D.},
+         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod W\bibinitperiod
+  A\bibinitperiod G\bibinitperiod V\bibinitperiod S\bibinitperiod
+  M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronic Engineering}%
+    }
+    \strng{namehash}{MSCWAGVSMD1}
+    \strng{fullhash}{MSCWAGVSMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{2}
+    \field{title}{Understanding data augmentation for classification: when to
+  warp?}
+    \list{location}{1}{%
+      {Gold Coast, QLD, Australia}%
+    }
+    \field{year}{2016}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+\enddatalist
+\endinput
