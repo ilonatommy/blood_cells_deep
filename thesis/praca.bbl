@@ -17,12 +17,118 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
-  \entry{lymphocytes_nucleus}{book}{}
+  \entry{GUS_Zdrowie2016}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=GUSwKDBS}{%
+         prefix={Główny Urząd Statystyczny\bibnamedelima w},
+         prefixi={G\bibinitperiod\bibinitdelim U\bibinitperiod
+  S\bibinitperiod\bibinitdelim w\bibinitperiod},
+         family={Krakowie},
+         familyi={K\bibinitperiod},
+         given={Departament Badań\bibnamedelima Społecznych},
+         giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KDBSGUSw1}
+    \strng{fullhash}{KDBSGUSw1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Zdrowie i ochrona zdrowia w 2016 r}
+    \field{year}{2019}
+  \endentry
+
+  \entry{cells_microscope}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=OJ}{%
+         family={Ontakrai},
+         familyi={O\bibinitperiod},
+         given={Jarun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OJ1}
+    \strng{fullhash}{OJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{https://www.123rf.com/photo_82668549_white-blood-cells-in-in-blood-smear-analyze-by-microscope.html}}
+  \endentry
+
+  \entry{Wheater1979FunctionalHA}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=WPR}{%
+         family={Wheater},
+         familyi={W\bibinitperiod},
+         given={Paul\bibnamedelima R.},
+         giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=BHG}{%
+         family={Burkitt},
+         familyi={B\bibinitperiod},
+         given={H.\bibnamedelima George},
+         giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=DVG}{%
+         family={Daniels},
+         familyi={D\bibinitperiod},
+         given={Victor\bibnamedelima G.},
+         giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WPRBHGDVG1}
+    \strng{fullhash}{WPRBHGDVG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Functional histology: A text and colour atlas}
+    \field{year}{1979}
+  \endentry
+
+  \entry{lymphocytes_nucleus}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=BA}{%
+         family={B},
+         familyi={B},
+         given={Alberts},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={A},
+         familyi={A},
+         given={Johnson},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ML}{%
+         family={M},
+         familyi={M},
+         given={Lewis},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={M},
+         familyi={M},
+         given={Raff},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={K},
+         familyi={K},
+         given={Roberts},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PW}{%
+         family={P},
+         familyi={P},
+         given={Walter},
+         giveni={W\bibinitperiod},
+      }}%
+    }
     \list{publisher}{1}{%
       {Edinburgh: Churchill Livingstone}%
     }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BAAJMLMRKRPW1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{number}{ISBN 0-8153-4072-9}
     \field{title}{Leukocyte also known as macrophages functions and percentage
   breakdown}
     \field{year}{2002}
@@ -41,7 +147,6 @@
     \strng{fullhash}{RT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{pages}{5}
     \field{title}{Sieci neuronowe}
     \list{location}{1}{%
       {Kraków, Wykład plenarny XXXII Zjazdu Fizyków Polskich}%
@@ -50,79 +155,99 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{deep_learning_python}{book}{}
-    \list{publisher}{1}{%
-      {Manning}%
+  \entry{Chollet2017DeepLW}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=CF}{%
+         family={Chollet},
+         familyi={C\bibinitperiod},
+         given={François},
+         giveni={F\bibinitperiod},
+      }}%
     }
+    \strng{namehash}{CF1}
+    \strng{fullhash}{CF1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{number}{ISBN:9781617294433}
-    \field{title}{Deep learning with Python}
-    \field{year}{2018}
+    \field{title}{Deep Learning with Python}
+    \field{year}{2017}
   \endentry
 
-  \entry{deep_learning}{book}{}
+  \entry{deep_learning}{inproceedings}{}
     \list{publisher}{1}{%
       {The MIT Press}%
     }
     \field{labeltitlesource}{title}
-    \field{number}{ISBN:0262035618 9780262035613}
     \field{title}{Deep learning}
     \field{year}{2016}
   \endentry
 
-  \entry{pooling}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=SSDMAB}{%
-         family={S.},
+  \entry{Scherer2010EvaluationOP}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SD}{%
+         family={Scherer},
          familyi={S\bibinitperiod},
-         given={Scherer D.; Müller A.C.;\bibnamedelima Behnke},
-         giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod M\bibinitperiod
-  A\bibinitperiod\bibinitdelim B\bibinitperiod},
+         given={Dominik},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MAC}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Andreas\bibnamedelima C.},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Behnke},
+         familyi={B\bibinitperiod},
+         given={Sven},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{SSDMAB1}
-    \strng{fullhash}{SSDMAB1}
+    \strng{namehash}{SDMACBS1}
+    \strng{fullhash}{SDMACBS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{pages}{92–101}
+    \field{booktitle}{ICANN}
     \field{title}{Evaluation of Pooling Operations in Convolutional
   Architectures for Object Recognition}
-    \list{location}{1}{%
-      {Artificial Neural Networks (ICANN), 20th International Conference on.
-  Thessaloniki, Greece}%
-    }
     \field{year}{2010}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{augmentation}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=MSCWAGVSMD}{%
+  \entry{Wong2016UnderstandingDA}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=WSC}{%
+         family={Wong},
+         familyi={W\bibinitperiod},
+         given={Sebastien\bibnamedelima C.},
+         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gatt},
+         familyi={G\bibinitperiod},
+         given={Adam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Stamatescu},
+         familyi={S\bibinitperiod},
+         given={Victor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=MMD}{%
          family={McDonnell},
          familyi={M\bibinitperiod},
-         given={Sebastien C. Wong; Adam Gatt; Victor Stamatescu;
-  Mark\bibnamedelima D.},
-         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod W\bibinitperiod
-  A\bibinitperiod G\bibinitperiod V\bibinitperiod S\bibinitperiod
-  M\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Mark\bibnamedelima D.},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
       }}%
     }
-    \list{publisher}{2}{%
-      {Institute of Electrical}%
-      {Electronic Engineering}%
-    }
-    \strng{namehash}{MSCWAGVSMD1}
-    \strng{fullhash}{MSCWAGVSMD1}
+    \strng{namehash}{WSC+1}
+    \strng{fullhash}{WSCGASVMMD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{pages}{2}
-    \field{title}{Understanding data augmentation for classification: when to
-  warp?}
-    \list{location}{1}{%
-      {Gold Coast, QLD, Australia}%
-    }
+    \field{title}{Understanding Data Augmentation for Classification: When to
+  Warp?}
+    \field{journaltitle}{2016 International Conference on Digital Image
+  Computing: Techniques and Applications (DICTA)}
     \field{year}{2016}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 \enddatalist
 \endinput

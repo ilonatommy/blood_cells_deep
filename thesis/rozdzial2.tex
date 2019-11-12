@@ -9,7 +9,7 @@ Krwinki białe, będące komórkami systemu odpornościowego, w zależności od 
 \hline
 \textbf{Nazwa}                               & Neutrofil & Eozynofil & Limfocyt & Monocyt \\ \hline
 \textbf{Udział \%}\cite{lymphocytes_percentage} & 54-62   & 1-6    & 25-33  & 2-10  \\ \hline
-\textbf{Średnica  \textbf{$\mu$}m}\cite{lymphocytes_percentage} & 10–12  & 10–12 & 7-15  & 15-30  \\ \hline
+\textbf{Średnica  \textbf{$\mu$}m}\cite{Wheater1979FunctionalHA} & 10–12  & 10–12 & 7-15  & 15-30  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -107,7 +107,7 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 \section{Sieci konwolucyjne} \label{cnn}
 %wziąć trochę info stąd:
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
-Konwolucyjne sieci neuronowe \textit{(ang. convolutional neural networks, CNN)} są typem sieci neuronowej głęboko uczonej. Najczęściej używana w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych. \cite{deep_learning_python} Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w sieci może być opisana równaniem: \cite{deep_learning}
+Konwolucyjne sieci neuronowe \textit{(ang. convolutional neural networks, CNN)} są typem sieci neuronowej głęboko uczonej. Najczęściej używana w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych. \cite{Chollet2017DeepLW} Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w sieci może być opisana równaniem: \cite{deep_learning}
 
 \begin{equation}
 S(i,j) = (I * K)(i,j) = \sum_{m}^{}\sum_{n}^{} I(m,n)K(i-m,j-n).
@@ -200,7 +200,7 @@ Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną waro�
 \end{tabular}
 \end{table}
 
-Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia. Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty. \cite{pooling}
+Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia. Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty. \cite{Scherer2010EvaluationOP}
 
 Hiperparametermi, które można regulować w tej częsci sieci są rozmiar filtru, liczba filtrów, krok filtracji, dopełnianie zerami, funkcja aktywacyjna i funkcja redukcyjna.
 
@@ -221,7 +221,7 @@ CNN są sieciami posiadającymi poza warstwami konwolucyjnymi i redukcyjnymi war
 Ramki wczytane bezpośrednio z bazy źródłowej do programu są w formacie RGB. Piksele oryginalnych obrazów mogą przyjmować wartości z zakresu od 0-255. Dla lepszego działania sieci neuronowej zaleca się normalizację wartości pikseli do małego zakresu, najlepiej 0-1 oraz ustandaryzowanie tak, aby można było traktować dane wejściowe jako rozkład Gaussa o średniej 0 i odchyleniu standadowym 1.
 
 \subsection{Powiększanie zbioru}
-W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych (\textit{ang. data augmentation}). Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN. \cite{augmentation}
+W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych (\textit{ang. data augmentation}). Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN. \cite{Wong2016UnderstandingDA}
 
 Jednym ze sposobów transformacji jest elastczna deformacja w przestrzenii danych (\textit{ang. data-space elastic deformation}). Obrazy w oryginalnym zbiorze danych zostają poddane losowym transformacjom, z założeniem, że zachowane zostają informacje o przynależności do danej klasy. Daje najlepsze rezultaty w porównaniu do poszerzania w przestrzenii cech (\textit{ang. feature-space augmentation}) \cite{augmentation}. Definiuje ona znormalizowany obszar losowego przemieszczenia \(u(x,y)\), który dla każdego piksela w obrazie \((x,y)\) definiuje wektor przemieszczenia \(R_w\):
 

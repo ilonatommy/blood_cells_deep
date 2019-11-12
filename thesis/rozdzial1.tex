@@ -1,5 +1,12 @@
 \chapter{Wprowadzenie}
 \label{cha:wprowadzenie}
+Morfologia krwi jest jednym z najczęściej przeprowadzanych badań. Zgodnie z zaleceniami powinno się wykonywać je przynajmniej raz do roku. Według reportu GUS 42\% osób decydujących się na badanie labolatoryjne wybiera właśnie badanie krwi \cite{GUS_Zdrowie2016}. Biorąc pod uwagę stan ludności i ograniczoną liczbę personelu medycznego w szpitalach maualne wykonywanie tego typu badań jest problematyczne i zajmuje dużo czasu, który można oszczędzić przeprowadzając automatyzację tego procesu.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.60]{blood_cells_microscope}
+	\caption{Widok krwinek badanych pod mikroskopem \cite{cells_microscope}.}
+\end{figure}
 
 Celem pracy jest zbudowanie narzędzia do klasyfikacji białych krwinek opartego na głęboko uczonych konwolucyjnych sieciach neuronowych. Na wejściu do sieci wprowadzane są zdjęcia pojedynczych krwinek, wykonane pod mikroskopem. W tym celu została wykorzystana baza danych na licencji MIT, zawierająca cztery klasy krwinek najliczniej występujące w składzie krwi. Każde zdjęcie jest oryginalnie przyporządkowane do odpowiedniej klasy, zgodnie z widniejącym na nim elementem morfologicznym. 
 
@@ -13,20 +20,11 @@ Program został napisany w języku Python, który jest dobrze przystosowany do p
 \section{Motywacja pracy}
 \label{sec:motywacja_pracy}
 
-W celu prawidłowego zdiagnozowania chorób często konieczne jest zbadanie liczby krwinek białych danego typu. Obecnie proces ten jest wykonywany manualnie za pomocą hemocymetru lub automatycznie z użyciem np. technologii VCS, pomiarem impedancji czy pomiarami z użyciem laseru.
+W celu prawidłowego zdiagnozowania chorób często konieczne jest zbadanie liczby krwinek białych danego typu. Obecnie proces ten jest wykonywany manualnie za pomocą hemocymetru lub automatycznie z użyciem np. technologii VCS, pomiarem impedancji czy pomiarami z użyciem laseru. 
 
 Ciekawą alternatywą dla tych metod byłoby zastosowanie zliczania w czasie rzeczywistym komórek opartego na klasyfikacji przynależności do danego typu na podstawie analizy obrazów przez sieć neuronową. Byłaby to metoda nie wymagająca ingerencji czynnika ludzkiego, jak to ma miejsce w przypadku badania manualnego, a jednocześnie tańsza niż stosowane pomiary automatyczne.
 
 Bazą do zbudowania tego typu narzędzia byłaby sieć rozpoznająca typ krwinki na zdjęciu i właśnie tą częścią zajmuje się niniejszy projekt. W pracy zdecydowano się na sieć konwolucyjną głęboko uczoną i w zależności od parametrów zbadano precyzyjność jej działania. W tym celu przetestowano wiele kombinacji doboru składowych modelu, a poniżej opisano kilka najciekawszych przypadków.
-
-%Baza, która została wykorzystana w tym zadaniu zawiera zdjęcia z podziałem na te cztery klasy. Można ją znaleźć pod linkiem: \url{https://www.kaggle.com/paultimothymooney/blood-cells}.
-
-%Wstęp: wprowadzenie do tematu,określenie celu pracy oraz wykonanych zadań (można podzielić na podrozdziały: Motywacja pracy, Cel i zrealizowane zadania). Nie musi być długi, 1-2 strony zwykle są wystarczające, ważne, aby był treściwy i na temat; należy odpowiedzieć na poniższe pytania w kolejności ich występowania – jedno pytanie jeden akapit.
-%Co? Przedmiot, problem
-%Jak? (Metoda , krótko)
-%Dlaczego? Źródła problemu badawczego
-%Po co? Implikacje, konsekwencje, walory
-%Co będzie w kolejnych rozdziałach?
 
 %---------------------------------------------------------------------------
 
