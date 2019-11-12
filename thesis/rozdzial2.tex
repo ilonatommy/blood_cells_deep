@@ -13,7 +13,7 @@ Krwinki białe, będące komórkami systemu odpornościowego, w zależności od 
 \end{tabular}
 \end{table}
 
-Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi. \cite{lymphocytes_nucleus} Poniżej przedstawiono przykładowe zjęcia pochodzące z bazy.
+Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Poniżej przedstawiono przykładowe zjęcia pochodzące z bazy.
 
 \begin{figure}[h]
 	\centering
@@ -43,7 +43,7 @@ Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważni
 
 \section{Sieci neuronowe}
 
-Sieć neuronowa jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach. Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. Funkcję, realizowaną przez całą sieć można zapisać wzorem: \cite{tadeusiewicz_sn}
+Sieć neuronowa jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach. Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. Funkcję, realizowaną przez całą sieć można zapisać wzorem \cite{tadeusiewicz_sn}:
 
 \begin{equation}
 Y = W_k X
@@ -66,7 +66,7 @@ Celem trenowania sieci neuronowej jest dobranie wartości w macierzy \textit{$W_
 
 Typy sieci neuronowych ze względu na kierunek przepływu danych:
 \begin{itemize}
-\item{Jednokierunkowa \textit{(ang. feedfoward)} - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia. Do tego typu należą sieci konwolucyjne.}
+\item{Jednokierunkowa (ang. \textit{feedfoward)} - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia. Do tego typu należą sieci konwolucyjne.}
 \item{Rekurencyjna - przepływ danych między dwoma połączonymi neuronami odbywa się w dowolnym kierunku.}
 \end{itemize}
 
@@ -74,7 +74,7 @@ Typy sieci neuronowych ze względu na kierunek przepływu danych:
 %https://medium.com/free-code-camp/building-a-3-layer-neural-network-from-scratch-99239c4af5d3
 Proces uczenia sieci neuronowej dzieli się na epoki. Liczba epok jest regulowalnym parametrem i od przyjętej wartości zależy jakość działania modelu. Zbyt mała liczba epok skutkuje niedotrenowaniem (model mógłby klasyfikować lepiej), a zbyt duża przetrenowaniem (model zna zbiór na którym trenował bardzo dobrze, ale słabo radzi sobie z nowymi zbiorami). Poniżej przedstawiono kolejne procesy zachodzące podczas jednej epoki.
 
-Początkowo ustalane są wagi sieci $W_k$ i błędów $b_k$ przez inicjalizację małymi liczbami losowymi. W pierwszej części treningu odbywa się propagacja w przód \textit{(ang. forward popagation)}, która polega na przejściu przez sieć w kierunku od wejścia do wyjścia i obliczeniu liniowego kroku:
+Początkowo ustalane są wagi sieci $W_k$ i błędów $b_k$ przez inicjalizację małymi liczbami losowymi. W pierwszej części treningu odbywa się propagacja w przód (ang. \textit{forward popagation)}, która polega na przejściu przez sieć w kierunku od wejścia do wyjścia i obliczeniu liniowego kroku:
 
 \begin{equation}
 y_1 = X_0 W_1 + b_1
@@ -83,21 +83,21 @@ gdzie
 \begin{eqwhere}[2cm]
 	\item[$X_1$] macierz wejściowa
 	\item[$W_1$] macierz wag
-	\item[$b_1$] błąd \textit{(ang. bias)}
+	\item[$b_1$] błąd (ang. \textit{bias})
 	\item[$y_1$] pierwszy liniowy krok
 \end{eqwhere}
 
 Następnie zbiór liniowych kroków przechodzi przez funkcje aktywacyjne, wprowadzając do modelu cechy nieliniowe i pozwalając na reprezentację bardziej skomplikowanych odwzorowań.
 
-Po zakończonej propagacji w przód następuje etap propagacji wstecznej \textit{(ang. backward propagation)}, mający na celu poprawę wartości wag. Na podstwie funkcji błędu - różnicy między wyjściem z modelu (predykcją), a oczekiwanym wyjściem - szacuje się jakość rozwiązania. Używając pochodnej funkcji błędu względem wag minimalizuje się błąd metodą najszybszego spadku. Krok spadku jest determinowany przez parametr nazywany tempem uczenia \textit{(ang. learning rate)}. 
+Po zakończonej propagacji w przód następuje etap propagacji wstecznej (ang. \textit{backward propagation}), mający na celu poprawę wartości wag. Na podstwie funkcji błędu - różnicy między wyjściem z modelu (predykcją), a oczekiwanym wyjściem - szacuje się jakość rozwiązania. Używając pochodnej funkcji błędu względem wag minimalizuje się błąd metodą najszybszego spadku. Krok spadku jest determinowany przez parametr nazywany tempem uczenia (ang. \textit{learning rate}). 
 
-Najczęsciej nie wszystkie dane przepływają przez sieć jednocześnie. W przypadku dużych zbiorów danych dzieli się je na mniejsze podzbiory \textit{(ang. batches)}, które przepływają kolejno przez sieć. Liczebność tego typu podzbioru jest parametrem modelu i wpływa na jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma przejść przez sieć od wejścia do wyjścia układu i spowrotem, aby epoka została uznana za skończoną. 
+Najczęsciej nie wszystkie dane przepływają przez sieć jednocześnie. W przypadku dużych zbiorów danych dzieli się je na mniejsze podzbiory (ang. \textit{batches}), które przepływają kolejno przez sieć. Liczebność tego typu podzbioru jest parametrem modelu i wpływa na jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma przejść przez sieć od wejścia do wyjścia układu i spowrotem, aby epoka została uznana za skończoną. 
 
 \subsection{Sieci pretrenowane}
 %https://www.analyticsvidhya.com/blog/2018/07/top-10-pretrained-models-get-started-deep-learning-part-1-computer-vision/
 
 %oraz: https://becominghuman.ai/how-do-pretrained-models-work-11fe2f64eaa2
-Trening sieci neuronowej jest procesem czasochłonnym. Co więcej, wymaga zgromadzenia odpowiedniej ilości opisanych danych, co bywa problematyczne. Z tego powodu zaczęto szukać metod, dzięki którym będzie można ten proces uprościć i stosować te same narzędzia do różnych problemów. Przenoszenie uczenia \textit{(ang. transfer learning)} jest stosowane w sieciach neronowych przez użycie pretrenowanych modeli. Tego typu model jest trenowany na dużym zbiorze danych i zawierającym nawet kilka milionów próbek i kilkadziesiąt tysięcy klas. 
+Trening sieci neuronowej jest procesem czasochłonnym. Co więcej, wymaga zgromadzenia odpowiedniej ilości opisanych danych, co bywa problematyczne. Z tego powodu zaczęto szukać metod, dzięki którym będzie można ten proces uprościć i stosować te same narzędzia do różnych problemów. Przenoszenie uczenia (ang. \textit{transfer learning}) jest stosowane w sieciach neronowych przez użycie pretrenowanych modeli. Tego typu model jest trenowany na dużym zbiorze danych i zawierającym nawet kilka milionów próbek i kilkadziesiąt tysięcy klas. 
 
 Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają coraz bardziej skomplikowane i szczegółowe wzorce na obrazie można zedytować raz przetrenowany model do przeznaczenia ogólnego. Należy zamrozić początkowe warstwy - rozpoznające generyczne wzorce - aby nie nadpisać ich wag oraz na nich dołożyć kolejne warstwy mające za zadanie nauczenie się szczegółów typowych dla konkretnego zbioru zdjęć. Dzięki temu można użyć pretrenowanego modelu do rozpoznawania kształtów w bazie zdjęć niezwiązanych wcale z oryginalnym zbiorem, na którym został przetrenowany. 
 
@@ -107,7 +107,7 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 \section{Sieci konwolucyjne} \label{cnn}
 %wziąć trochę info stąd:
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
-Konwolucyjne sieci neuronowe \textit{(ang. convolutional neural networks, CNN)} są typem sieci neuronowej głęboko uczonej. Najczęściej używana w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych. \cite{Chollet2017DeepLW} Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w sieci może być opisana równaniem: \cite{deep_learning}
+Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) są typem sieci neuronowej głęboko uczonej. Najczęściej używana w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w sieci może być opisana równaniem \cite{deep_learning}:
 
 \begin{equation}
 S(i,j) = (I * K)(i,j) = \sum_{m}^{}\sum_{n}^{} I(m,n)K(i-m,j-n).
@@ -115,16 +115,16 @@ S(i,j) = (I * K)(i,j) = \sum_{m}^{}\sum_{n}^{} I(m,n)K(i-m,j-n).
 gdzie
 \begin{eqwhere}[2cm]
 	\item[$I$] dane wejściowe,
-	\item[$K$] jądro \textit{(ang. kernel)},
-	\item[$S$] wyjście, mapa cech \textit{(ang. feature map)}.
+	\item[$K$] jądro (ang. \textit{kernel}),
+	\item[$S$] wyjście, mapa cech (ang. \textit{feature map}).
 \end{eqwhere}
 
 \subsection{Warstwy konwolucyjne}
-Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN składają się z trzech etapów. W pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. W kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. Na koniec używana jest funkcja redukująca (\textit{ang. pooling function)}. \cite{deep_learning}
+Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN składają się z trzech etapów. W pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. W kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. Na koniec używana jest funkcja redukująca (ang. \textit{pooling function}) \cite{deep_learning}.
 
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 %wzorowane na artykule, ale mój przykład jest autorkski
-Poniżej przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB) z zastosowaniem filtru 3x3 z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech \textit{(ang. feature map).} Z każdym filtrem (inaczej jądrem, \textit{ang. kernel}) powiązana jest wartość błędu (\textit{ang. bias}). Nie zastosowano dopełniania macierzy zerowymi wierszami i kolumnami na brzegach (\textit{ang. padding - same}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
+Poniżej przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB) z zastosowaniem filtru 3x3 z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, \textit{ang. kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełniania macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - same}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
 
 \begin{table}[h]
 \begin{tabular}{lllllllllllllllllllllll}
@@ -200,18 +200,18 @@ Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną waro�
 \end{tabular}
 \end{table}
 
-Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia. Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty. \cite{Scherer2010EvaluationOP}
+Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia. Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
 
 Hiperparametermi, które można regulować w tej częsci sieci są rozmiar filtru, liczba filtrów, krok filtracji, dopełnianie zerami, funkcja aktywacyjna i funkcja redukcyjna.
 
 \subsection{Klasyfikator}
 %https://www.freecodecamp.org/news/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050/
-Na warstwy konwolucyjne nakładane są warstwy gęsto połączone \textit{(ang. dense layers)}, służące do klasyfikacji. Na  ich wejściu wymagane są dane jednowymiarowe, a wyjściem konwolucji są dane trójwymiarowe. Z tego powodu łączy się je warstwą spłaszczającą \textit{(ang. flatten layer)}, która transformuje macierze cech w wektor cech.
+Na warstwy konwolucyjne nakładane są warstwy gęsto połączone (ang. \textit{dense layers}), służące do klasyfikacji. Na  ich wejściu wymagane są dane jednowymiarowe, a wyjściem konwolucji są dane trójwymiarowe. Z tego powodu łączy się je warstwą spłaszczającą (ang. \textit{flatten layer}), która transformuje macierze cech w wektor cech.
 
 Ostatnia warstwa w pełni połączona powinna mieć wymiar równy liczbie klas, do których jest klasyfikowany zbiór danych oraz odpowiednią funkcję aktywacyjną. Dla klasyfikacji binarnej używana jest S-funkcja, a do niebinarnej funkcja softmax.
 
 \subsection{Ograniczenie overfittingu}
-CNN są sieciami posiadającymi poza warstwami konwolucyjnymi i redukcyjnymi warstwy w pełni połączone \textit{ang. fully-connected network}. Charakteryzują się one tym, że każdy neuron posiada połączenie z dowolnym innym neuronem w poprzedniej warstwie. To sprawia, że są podatne na zjawisko nadmiernego dopasowania. 
+CNN są sieciami posiadającymi poza warstwami konwolucyjnymi i redukcyjnymi warstwy w pełni połączone (ang. \textit{fully-connected network}). Charakteryzują się one tym, że każdy neuron posiada połączenie z dowolnym innym neuronem w poprzedniej warstwie. To sprawia, że są podatne na zjawisko nadmiernego dopasowania. 
 %teraz sposoby jak sobie z tym radzić poza augmentation
 %coś o regularyzacji: https://towardsdatascience.com/training-deep-neural-networks-9fdb1964b964, dorzuć podobny obrazek do overfittingu żeby było wiadomo co to
 %oraz o bach normalisation: https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c
@@ -221,7 +221,7 @@ CNN są sieciami posiadającymi poza warstwami konwolucyjnymi i redukcyjnymi war
 Ramki wczytane bezpośrednio z bazy źródłowej do programu są w formacie RGB. Piksele oryginalnych obrazów mogą przyjmować wartości z zakresu od 0-255. Dla lepszego działania sieci neuronowej zaleca się normalizację wartości pikseli do małego zakresu, najlepiej 0-1 oraz ustandaryzowanie tak, aby można było traktować dane wejściowe jako rozkład Gaussa o średniej 0 i odchyleniu standadowym 1.
 
 \subsection{Powiększanie zbioru}
-W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych (\textit{ang. data augmentation}). Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN. \cite{Wong2016UnderstandingDA}
+W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych (\textit{ang. data augmentation}). Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN \cite{Wong2016UnderstandingDA}.
 
 Jednym ze sposobów transformacji jest elastczna deformacja w przestrzenii danych (\textit{ang. data-space elastic deformation}). Obrazy w oryginalnym zbiorze danych zostają poddane losowym transformacjom, z założeniem, że zachowane zostają informacje o przynależności do danej klasy. Daje najlepsze rezultaty w porównaniu do poszerzania w przestrzenii cech (\textit{ang. feature-space augmentation}) \cite{augmentation}. Definiuje ona znormalizowany obszar losowego przemieszczenia \(u(x,y)\), który dla każdego piksela w obrazie \((x,y)\) definiuje wektor przemieszczenia \(R_w\):
 
@@ -236,6 +236,6 @@ gdzie
 \end{eqwhere}
 %Odległość półpauzy od lewego marginesu należy dobrać pod kątem najdłuższego symbolu (bądź listy symboli) poprzez odpowiednie ustawienie parametru tego środowiska (domyślnie: 2 cm).
 
-Nie jest wskazane używanie zbioru powiększonego z użyciem dużych transformacji. Dla bazy MNIST przesunięcia większe niż \(\alpha >= 8\) pikseli skutkuje w pewnej części przypadków utratą informacje o przynależności do danej klasy. Jest to definiowane jako brak zdolności do rozpoznania i zaklasfikowania danej ramki przez człowieka.\cite{augmentation}
+Nie jest wskazane używanie zbioru powiększonego z użyciem dużych transformacji. Dla bazy MNIST przesunięcia większe niż \(\alpha >= 8\) pikseli skutkuje w pewnej części przypadków utratą informacje o przynależności do danej klasy. Jest to definiowane jako brak zdolności do rozpoznania i zaklasfikowania danej ramki przez człowieka \cite{augmentation}.
 
 W przypadku rozpoznawania typów komórek augmentacja z zastosowaną zmianą skali może skutkować pogorszeniem dokładności klasyfikacji, gdyż na każdy rodzaj komórki ma swoją typową wielkość. Skorzystanie z tej cechy do nauczenia się rozpoznawania elementów z pewnością podnosi poziom precyzji działania algorytmu. Zaburzenie tej cechy przez manipulację skalą zdjęcia będzie skutkować utraceniem tej informacji. Zbiór danych zostanie powiększony, jednak stanie się to kosztem utraty pewnych pomocnych danych.
