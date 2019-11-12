@@ -5,6 +5,8 @@ The style file: biblatex.bst
 A level-1 auxiliary file: rozdzial1.aux
 A level-1 auxiliary file: rozdzial2.aux
 A level-1 auxiliary file: rozdzial3.aux
+A level-1 auxiliary file: rozdzial4.aux
+A level-1 auxiliary file: rozdzial5.aux
 A level-1 auxiliary file: bibliografia.aux
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -22,50 +24,47 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: praca-blx.bib
 Database file #2: bibliografia.bib
-Warning--I didn't find a database entry for "lymphocytes_percentage"
-Warning--I didn't find a database entry for "augmentation"
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 10 entries,
+You've used 11 entries,
             6268 wiz_defined-function locations,
-            1228 strings with 9997 characters,
-and the built_in function-call counts, 49596 in all, are:
-= -- 3587
-> -- 901
-< -- 262
-+ -- 1174
-- -- 304
-* -- 3235
-:= -- 4959
+            1231 strings with 10046 characters,
+and the built_in function-call counts, 52675 in all, are:
+= -- 3747
+> -- 972
+< -- 278
++ -- 1228
+- -- 325
+* -- 3406
+:= -- 5212
 add.period$ -- 0
-call.type$ -- 10
-change.case$ -- 160
+call.type$ -- 11
+change.case$ -- 167
 chr.to.int$ -- 31
-cite$ -- 18
-duplicate$ -- 5103
-empty$ -- 4711
-format.name$ -- 520
-if$ -- 10419
+cite$ -- 20
+duplicate$ -- 5484
+empty$ -- 5046
+format.name$ -- 564
+if$ -- 11085
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 22
 missing$ -- 0
-newline$ -- 247
-num.names$ -- 412
-pop$ -- 3161
+newline$ -- 264
+num.names$ -- 450
+pop$ -- 3491
 preamble$ -- 1
-purify$ -- 212
+purify$ -- 222
 quote$ -- 0
-skip$ -- 1610
+skip$ -- 1748
 stack$ -- 0
-substring$ -- 6099
-swap$ -- 1094
-text.length$ -- 201
+substring$ -- 6271
+swap$ -- 1183
+text.length$ -- 218
 text.prefix$ -- 6
 top$ -- 1
-type$ -- 328
+type$ -- 362
 warning$ -- 0
-while$ -- 572
+while$ -- 606
 width$ -- 0
-write$ -- 238
-(There were 2 warnings)
+write$ -- 254

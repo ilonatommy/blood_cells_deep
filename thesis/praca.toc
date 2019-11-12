@@ -2,35 +2,22 @@
 \babel@toc {polish}{}
 \contentsline {chapter}{\numberline {1}Wprowadzenie}{7}
 \contentsline {section}{\numberline {1.1}Motywacja pracy}{8}
-\contentsline {section}{\numberline {1.2}Zawarto\IeC {\'s}\IeC {\'c} pracy}{8}
-\contentsline {chapter}{\numberline {2}Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} teoretyczna}{9}
-\contentsline {section}{\numberline {2.1}Aspekt medyczny}{9}
-\contentsline {section}{\numberline {2.2}Sieci neuronowe}{10}
-\contentsline {subsection}{\numberline {2.2.1}Uczenie}{10}
-\contentsline {subsection}{\numberline {2.2.2}Sieci pretrenowane}{11}
-\contentsline {section}{\numberline {2.3}Sieci konwolucyjne}{12}
-\contentsline {subsection}{\numberline {2.3.1}Warstwy konwolucyjne}{12}
-\contentsline {subsection}{\numberline {2.3.2}Klasyfikator}{14}
-\contentsline {subsection}{\numberline {2.3.3}Ograniczenie overfittingu}{14}
-\contentsline {section}{\numberline {2.4}Wst\IeC {\k e}pna obr\IeC {\'o}bka danych}{15}
-\contentsline {subsection}{\numberline {2.4.1}Skalowanie i standaryzacja ramek}{15}
-\contentsline {subsection}{\numberline {2.4.2}Powi\IeC {\k e}kszanie zbioru}{15}
-\contentsline {chapter}{\numberline {3}Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} praktyczna}{17}
-\contentsline {section}{\numberline {3.1}Prosta sie\IeC {\'c} konwolucyjna}{17}
-\contentsline {subsection}{\numberline {3.1.1}Struktura}{17}
-\contentsline {subsection}{\numberline {3.1.2}Trening}{18}
-\contentsline {subsection}{\numberline {3.1.3}Strojenie}{18}
-\contentsline {subsection}{\numberline {3.1.4}Testowanie}{18}
-\contentsline {subsection}{\numberline {3.1.5}Wp\IeC {\l }yw hiperparametr\IeC {\'o}w}{19}
-\contentsline {section}{\numberline {3.2}MobileNet, pretrenowana sie\IeC {\'c} konwolucyjna}{19}
-\contentsline {subsection}{\numberline {3.2.1}Struktura}{19}
-\contentsline {subsection}{\numberline {3.2.2}Trening}{20}
-\contentsline {subsection}{\numberline {3.2.3}Strojenie}{21}
-\contentsline {subsection}{\numberline {3.2.4}Testowanie}{21}
-\contentsline {subsection}{\numberline {3.2.5}Wp\IeC {\l }yw hiperparametr\IeC {\'o}w}{22}
-\contentsline {section}{\numberline {3.3}Sie\IeC {\'c} o architekturze U-Net dla segmentacji jednej klasy - to chyba bez sensu}{22}
-\contentsline {subsection}{\numberline {3.3.1}Struktura}{22}
-\contentsline {subsection}{\numberline {3.3.2}Trening}{22}
-\contentsline {subsection}{\numberline {3.3.3}Strojenie}{22}
-\contentsline {subsection}{\numberline {3.3.4}Testowanie}{22}
-\contentsline {subsection}{\numberline {3.3.5}Wp\IeC {\l }yw hiperparametr\IeC {\'o}w}{22}
+\contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{8}
+\contentsline {section}{\numberline {1.3}Zawarto\IeC {\'s}\IeC {\'c} pracy}{8}
+\contentsline {chapter}{\numberline {2}Analiza problemu badawczego}{9}
+\contentsline {section}{\numberline {2.1}Aspekt medyczny - analiza element\IeC {\'o}w krwi}{9}
+\contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\k e}bokie sieci neuronowe}{10}
+\contentsline {subsection}{\numberline {2.2.1}Pocz\IeC {\k a}tki sieci konwolucyjnych}{11}
+\contentsline {subsection}{\numberline {2.2.2}Warstwy sieci konwolucyjnych}{11}
+\contentsline {subsection}{\numberline {2.2.3}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{12}
+\contentsline {subsection}{\numberline {2.2.4}Uczenie}{13}
+\contentsline {subsection}{\numberline {2.2.5}Sieci pretrenowane - opcjonalnie}{14}
+\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{15}
+\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{17}
+\contentsline {section}{\numberline {3.1}Przygotowanie danych}{17}
+\contentsline {section}{\numberline {3.2}Powi\IeC {\k e}kszanie zbioru - opcjonalne, na razie nie u\IeC {\.z}ywam}{17}
+\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{18}
+\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{18}
+\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{19}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{21}
+\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{21}

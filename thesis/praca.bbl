@@ -212,6 +212,23 @@
     \field{year}{2010}
   \endentry
 
+  \entry{standarisation}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=KE}{%
+         family={Kreyszig},
+         familyi={K\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KE1}
+    \strng{fullhash}{KE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Advanced Engineering Mathematics}
+    \field{year}{1979}
+  \endentry
+
   \entry{Wong2016UnderstandingDA}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=WSC}{%
