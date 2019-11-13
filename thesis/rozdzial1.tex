@@ -1,14 +1,20 @@
 \chapter{Wprowadzenie}
 \label{cha:wprowadzenie}
-Morfologia krwi jest jednym z najczęściej przeprowadzanych badań. Zgodnie z zaleceniami powinno się wykonywać je przynajmniej raz do roku. Według reportu GUS 42\% osób decydujących się na badanie labolatoryjne wybiera właśnie badanie krwi \cite{GUS_Zdrowie2016}. Biorąc pod uwagę stan ludności i ograniczoną liczbę personelu medycznego w szpitalach maualne wykonywanie tego typu badań jest problematyczne i zajmuje dużo czasu, który można oszczędzić przeprowadzając automatyzację tego procesu.
+Morfologia krwi (ang. \textit{complete blood count}) jest jednym z najczęściej przeprowadzanych badań. Dostarcza ona informację o komórkach krwi pacjenta, w tym liczbę komórek każdego typu krwinek i wartość stężenia hemoglobiny. Zgodnie z zaleceniami powinno się wykonywać je przynajmniej raz do roku w celach profilaktycznych. Jest to też jedno z pierwszych badań stosowanych w diagnistyce schorzeń. Według reportu GUS 42\% osób decydujących się na badanie labolatoryjne wybiera właśnie badanie krwi \cite{GUS_Zdrowie2016}.
 
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.60]{blood_cells_microscope}
-	\caption{Widok krwinek badanych pod mikroskopem \cite{cells_microscope}.}
-\end{figure}
+\begin{center}
+	\begin{tikzpicture}
+		\pie [polar, explode=0.1, text=legend] 
+    		{42/badania krwi,
+     	36/badania moczu,
+     	9/cytologia, 
+     	2/PSA, 
+     	11/inne}
+	\end{tikzpicture}
+\end{center}
 
-Celem pracy jest zbudowanie narzędzia do klasyfikacji białych krwinek opartego na głęboko uczonych konwolucyjnych sieciach neuronowych. Na wejściu do sieci wprowadzane są zdjęcia pojedynczych krwinek, wykonane pod mikroskopem. W tym celu została wykorzystana baza danych na licencji MIT, zawierająca cztery klasy krwinek najliczniej występujące w składzie krwi. Każde zdjęcie jest oryginalnie przyporządkowane do odpowiedniej klasy, zgodnie z widniejącym na nim elementem morfologicznym. 
+
+Biorąc pod uwagę stan ludności i ograniczoną liczbę personelu medycznego w szpitalach maualne wykonywanie tego typu badań jest problematyczne i zajmuje dużo czasu. Celem pracy jest zbudowanie narzędzia do automatycznej klasyfikacji białych krwinek opartego na głęboko uczonych konwolucyjnych sieciach neuronowych. Na wejściu do sieci wprowadzane są zdjęcia pojedynczych krwinek, wykonane pod mikroskopem. W tym celu została wykorzystana baza danych na licencji MIT, zawierająca cztery klasy krwinek najliczniej występujące w składzie krwi. Każde zdjęcie jest oryginalnie przyporządkowane do odpowiedniej klasy, zgodnie z widniejącym na nim elementem morfologicznym. 
 
 Przed użyciem bazę podzielono na rozłączne zbiory: uczący, weryfikacyjny i testowy. Za pomocą zbiorów uczącego i weryfiacyjnego przetrenowano i nastrojono klasyfikator. Dzięki danym ze zbioru testowego zawierającego zdjęcia nigdy nie wprowadzane na wejście sieci sprawdzono skuteczność zastosowanej metody.
 
@@ -22,16 +28,25 @@ Program został napisany w języku Python, który jest dobrze przystosowany do p
 
 W celu prawidłowego zdiagnozowania chorób często konieczne jest zbadanie liczby krwinek białych danego typu. Obecnie proces ten jest wykonywany manualnie za pomocą hemocymetru lub automatycznie z użyciem np. technologii VCS, pomiarem impedancji czy pomiarami z użyciem laseru. 
 
-Ciekawą alternatywą dla tych metod byłoby zastosowanie zliczania w czasie rzeczywistym komórek opartego na klasyfikacji przynależności do danego typu na podstawie analizy obrazów przez sieć neuronową. Byłaby to metoda nie wymagająca ingerencji czynnika ludzkiego, jak to ma miejsce w przypadku badania manualnego, a jednocześnie tańsza niż stosowane pomiary automatyczne.
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.6]{blood_cells_microscope}
+	\caption{Widok krwinek badanych pod mikroskopem \cite{cells_microscope}.}
+\end{figure}
 
-Bazą do zbudowania tego typu narzędzia byłaby sieć rozpoznająca typ krwinki na zdjęciu i właśnie tą częścią zajmuje się niniejszy projekt. W pracy zdecydowano się na sieć konwolucyjną głęboko uczoną i w zależności od parametrów zbadano precyzyjność jej działania. W tym celu przetestowano wiele kombinacji doboru składowych modelu, a poniżej opisano kilka najciekawszych przypadków.
+Ciekawą alternatywą dla tych metod byłoby zastosowanie automatycznego zliczania komórek opartego na klasyfikacji przynależności do danego typu na podstawie analizy obrazów przez sieć neuronową. Byłaby to metoda nie wymagająca ingerencji czynnika ludzkiego, jak to ma miejsce w przypadku badania manualnego, a jednocześnie tańsza niż stosowane pomiary automatyczne. Zmniejszenie liczby ręcznych procesów i nadmiaru próbek podczas rutynowych badań w zwolniłoby miejsce dla innych ważnych zadań, zwiększyło wydajność i poprawiło jakość analiz. W pełni zautomatyzowany proces zmniejszyłby indywidualne ryzyko błędów.
+
+Bazą do zbudowania takiego narzędzia byłaby sieć rozpoznająca typ krwinki na zdjęciu i właśnie tą częścią zajmuje się niniejszy projekt. W pracy zdecydowano się na sieć konwolucyjną głęboko uczoną i w zależności od parametrów zbadano precyzyjność jej działania. W tym celu przetestowano wiele kombinacji doboru składowych modelu, a poniżej opisano kilka najciekawszych przypadków.
 
 %---------------------------------------------------------------------------
 \section{Cel i zrealizowane zadania}
 \label{sec:cel_i_zrealizowane_zadania}
 
-DOKONCZYĆ to, co w komentarzu
-%Powtórzyc jak ciężko się żyje bez mojego rozwiązania i coś tam coś tam..
+Aby zbudować narzędzie do klasyfikacji krwinek białych najpierw przeprowadzono analizę przydatności takiego rozwiązania na rynku oraz sprawdzono jakie metody są obecnie wykorzystywane w badaniach krwi. Analiza wykazała zasadność stworzenia tego typu automatyzacji.
+
+Następnym krokiem było zapoznanie się ze stanem obecnej wiedzy na temat sieci neuronowych głęboko uczonych oraz sieci konwolucyjnych i przegląd dostępnych rozwiązań podobnych problemów. Po wyciągnięciu wniosków z zebranych informacji przystąpiono do planowania i implementacji modelu sieci. Wybrano model osiągający najlepsze wyniki i przystąpiono do badania wpływu doboru jego parametrów na dokładność klasyfikacji.
+
+Wynikiem końcowym pracy jest klayfikator osiągający X\% skuteczność na zbiorze testowym oraz wnioski wyciągnięte z badań nad zależnością skuteczności od doboru hiperparametrów.
 
 %---------------------------------------------------------------------------
 \section{Zawartość pracy}
@@ -39,4 +54,4 @@ DOKONCZYĆ to, co w komentarzu
 
 W rodziale~\ref{cha:analiza_problemu_badawczego} przedstawiono teoretyczną analizę problemu badawczego wraz z kilkoma przykładowymi rozwiązaniami zadania klasyfikacji wizyjnej na podstawie najnowszych publikacji. 
 
-Rozdział~\ref{cha:system_do_klasyfikacji_elementow_morfologicznych} zawiera opis implementacji programu i zastosowanych metod, rozdział~\ref{cha:analiza_wynikow} zestawienie i analizę uzyskanych wyników, po którym następuje podsumowanie.
+Rozdział~\ref{cha:system_do_klasyfikacji_elementow_morfologicznych} zawiera opis implementacji programu i zastosowanych metod, zaś rozdział~\ref{cha:analiza_wynikow} zestawienie i analizę uzyskanych wyników, po którym następuje podsumowanie przeprowadzonego badania.
