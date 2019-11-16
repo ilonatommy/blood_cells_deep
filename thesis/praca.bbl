@@ -134,6 +134,73 @@
     \field{year}{2002}
   \endentry
 
+  \entry{He2015DeepRL}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=HK}{%
+         family={He},
+         familyi={H\bibinitperiod},
+         given={Kaiming},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xiangyu},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Ren},
+         familyi={R\bibinitperiod},
+         given={Shaoqing},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Sun},
+         familyi={S\bibinitperiod},
+         given={Jian},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HK+1}
+    \strng{fullhash}{HKZXRSSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Deep Residual Learning for Image Recognition}
+    \field{journaltitle}{2016 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Hinton2006AFL}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HGE}{%
+         family={Hinton},
+         familyi={H\bibinitperiod},
+         given={Geoffrey\bibnamedelima E.},
+         giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Osindero},
+         familyi={O\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TYW}{%
+         family={Teh},
+         familyi={T\bibinitperiod},
+         given={Yee\bibnamedelima Whye},
+         giveni={Y\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HGEOSTYW1}
+    \strng{fullhash}{HGEOSTYW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{A Fast Learning Algorithm for Deep Belief Nets}
+    \field{journaltitle}{Neural Computation}
+    \field{year}{2006}
+  \endentry
+
   \entry{tadeusiewicz_sn}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=RT}{%
@@ -155,6 +222,160 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{deep_learning}{inproceedings}{}
+    \list{publisher}{1}{%
+      {The MIT Press}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Deep learning}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Wasserman1988NeuralNI}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=WPD}{%
+         family={Wasserman},
+         familyi={W\bibinitperiod},
+         given={Philip\bibnamedelima D.},
+         giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=STJ}{%
+         family={Schwartz},
+         familyi={S\bibinitperiod},
+         given={Tom\bibnamedelima J.},
+         giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WPDSTJ1}
+    \strng{fullhash}{WPDSTJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Neural networks. II. What are they and why is everybody so
+  interested in them now?}
+    \field{journaltitle}{IEEE Expert}
+    \field{year}{1988}
+  \endentry
+
+  \entry{Krizhevsky2012ImageNetCW}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=KA}{%
+         family={Krizhevsky},
+         familyi={K\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SI}{%
+         family={Sutskever},
+         familyi={S\bibinitperiod},
+         given={Ilya},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=HGE}{%
+         family={Hinton},
+         familyi={H\bibinitperiod},
+         given={Geoffrey\bibnamedelima E.},
+         giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KASIHGE1}
+    \strng{fullhash}{KASIHGE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{NIPS}
+    \field{title}{ImageNet Classification with Deep Convolutional Neural
+  Networks}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Matsugu2003SubjectIF}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=MM}{%
+         family={Matsugu},
+         familyi={M\bibinitperiod},
+         given={Masakazu},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Mori},
+         familyi={M\bibinitperiod},
+         given={Katsuhiko},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Mitari},
+         familyi={M\bibinitperiod},
+         given={Yusuke},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kaneda},
+         familyi={K\bibinitperiod},
+         given={Yuji},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MM+1}
+    \strng{fullhash}{MMMKMYKY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Subject independent facial expression recognition with robust
+  face detection using a convolutional neural network}
+    \field{journaltitle}{Neural networks : the official journal of the
+  International Neural Network Society}
+    \field{year}{2003}
+  \endentry
+
+  \entry{Brodmann1985VergleichendeLD}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=BK}{%
+         family={Brodmann},
+         familyi={B\bibinitperiod},
+         given={Korbinian},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BK1}
+    \strng{fullhash}{BK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Vergleichende Lokalisationslehre der Gro{\ss}hirnrinde : in
+  ihren Prinzipien dargestellt auf Grund des Zellenbaues}
+    \field{year}{1985}
+  \endentry
+
+  \entry{brodmann_areas}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=DM}{%
+         family={Dow},
+         familyi={D\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DM1}
+    \strng{fullhash}{DM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{http://lcni.uoregon.edu/~dow/Space_software/renderings.html}}
+  \endentry
+
+  \entry{cnn_website}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=KG}{%
+         family={Kalpande},
+         familyi={K\bibinitperiod},
+         given={Gopal},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KG1}
+    \strng{fullhash}{KG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{https://medium.com/@gopalkalpande/biological-inspiration-of-convolutional-neural-network-cnn-9419668898ac}}
+    \field{year}{1979}
+  \endentry
+
   \entry{Chollet2017DeepLW}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=CF}{%
@@ -170,15 +391,6 @@
     \field{labeltitlesource}{title}
     \field{title}{Deep Learning with Python}
     \field{year}{2017}
-  \endentry
-
-  \entry{deep_learning}{inproceedings}{}
-    \list{publisher}{1}{%
-      {The MIT Press}%
-    }
-    \field{labeltitlesource}{title}
-    \field{title}{Deep learning}
-    \field{year}{2016}
   \endentry
 
   \entry{Scherer2010EvaluationOP}{inproceedings}{}
@@ -210,6 +422,56 @@
     \field{title}{Evaluation of Pooling Operations in Convolutional
   Architectures for Object Recognition}
     \field{year}{2010}
+  \endentry
+
+  \entry{kaggle_1}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=DM}{%
+         family={Drobchak},
+         familyi={D\bibinitperiod},
+         given={Maksim},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DM2}
+    \strng{fullhash}{DM2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90}}
+    \field{year}{2019}
+  \endentry
+
+  \entry{kaggle_2}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=n}{%
+         family={nh4cl},
+         familyi={n\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{n1}
+    \strng{fullhash}{n1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights}}
+    \field{year}{2018}
+  \endentry
+
+  \entry{kaggle_3}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=JLSU}{%
+         family={Jung},
+         familyi={J\bibinitperiod},
+         given={Luke Sung\bibnamedelima Uk},
+         giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  U\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JLSU1}
+    \strng{fullhash}{JLSU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{title}{\url{https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3}}
+    \field{year}{2019}
   \endentry
 
   \entry{standarisation}{inproceedings}{}

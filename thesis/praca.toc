@@ -2,22 +2,26 @@
 \babel@toc {polish}{}
 \contentsline {chapter}{\numberline {1}Wprowadzenie}{7}
 \contentsline {section}{\numberline {1.1}Motywacja pracy}{8}
-\contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{8}
+\contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{9}
 \contentsline {section}{\numberline {1.3}Zawarto\IeC {\'s}\IeC {\'c} pracy}{9}
 \contentsline {chapter}{\numberline {2}Analiza problemu badawczego}{11}
 \contentsline {section}{\numberline {2.1}Aspekt medyczny - analiza element\IeC {\'o}w krwi}{11}
 \contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\k e}bokie sieci neuronowe}{12}
-\contentsline {subsection}{\numberline {2.2.1}Pocz\IeC {\k a}tki sieci konwolucyjnych}{13}
-\contentsline {subsection}{\numberline {2.2.2}Warstwy sieci konwolucyjnych}{13}
-\contentsline {subsection}{\numberline {2.2.3}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{14}
-\contentsline {subsection}{\numberline {2.2.4}Uczenie}{15}
-\contentsline {subsection}{\numberline {2.2.5}Sieci pretrenowane - opcjonalnie}{16}
-\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{17}
-\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{19}
-\contentsline {section}{\numberline {3.1}Przygotowanie danych}{19}
-\contentsline {section}{\numberline {3.2}Powi\IeC {\k e}kszanie zbioru - opcjonalne, na razie nie u\IeC {\.z}ywam}{19}
-\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{20}
-\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{20}
-\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{21}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{23}
-\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{23}
+\contentsline {subsection}{\numberline {2.2.1}Zasada dzia\IeC {\l }ania sieci neuronowych}{12}
+\contentsline {subsection}{\numberline {2.2.2}Pocz\IeC {\k a}tki sieci konwolucyjnych}{13}
+\contentsline {subsection}{\numberline {2.2.3}Warstwy sieci konwolucyjnych}{14}
+\contentsline {subsection}{\numberline {2.2.4}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{16}
+\contentsline {subsection}{\numberline {2.2.5}Uczenie}{16}
+\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane - opcjonalnie}{17}
+\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{18}
+\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a} \cite {kaggle_1}}{18}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu \cite {kaggle_2}}{19}
+\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3 \cite {kaggle_3}}{21}
+\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{23}
+\contentsline {section}{\numberline {3.1}Przygotowanie danych}{23}
+\contentsline {section}{\numberline {3.2}Powi\IeC {\k e}kszanie zbioru - opcjonalne, na razie nie u\IeC {\.z}ywam}{23}
+\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{24}
+\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{24}
+\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{25}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{27}
+\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{27}
