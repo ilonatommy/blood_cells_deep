@@ -11,17 +11,18 @@
 \contentsline {subsection}{\numberline {2.2.2}Pocz\IeC {\k a}tki sieci konwolucyjnych}{13}
 \contentsline {subsection}{\numberline {2.2.3}Warstwy sieci konwolucyjnych}{14}
 \contentsline {subsection}{\numberline {2.2.4}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{16}
-\contentsline {subsection}{\numberline {2.2.5}Uczenie}{16}
-\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane - opcjonalnie}{17}
-\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{18}
-\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a} \cite {kaggle_1}}{18}
-\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu \cite {kaggle_2}}{19}
-\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3 \cite {kaggle_3}}{21}
-\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{23}
-\contentsline {section}{\numberline {3.1}Przygotowanie danych}{23}
-\contentsline {section}{\numberline {3.2}Powi\IeC {\k e}kszanie zbioru - opcjonalne, na razie nie u\IeC {\.z}ywam}{23}
-\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{24}
-\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{24}
-\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{25}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{27}
-\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{27}
+\contentsline {subsection}{\numberline {2.2.5}Uczenie}{18}
+\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane - opcjonalnie}{18}
+\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{19}
+\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a} \cite {kaggle_1}}{19}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu \cite {kaggle_2}}{21}
+\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3 \cite {kaggle_3}}{22}
+\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{25}
+\contentsline {section}{\numberline {3.1}Przygotowanie danych}{25}
+\contentsline {subsection}{\numberline {3.1.1}Powi\IeC {\k e}kszanie zbioru}{25}
+\contentsline {section}{\numberline {3.2}Struktura sieci}{26}
+\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{26}
+\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{26}
+\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{27}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{29}
+\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{29}

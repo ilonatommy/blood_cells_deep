@@ -44,7 +44,7 @@ Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważni
 
 \section{Głębokie sieci neuronowe}
 
-Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning artificial neural networks} jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się impementacje bardzo głęboich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci tego typu miała trzy gęsto połączone uryte warstwy, gdzie warstwę ukryą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
+Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning artificial neural networks} jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się impementacje bardzo głęboich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci tego typu miała trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
 
 \subsection{Zasada działania sieci neuronowych}
 Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach. Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. 
@@ -52,7 +52,7 @@ Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to 
 \begin{figure}[h]
 	\centering
 	\centering
-		\includegraphics[scale=0.4]{schemat_ann}	
+		\includegraphics[scale=0.35]{schemat_ann}	
 	\caption{Wizualizacja przykładowej struktury sieci neurnowej.}
 \end{figure}
 
@@ -91,7 +91,7 @@ Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowie
 	\caption{Struktura mózgu podzielona na pola Brodmanna z zaznaczoną korą wzrokową \cite{brodmann_areas}.}
 \end{figure}
 
-Informacja wizyjna jest przekazywana z jednego obszaru do drugiego, przy czym każdy kolejny obszar jest bardziej wyspecjalizowany niż poprzedni. Pola różnią się między sobą funkcjami, przez co neurony w danym obszarze wykonują tylko konkretne zadania. Przykładowo obszar, do którego w pierwszej kolejności trafiają informacje wizyjne, nazwany bruzdą ostrogową zachowuje lokalizację przestrzenną widzianych obiektów. Przekazuje on informację do asocjacyjnej kory wzrokoej, która z kolei jest odpowiedzialna za rozpoznawanie kształtów, rozmiarów i kolorów, a potem do innych obszarów mózgu zajmujących się kojarzeniem obiektu z jego reprezentacją w pamięci. Z kolei trzeciorzędowa kora wzrokowa (ang. \textit{middle temporal}) rozpoznaje ruch obieków, a przedczołowa (ang. \textit{dorsomedial prefrontal cortex}) ruch samego obiektu rejestrująccego obraz \cite{cnn_website}. Analogicznie działają sieci konwolucyjne, w których kolejne warstwy są odpowiedzialne za detekcję różnych typów wzorców, a dane są przekazywane między warstwami i analizowane na różnych poziomach abstrakcji.
+Informacja wizyjna jest przekazywana z jednego obszaru do drugiego, przy czym każdy kolejny obszar jest bardziej wyspecjalizowany niż poprzedni. Pola różnią się między sobą funkcjami, przez co neurony w danym obszarze wykonują tylko konkretne zadania. Przykładowo obszar, do którego w pierwszej kolejności trafiają informacje wizyjne, nazwany bruzdą ostrogową zachowuje lokalizację przestrzenną widzianych obiektów. Przekazuje on informację do asocjacyjnej kory wzrokowej, która z kolei jest odpowiedzialna za rozpoznawanie kształtów, rozmiarów i kolorów, a potem do innych obszarów mózgu zajmujących się kojarzeniem obiektu z jego reprezentacją w pamięci. Z kolei trzeciorzędowa kora wzrokowa (ang. \textit{middle temporal}) rozpoznaje ruch obieków, a przedczołowa (ang. \textit{dorsomedial prefrontal cortex}) ruch samego obiektu rejestrująccego obraz \cite{cnn_website}. Analogicznie działają sieci konwolucyjne, w których kolejne warstwy są odpowiedzialne za detekcję różnych typów wzorców, a dane są przekazywane między warstwami i analizowane na różnych poziomach abstrakcji.
 
 Sieci kowolucyjne znalazły zastosowanie w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w warstwach sieci może być opisana poniższm równaniem \cite{deep_learning}:
 
@@ -113,7 +113,7 @@ Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN skł
 
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 %wzorowane na artykule, ale mój przykład jest autorkski
-W tabeli \ref{tab:tabela_filtry_konwolucyjne} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB) z zastosowaniem filtru 3x3 z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełniania macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - same}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
+W tabeli \ref{tab:tabela_filtry_konwolucyjne} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB) z zastosowaniem filtru 3x3 z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
 
 \begin{table}[h]
 \centering
@@ -144,11 +144,10 @@ W tabeli \ref{tab:tabela_filtry_konwolucyjne} zaprezentowano przykładowe dział
 \label{tab:tabela_filtry_konwolucyjne}
 \end{table}
 
-
 %https://medium.com/the-theory-of-everything/understanding-activation-functions-in-neural-networks-9491262884e0
 Po przejściu przez konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do niej wartości błędu i zdecydowanie czy dana wartość pownna być uznana za aktywną czyli braną pod uwagę w dalszym działaniu.
 
-Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się w tabeli \ref{tab:tabela_max_pooling}. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
+Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się w tabeli \ref{tab:tabela_max_pooling}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
 \begin{table}[h]
 \centering
@@ -171,18 +170,58 @@ Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną waro�
 %https://www.freecodecamp.org/news/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050/
 Na warstwy konwolucyjne nakładane są warstwy gęsto połączone (ang. \textit{dense layers}), służące do klasyfikacji. Na  ich wejściu wymagane są dane jednowymiarowe, a wyjściem konwolucji są dane trójwymiarowe. Z tego powodu łączy się je warstwą spłaszczającą (ang. \textit{flatten layer}), która transformuje macierze cech w wektor cech.
 
-Ostatnia warstwa w pełni połączona powinna mieć wymiar równy liczbie klas, do których jest klasyfikowany zbiór danych oraz odpowiednią funkcję aktywacyjną. Dla klasyfikacji binarnej używana jest S-funkcja, a do niebinarnej funkcja softmax.
+Ostatnia warstwa w pełni połączona powinna mieć wymiar równy liczbie klas, do których jest klasyfikowany zbiór danych oraz odpowiednią funkcję aktywacyjną. Dla klasyfikacji binarnej używana jest S-funkcja, a do niebinarnej funkcja softmax \cite{Chollet2017DeepLW}.
 
-DOPISAĆ, to co w komentarzu
-%napisz coś o normalizacji batcha, bo to też jest używana warstwa i o dropoucie. Przynajmniej trochę, więcej można w rodziale 3 o przygotowaniu danych i zapobieganiu overfittingowi
+W celu zapobiegnięcia przetrenowaniu sieci używa się warstw typu dropout, które usuwają pewne połączenia między neuronami. Dzięki temu sieć uczy się cech bardziej ogólnych oraz będzie mniej podatna na osiąganie wysokiej skuteczności na zbiorze walidacyjnym, ale niskich na zbiorze testowym \cite{Srivastava2014DropoutAS}.
+
+Temu samemu służą warstwy normalizacji wsadowej (ang. \textit{batch normalisation}), które standaryzują dane wyjściowe z poprzedniej warstwy przez nadanie im postaci rozkładu normalnego N(0,1). W przeciwieństwie do dropoutu nie powoduje utraty niektórych informacji przez usunięcie połączeń, lecz dodaje szum do każdej funkcji aktywacyjnej. Skutkiem jej stosowania jest zwiększenie niezależności warstw od siebie, generalizacja działania sieci oraz zwiększenie współczynnika uczenia. Najlepszym podejściem jest używanie obu typów wastw zmniejszających ryzyko przetrenowania \cite{Ioffe2015BatchNA}.
 
 \subsection{Analiza parametrów sieci konwolucyjnej}
 
-Parametermi, które można regulować w sieci są rozmiar filtru, liczba filtrów, krok filtracji, dopełnianie zerami, dobór funkcji aktywacyjnej i redukcyjnej. Parametry te mają wpływ na skuteczność działania sieci i mimo, że w przypadku funkcji da się powiedzieć które formuły mają większe prawdopodobieństwo powodzenia, to jednak nie ma ścisłych reguł ich doboru.
+Sieć konwolucyjna ma wiele parametrów, które można regulować w celu dobrania jak najlepszego sposobu działania. Parametry te mają wpływ na skuteczność i mimo, że w przypadku doboru funkcji aktywacji czy redukcji da się powiedzieć które formuły mają większe prawdopodobieństwo powodzenia, to jednak nie ma ścisłych reguł ich doboru.
+
+Parametry warstwy konwolucyjnej to ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i dobór funkji aktywacyjnej. W przypadku warstw redukcyjnych, na przykład używanej w niniejszej pracy redukcji maksymalizującej, dobera się wielkość bloków, krok i obecność dopełnienia zerami. Warstwa gęsto połączona ma regulowaną ilość segmentów i funkcję aktywacyjną, zaś w dropout ustala się współczynnik przepuszczalności danych.
+
+Podczas propagacji wstecznej w fazie uczenia używany jest algorytm do znajdowania minimum funkcji błędu. Minimum to można znaleźć na wiele sposobów, jednak najskuteczniejszym sposobem do szybkiej zbieżności jest użycie ADAM lub innej techniki adaptacyjnej \cite{gradient_decent}. Poniżej przedstawiono przykładowe funkcje optymalizacyjne.
+
+\begin{itemize}
+\item Naszybszy spadek,
+\begin{equation}
+\theta_{i+1} = \theta_i - \alpha \nabla F(\theta_i)
+\end{equation}
+gdzie,
+\begin{eqwhere}[2cm]
+	\item[$\theta$] argument minimalizowanej funkjcji w i-tym kroku algorytmu,
+	\item[$\alpha$] szybkość uczenia (ang. \textit{learining rate}),
+	\item[$F$] funkcja błędu.
+\end{eqwhere}
+\item najszybszy spadek z regulacją bezwładności uczenia,
+\begin{equation}
+\theta_{i+1} = \theta_i - V_i
+V_{i+1} = \gamma V_i + \alpha \nabla F(\theta_i)
+\end{equation}
+gdzie,
+\begin{eqwhere}[2cm]
+	\item[$\gamma$] bezwładność uczenia (ang. \textit{momentum})
+\end{eqwhere}
+\item adapcyjne oszacowanie momentu (ang. \textit{adaptive moment estimation}, ADAM) \cite{Kingma2014AdamAM}.
+\begin{equation}
+\theta_{i+1} = \theta_i - \frac{\alpha}{\sqrt{v_i} + \epsilon} m_i
+\end{equation}
+gdzie,
+\begin{eqwhere}[2cm]
+	\item[$m_i$] pierwszy moment (wartość oczekiwana) gradientu funkcji,
+	\item[$v_i$] drugi moment (wariancja) gradientu funkcji.
+\end{eqwhere}
+\item apropagacja średniokwadratowa (ang. \textit{root mean square propagation}, RMSprop) \cite{Kurbiel2017TrainingOD}.
+\begin{equation}
+\theta_{i+1} = \theta_i - \frac{\alpha}{\sqrt{v_i + \epsilon}} \nabla F(\theta_i)
+\end{equation}
+\end{itemize}
 
 Przykładowe funkcje aktywacyje:
 \begin{itemize}
-\item progowanie
+\item progowanie,
 \begin{equation}
 \begin{aligned}
 Y < th, A = 0\\
@@ -195,7 +234,7 @@ gdzie,
 	\item[$th$] próg aktywacji,
 	\item[$A$] aktywacja.
 \end{eqwhere}
-\item funkcja liniowa
+\item funkcja liniowa,
 \begin{equation}
 A = cY
 \end{equation}
@@ -203,17 +242,18 @@ gdzie,
 \begin{eqwhere}[2cm]
 	\item[$c$] stała,
 \end{eqwhere}
-\item S-funkcja
+\item S-funkcja,
 \begin{equation}
 A = \frac{1}{1+e^{-Y}}
 \end{equation}
-\item ReLu
+\item ReLu.
 \begin{equation}
 A = max(0,Y)
 \end{equation}
 \end{itemize}
 
 Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
+
 
 \subsection{Uczenie}
 %https://medium.com/free-code-camp/building-a-3-layer-neural-network-from-scratch-99239c4af5d3
@@ -251,7 +291,10 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 
 \section{Algorytmy klasyfikacji elementów morfologicznych}
 
-Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej (ang. \textit{batch normalisation}). W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
+Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej. W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
+
+DOKOŃCZYĆ, to co w komentarzu
+%przejść do kodu tych rozwiązań i wypisać serio te parametry
 
 \subsection{Sieć trenowana od podstaw z warstwą redukcyjną maksymalizującą \cite{kaggle_1}}
 \label{section_kaggle_1}
@@ -264,26 +307,35 @@ Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wyk
 
 Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. W publikcji nie ma zbioru testowego, co spowodowało brak informacji o jakości działania sieci. Z tego powodu więc eksperyment przedstawiony w artkule został przeze mnie powtórzony z dokładnością co do algorytmu, ale ze zmodyfiowanym podziałem bazy danych. Pierwotny zbiór walidacyjny o liczebności 2487 elementów podzielono w stosunku 80:20 na zbiory walidacyjny i testowy. 
 
+\begin{figure}[h]
+\caption{Podział bazy danych.}
 \begin{center}
 	\begin{tikzpicture} [scale = 0.6]
-		\pie [text=legend] 
+		\pie [text=legend, sum = 100] 
     		{75/uczący (9957 sztuk),
      	20/walidacyjny (1990 sztuk),
      	5/testowy (497 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\end{figure}
+
 
 Ramki zostały przeskalowane do zakresu wartości pikseli [0:1] i rozmiaru 128x128. Następnie przetasowano każdy ze zbiorów i  podzielono je na podzbiory (ang. \textit{batches}) o liczebności 32 ramek każdy.
 
-\item Struktura sieci (DODAĆ TUTAJ TABULATOR DLA TEJ TABELI CZY CO TO JEST):
+\item Struktura sieci:
 \end{itemize}
 
 \newsavebox\myvv
-\begin{lrbox}{\myvv}\begin{minipage}{1.0\textwidth}
+\begin{lrbox}{\myvv}
+\newlength{\myminipagewidth}
+\newlength{\myminipagecentering}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
-______________________________________________________________
+__________________________________________________________________
 Layer (type)                    Output Shape         Param #                
-==============================================================
+==================================================================
 input_1 (InputLayer)            (None, 128, 128, 3)  0                                        
 conv2d_1 (Conv2D)               (None, 128, 128, 12) 912                    
 batch_normalization_2 (BatchNor (None, 128, 128, 12) 48                      
@@ -293,11 +345,14 @@ batch_normalization_2 (BatchNor (None, 128, 128, 12) 48
 \resizebox{0.75\textwidth}{!}{\usebox\myvv}
 
 \newsavebox\myvvv
-\begin{lrbox}{\myvvv}\begin{minipage}{1.0\textwidth}
+\begin{lrbox}{\myvvv}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
-______________________________________________________________
+__________________________________________________________________
 sekwencja warstw, która powtarza się pięciokrotnie:
-______________________________________________________________
+__________________________________________________________________
 conv2d_2 (Conv2D)               (None, 128, 128, 12) 156       
 batch_normalization_3 (BatchNor (None, 128, 128, 12) 48                   
 conv2d_3 (Conv2D)               (None, 128, 128, 12) 156       
@@ -306,16 +361,20 @@ batch_normalization_4 (BatchNor (None, 128, 128, 12) 48
 batch_normalization_5 (BatchNor (None, 128, 128, 12) 48                     
 concatenate_1 (Concatenate)     (None, 128, 128, 24) 0       
 max_pooling2d_1 (MaxPooling2D)  (None, 64, 64, 24)   0            
-______________________________________________________________
+__________________________________________________________________
 .....................
+
 \end{verbatim} 
 \end{minipage}\end{lrbox}
 \resizebox{0.75\textwidth}{!}{\usebox\myvvv}
 
 \newsavebox\myvvvv
-\begin{lrbox}{\myvvvv}\begin{minipage}{1.0\textwidth}
+\begin{lrbox}{\myvvvv}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
-______________________________________________________________
+__________________________________________________________________
 conv2d_17 (Conv2D)              (None, 4, 4, 12)     444         
 batch_normalization_18 (BatchNo (None, 4, 4, 12)     48             
 conv2d_18 (Conv2D)              (None, 4, 4, 12)     156     
@@ -329,15 +388,18 @@ glob_average_pooling2d_1 (Globa (None, 24)           0
 \resizebox{0.75\textwidth}{!}{\usebox\myvvvv}
 
 \newsavebox\myvvvvv
-\begin{lrbox}{\myvvvvv}\begin{minipage}{1.0\textwidth}
+\begin{lrbox}{\myvvvvv}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
-________________________________________________________________
+___________________________________________________________________
 dense_1 (Dense)                 (None, 4)            100    
-================================================================
+===================================================================
 Total params: 35,858
 Trainable params: 35,102
 Non-trainable params: 756
-________________________________________________________________
+___________________________________________________________________
 \end{verbatim} 
 \end{minipage}\end{lrbox}
 \resizebox{0.75\textwidth}{!}{\usebox\myvvvvv}
@@ -345,19 +407,22 @@ ________________________________________________________________
 \begin{itemize}
 \item Parametry sieci i treningu:
 
-%W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, bez dopełniania ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają parametr bnmomentum równy 0.85 (CO TO ZNACZY?!). Użyte warstwy redukcyjne z funkcją maksymalizującą miały parametr pool_size równy 2 (A TO CO ZNACZY?). Sieć zakończono typowym klasyfikatorem stosowanym w modelach do problemów niebinarnych. 
+W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, z dopełnianiem ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z funkcją maksymalizującą obiliczną na podmacierzach wielkości 2x2. Sieć zakończono typowym klasyfikatorem stosowanym w modelach do problemów niebinarnych. 
 
-Przyjęty optymizator (CZYLI CO?) to RMSprop, szybkość uczenia to 2e-5, funkcja liczenia błędu to .... (ang. \textit{binary crossentropy}). Uczenie trwało 25 epok, każda epoka trwała 310 iteracji, a walidacja 62 iteracje.
-
+Przyjęty algorytm optymalizacji to RMSprop z szybkością uczenia 2e-5, funkcja liczenia błędu to binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a walidacja 62 iteracje.
 \item Wyniki eksperymentu:
 
 Wyniki powtórzonego eksperymentu pokrywają się z wynikami w publikacji w zakresie dokładności zbioru uczącego i walidacyjnego.
 
-train acc: 92\% 
-
-val acc: 90\% 
-
-test acc: 75\%
+\begin{table}[h]
+\centering
+\caption[Short Heading]{Skuteczność modelu.}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
+\textbf{skuteczność {[}\%{]}} & 92                  & 90                   & 75               \\ \hline
+\end{tabular}
+\end{table}
 
 \end{itemize}
 
@@ -368,14 +433,17 @@ test acc: 75\%
 
 Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych.
 
+\begin{figure}[h]
+\caption{Podział bazy danych.}
 \begin{center}
-	\begin{tikzpicture}[scale = 0.6]
-		\pie [text=legend] 
+	\begin{tikzpicture}[scale = 0.7]
+		\pie [text=legend, sum = 100] 
     		{75/uczący (9957 sztuk),
      	22.5/walidacyjny (2239 sztuk),
      	2.5/testowy (248 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\end{figure}
 
 Ramki zostały znormalizowane do zakresu wartości pikseli [0:1] i odchylenia standardowego równego 1. Zmniejszono ich rozmiar o połowę do 160x120. Następnie podzielono je na podzbiory o liczebności 16 ramek każdy.
 
@@ -383,53 +451,79 @@ Ramki zostały znormalizowane do zakresu wartości pikseli [0:1] i odchylenia st
 \end{itemize}
 
 \newsavebox\myv
-\begin{lrbox}{\myv}\begin{minipage}{1.0\textwidth}
+\begin{lrbox}{\myv}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
-_________________________________________________________________
+____________________________________________________________________
 Layer (type)                 Output Shape              Param #   
-_________________________________________________________________
+====================================================================
 input_1 (InputLayer)         (None, 120, 160, 3)       0        
-_________________________________________________________________
-sekwencja warstw, która powtarza się czterokrotnie:
-_________________________________________________________________
-conv2d_1 (Conv2D)            (None, 60, 80, 16)        1216      
-batch_normalization_1 (Batch (None, 60, 80, 16)        64        
-dropout_1 (Dropout)          (None, 60, 80, 16)        0    
-_________________________________________________________________
-.....................
-_________________________________________________________________
-flatten_1 (Flatten)          (None, 320)               0         
-_________________________________________________________________
-sekwencja warstw, która powtarza się trzykrotnie:
-_________________________________________________________________
-dense_1 (Dense)              (None, 32)                10272     
-dropout_5 (Dropout)          (None, 32)                0         
-_________________________________________________________________
-.....................
-_________________________________________________________________
-dense_4 (Dense)              (None, 4)                 36        
-_________________________________________________________________
-Total params: 16,732
-Trainable params: 16,668
-Non-trainable params: 64
-_________________________________________________________________
 \end{verbatim} 
 \end{minipage}\end{lrbox}
 \resizebox{0.75\textwidth}{!}{\usebox\myv}
 
-\begin{itemize}
-\item Parametry treningu:
+\newsavebox\myvq
+\begin{lrbox}{\myvq}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
+\begin{verbatim}
+____________________________________________________________________
+sekwencja warstw, która powtarza się czterokrotnie:
+____________________________________________________________________
+conv2d_1 (Conv2D)            (None, 60, 80, 16)        1216      
+batch_normalization_1 (Batch (None, 60, 80, 16)        64        
+dropout_1 (Dropout)          (None, 60, 80, 16)        0    
+____________________________________________________________________
+.....................
+\end{verbatim} 
+\end{minipage}\end{lrbox}
+\resizebox{0.75\textwidth}{!}{\usebox\myvq}
 
-Model był trenowany przez 200 epok.
+\newsavebox\myvqq
+\begin{lrbox}{\myvqq}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
+\begin{verbatim}
+____________________________________________________________________
+flatten_1 (Flatten)          (None, 320)               0         
+____________________________________________________________________
+sekwencja warstw, która powtarza się trzykrotnie:
+____________________________________________________________________
+dense_1 (Dense)              (None, 32)                10272     
+dropout_5 (Dropout)          (None, 32)                0         
+____________________________________________________________________
+.....................
+____________________________________________________________________
+dense_4 (Dense)              (None, 4)                 36        
+____________________________________________________________________
+Total params: 16,732
+Trainable params: 16,668
+Non-trainable params: 64
+____________________________________________________________________
+\end{verbatim} 
+\end{minipage}\end{lrbox}
+\resizebox{0.75\textwidth}{!}{\usebox\myvqq}
+
+\begin{itemize}
+\item Parametry sieci i treningu:
+
+Liczba filtrów wastw konwolucyjnych zmieniała się o połowę od 16 do 4 przy stałej wielkości filtra 5x5. Zastosowano dopełnianie zerami, funkcję ReLu w celu aktywacji oraz dropout na poziomie 0,2. Model był trenowany przez 200 epok.
 \item Wyniki eksperymentu:
 
-tabela:
+\begin{table}[h]
+\centering
+\caption[Short Heading]{Skuteczność modelu.}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
+\textbf{skuteczność {[}\%{]}} & 99                  & 97                   & 83               \\ \hline
+\end{tabular}
+\end{table}
 
-train acc: 99\%
-
-val acc: 97\%
-
-test acc: 83\%
 \end{itemize}
 \subsection{Pretrenowny model InceptionV3 \cite{kaggle_3}}
 %https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
@@ -439,24 +533,27 @@ test acc: 83\%
 
 Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano mały podzbiór dołączony do bazy, którego liczebnść stanowi niecałe 3\% zbioru walidacyjnego.
 
+\begin{figure}[h]
+\caption{Podział bazy danych.}
 \begin{center}
-	\begin{tikzpicture}[scale = 0.6]
-		\pie [text=legend] 
+	\begin{tikzpicture}[scale = 0.7]
+		\pie [text=legend, sum = 100] 
     		{75/uczący (9957 sztuk),
      	24.25/walidacyjny (2416 sztuk),
      	0.75/testowy (71 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\end{figure}
 
 Ramki zostały użyte w oryginalnym rozmiarze 320x240, bez normalizacji i standaryzacji wartości pikseli. Podzielono je na podzbiory o liczebności 32 ramki każdy.
-
 \item Struktura sieci:
-
-Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co pozwala na przypisanie do ramki klasy "żadna".
-
 \end{itemize}
-\newsavebox\myvf
-\begin{lrbox}{\myvf}\begin{minipage}{1.0\textwidth}
+
+\newsavebox\myvfff
+\begin{lrbox}{\myvfff}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
 \begin{verbatim}
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -470,6 +567,17 @@ dense_1 (Dense)              (None, 512)               1049088
 dropout_5 (Dropout)          (None, 512)               0        
 _________________________________________________________________
 .....................
+
+\end{verbatim} 
+\end{minipage}\end{lrbox}
+\resizebox{0.75\textwidth}{!}{\usebox\myvfff}
+
+\newsavebox\myvff
+\begin{lrbox}{\myvff}
+\setlength{\myminipagewidth}{0.9\linewidth} %change this
+\setlength{\myminipagecentering}{(\linewidth-\myminipagewidth)/2}
+\noindent\hspace{\myminipagecentering}\begin{minipage}{\myminipagewidth}
+\begin{verbatim}
 _________________________________________________________________
 dense_4 (Dense)              (None, 5)                10272     
 _________________________________________________________________
@@ -479,19 +587,28 @@ Non-trainable params: 64
 _________________________________________________________________
 \end{verbatim} 
 \end{minipage}\end{lrbox}
-\resizebox{0.75\textwidth}{!}{\usebox\myvf}
+\resizebox{0.75\textwidth}{!}{\usebox\myvff}
 
 \begin{itemize}
-\item Parametry treningu:
+\item Parametry sieci i treningu:
 
-Model był trenowany przez 30 epok.
+Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co pozwala na przypisanie do ramki klasy "żadna". W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia 5e-5. Model był trenowany przez 30 epok.
+
 \item Wyniki eksperymentu:
 
-tabela:
+\begin{table}[h]
+\centering
+\caption[Short Heading]{Skuteczność modelu.}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
+\textbf{skuteczność {[}\%{]}} & 99                  & 87                   & 86               \\ \hline
+\end{tabular}
+\end{table}
 
-train acc: 99\%
-
-val acc: 87\%
-
-test acc: 86\%
 \end{itemize}
+
+%PRZY ROBIENIU WLASNEGO PRETRENOWANEGO DODAĆ BATCH NORM!
+%"VGG doesn’t have a batch norm layer in it because batch normalization didn’t exist before VGG. If we train it with it from the start, the pre-trained weight will benefit from the normalization of the activations. So adding a batch norm layer actually improves ImageNet, which is cool. You can add it to dense layers, and also to convolutional layers."
+%źródło:
+%https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c
