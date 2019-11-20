@@ -6,10 +6,12 @@
 
 Baza danych zawiera 12500 zdjęć krwinek białych w formacie JPEG wykonanych pod mikroskopem. Pogrupowane są w cztery foldery według przynależności do klas, każdy po około 3000 ramek. Uwzględnione typy krwnek to neutrofil, eozynofil, limfocyt, monocyt. Zbiór został stworzony z 410 obrazów przez operację powiększania zbioru (ang. \textit{data augmentation}) \cite{database_kaggle}.
 
-Ramki wczytane bezpośrednio z bazy źródłowej do programu są w formacie RGB. Piksele oryginalnych obrazów mogą przyjmować wartości z zakresu od 0-255. Dla lepszego działania sieci neuronowej zaleca się normalizację wartości pikseli do małego zakresu, najlepiej 0-1 oraz ustandaryzowanie tak, aby można było traktować dane wejściowe jako rozkład Gaussa o średniej 0 i odchyleniu standadowym 1 \cite{standarisation}.
+{\parindent0pt % disables indentation for all the text between { and }
+Ramki wczytane bezpośrednio z bazy źródłowej do programu są w formacie RGB. Piksele oryginalnych obrazów mogą przyjmować wartości z zakresu od 0-255. Dla lepszego działania sieci neuronowej zaleca się normalizację wartości pikseli do małego zakresu, najlepiej 0-1 oraz ustandaryzowanie tak, aby można było traktować dane wejściowe jako rozkład Gaussa o średniej 0 i odchyleniu standadowym 1 (\ref{equ:standarisation}), \cite{standarisation}.
 
 \begin{equation}
 z =  \frac{x - \mu}{\sigma} 
+\label{equ:standarisation}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -18,14 +20,17 @@ gdzie,
 	\item[$\sigma$] odchylenie standardowe wartości pikseli w ramce,
 	\item[$z$] wartość piksela po ustandaryzowaniu.
 \end{eqwhere}
+}
 
 \subsection{Powiększanie zbioru}
 W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych. Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN \cite{Wong2016UnderstandingDA}.
 
-Jednym ze sposobów transformacji jest elastczna deformacja w przestrzenii danych (\textit{ang. data-space elastic deformation}). Obrazy w oryginalnym zbiorze danych zostają poddane losowym transformacjom, z założeniem, że zachowane zostają informacje o przynależności do danej klasy. Daje najlepsze rezultaty w porównaniu do poszerzania w przestrzenii cech (\textit{ang. feature-space augmentation}) \cite{Wong2016UnderstandingDA}. Definiuje ona znormalizowany obszar losowego przemieszczenia \(u(x,y)\), który dla każdego piksela w obrazie \((x,y)\) definiuje wektor przemieszczenia \(R_w\) \cite{Wong2016UnderstandingDA}:
+{\parindent0pt % disables indentation for all the text between { and }
+Jednym ze sposobów transformacji jest elastczna deformacja w przestrzenii danych (\textit{ang. data-space elastic deformation}). Obrazy w oryginalnym zbiorze danych zostają poddane losowym transformacjom, z założeniem, że zachowane zostają informacje o przynależności do danej klasy. Daje najlepsze rezultaty w porównaniu do poszerzania w przestrzenii cech (\textit{ang. feature-space augmentation}) \cite{Wong2016UnderstandingDA}. Definiuje ona znormalizowany obszar losowego przemieszczenia \(u(x,y)\), który dla każdego piksela w obrazie \((x,y)\) definiuje wektor przemieszczenia \(R_w\) (\ref{equ:augmentation}), \cite{Wong2016UnderstandingDA}:
 
 \begin{equation}
 R_w = R_0 + \alpha u
+\label{equ:augmentation}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -35,11 +40,12 @@ gdzie,
 \end{eqwhere}
 %Odległość półpauzy od lewego marginesu należy dobrać pod kątem najdłuższego symbolu (bądź listy symboli) poprzez odpowiednie ustawienie parametru tego środowiska (domyślnie: 2 cm).
 
-Nie jest wskazane używanie zbioru powiększonego z użyciem dużych transformacji. Dla bazy MNIST przesunięcia większe niż \(\alpha >= 8\) pikseli skutkuje w pewnej części przypadków utratą informacje o przynależności do danej klasy. Jest to definiowane jako brak zdolności do rozpoznania i zaklasfikowania danej ramki przez człowieka \cite{Wong2016UnderstandingDA}.
+Nie jest wskazane używanie zbioru powiększonego z użyciem dużych transformacji. Dla bazy MNIST przesunięcia \( \alpha \geq 8 \)  pikseli skutkuje w pewnej części przypadków utratą informacje o przynależności do danej klasy. Jest to definiowane jako brak zdolności do rozpoznania i zaklasfikowania danej ramki przez człowieka \cite{Wong2016UnderstandingDA}.
 
 W przypadku rozpoznawania typów komórek augmentacja z zastosowaną zmianą skali może skutkować pogorszeniem dokładności klasyfikacji, gdyż na każdy rodzaj komórki ma swoją typową wielkość. Skorzystanie z tej cechy do nauczenia się rozpoznawania elementów z pewnością podnosi poziom precyzji działania algorytmu. Zaburzenie tej cechy przez manipulację skalą zdjęcia będzie skutkować utraceniem tej informacji. Zbiór danych zostanie powiększony, jednak stanie się to kosztem utraty pewnych pomocnych danych.
 
 Baza danych użyta w pracy oryginalnie zawiera obrazy, będące wynikiem operacji powiększania zbioru. Z tego powodu nie jest wskazane dodatkowe przepowadzanie powiększania.
+}
 
 \section{Struktura sieci}
 

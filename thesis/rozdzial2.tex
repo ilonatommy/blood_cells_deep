@@ -2,10 +2,11 @@
 \label{cha:analiza_problemu_badawczego}
 
 \section{Aspekt medyczny - analiza elementów krwi}
-Krwinki białe, będące komórkami systemu odpornościowego, w zależności od funkcji pełnionej w organiźmie można podzielić na pięć grup, z których cztery mają znaczny udział procentowy w składzie krwi.
+Krwinki białe, będące komórkami systemu odpornościowego, w zależności od funkcji pełnionej w organiźmie można podzielić na pięć grup, z których cztery mają znaczny udział procentowy w składzie krwi (\ref{tab:blood_cells_percentage}).
 \begin{table}[h]
 \centering
-\caption[Short Heading]{}
+\caption[Short Heading]{Udział procentowy typów krwinek białych w składzie krwi.}
+\label{tab:blood_cells_percentage}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \textbf{Nazwa}                               & Neutrofil & Eozynofil & Limfocyt & Monocyt \\ \hline
@@ -14,7 +15,8 @@ Krwinki białe, będące komórkami systemu odpornościowego, w zależności od 
 \end{tabular}
 \end{table}
 
-Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Poniżej przedstawiono przykładowe zjęcia pochodzące z bazy.
+{\parindent0pt % disables indentation for all the text between { and }
+Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Na rysunku (\ref{fig:subcaption_example}) przedstawiono przykładowe zjęcia pochodzące z bazy.
 
 \begin{figure}[h]
 	\centering
@@ -39,33 +41,37 @@ Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważni
 		\subcaption{\label{subfigure_d}}
 	\end{subfigure}
 	
-	\caption{\label{fig:subcaption_example}Zdjęcia przedstawiające \protect\subref{subfigure_a} eozynofil, \protect\subref{subfigure_b} neurofil,  \protect\subref{subfigure_c} limfocyt,  \protect\subref{subfigure_d} monocyt.}
+	\caption{Zdjęcia przedstawiające \protect\subref{subfigure_a} eozynofil, \protect\subref{subfigure_b} neurofil,  \protect\subref{subfigure_c} limfocyt,  \protect\subref{subfigure_d} monocyt.}
+	\label{fig:subcaption_example}
 \end{figure}
-
+}
 \section{Głębokie sieci neuronowe}
 
-Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning artificial neural networks} jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się impementacje bardzo głęboich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci tego typu miała trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
+Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning artificial neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się impementacje bardzo głęboich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci tego typu miała trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
 
 \subsection{Zasada działania sieci neuronowych}
-Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach. Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. 
+Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach (\ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. 
 
 \begin{figure}[h]
 	\centering
 	\centering
 		\includegraphics[scale=0.35]{schemat_ann}	
 	\caption{Wizualizacja przykładowej struktury sieci neurnowej.}
+	\label{fig:ann_visualisation}
 \end{figure}
 
+{\parindent0pt % disables indentation for all the text between { and }
 Typy sieci neuronowych ze względu na kierunek przepływu danych:
 \begin{itemize}
 \item{Jednokierunkowa (ang. \textit{feedfoward)} - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia. Do tego typu należą sieci konwolucyjne.}
 \item{Rekurencyjna - przepływ danych między dwoma połączonymi neuronami odbywa się w dowolnym kierunku.}
 \end{itemize}
 
-Funkcję, realizowaną przez całą sieć można zapisać wzorem \cite{tadeusiewicz_sn}:
+Funkcję, realizowaną przez całą sieć można zapisać wzorem (\ref{equ:ann_formula}), \cite{tadeusiewicz_sn}:
 
 \begin{equation}
 Y = W_k X
+\label{equ:ann_formula}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -75,28 +81,31 @@ gdzie,
 \end{eqwhere}
 
 Celem trenowania sieci neuronowej jest dobranie wartości w macierzy \textit{$W_k$} tak, aby odwzorowała wektor X w wektor Y. 
-
+}
 \subsection{Początki sieci konwolucyjnych}
 %wziąć trochę info stąd:
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 
 Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) są typem sieci głęboko uczonej. Zbudowane na bazie perceptonu wielowarstwowego (ang. \textit{multilayer perceton}, MLP) \cite{deep_learning} będącego  najpopularniejszym typem ANN w latach 80' \cite{Wasserman1988NeuralNI}. MLP są używane w większości modeli na końcu konwolucyjnej sieci neuronowej i może zawierać kilka tego typu warstw. Pełni rolę przekodowania wartości cech zwracanych przez warstwy konwolucyjne na klasy, do których przynależy obiekt \cite{Krizhevsky2012ImageNetCW}. Podczas gdy MLP charakteryzują się tym, że są w pełni połączone, co oznacza że każdy neuron z warstwy jest powiązany z każdym neuronem z kolejnej warstwy, CNN nie są już połączone tak gęsto. Pozwala to między innymi na ograniczenie w pewnym stopniu podatności na zjawisko nadmiernego dopasowania (ang. {overfittng}). 
 
-Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana - obszary, na który została podzielona struktura mózgu \cite{Brodmann1985VergleichendeLD}. 
+{\parindent0pt % disables indentation for all the text between { and }
+Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana (\ref{fig:brodmann_areas}) - obszary, na który została podzielona struktura mózgu \cite{Brodmann1985VergleichendeLD}. 
 
 \begin{figure}[h]
 	\centering
 	\centering
 		\includegraphics[scale=0.6]{Brodmann_areas}	
 	\caption{Struktura mózgu podzielona na pola Brodmanna z zaznaczoną korą wzrokową \cite{brodmann_areas}.}
+	\label{fig:brodmann_areas}
 \end{figure}
 
 Informacja wizyjna jest przekazywana z jednego obszaru do drugiego, przy czym każdy kolejny obszar jest bardziej wyspecjalizowany niż poprzedni. Pola różnią się między sobą funkcjami, przez co neurony w danym obszarze wykonują tylko konkretne zadania. Przykładowo obszar, do którego w pierwszej kolejności trafiają informacje wizyjne, nazwany bruzdą ostrogową zachowuje lokalizację przestrzenną widzianych obiektów. Przekazuje on informację do asocjacyjnej kory wzrokowej, która z kolei jest odpowiedzialna za rozpoznawanie kształtów, rozmiarów i kolorów, a potem do innych obszarów mózgu zajmujących się kojarzeniem obiektu z jego reprezentacją w pamięci. Z kolei trzeciorzędowa kora wzrokowa (ang. \textit{middle temporal}) rozpoznaje ruch obieków, a przedczołowa (ang. \textit{dorsomedial prefrontal cortex}) ruch samego obiektu rejestrująccego obraz \cite{cnn_website}. Analogicznie działają sieci konwolucyjne, w których kolejne warstwy są odpowiedzialne za detekcję różnych typów wzorców, a dane są przekazywane między warstwami i analizowane na różnych poziomach abstrakcji.
 
-Sieci kowolucyjne znalazły zastosowanie w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w warstwach sieci może być opisana poniższm równaniem \cite{deep_learning}:
+Sieci kowolucyjne znalazły zastosowanie w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w warstwach sieci może być opisana równaniem (\ref{equ:convolution_formula}), \cite{deep_learning}:
 
 \begin{equation}
 S(i,j) = (I * K)(i,j) = \sum_{m}^{}\sum_{n}^{} I(m,n)K(i-m,j-n).
+\label{equ:convolution_formula}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -104,67 +113,38 @@ gdzie,
 	\item[$K$] jądro (ang. \textit{kernel}),
 	\item[$S$] wyjście, mapa cech (ang. \textit{feature map}).
 \end{eqwhere}
-
+}
 
 \subsection{Warstwy sieci konwolucyjnych}
 %https://medium.com/@gopalkalpande/biological-inspiration-of-convolutional-neural-network-cnn-9419668898ac
 
 Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN składają się z trzech etapów. W pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. W kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. Na koniec używana jest funkcja redukująca (ang. \textit{pooling function}) \cite{deep_learning}.
 
+{\parindent0pt % disables indentation for all the text between { and }
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 %wzorowane na artykule, ale mój przykład jest autorkski
-W tabeli \ref{tab:tabela_filtry_konwolucyjne} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB) z zastosowaniem filtru 3x3 z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
+Na rysunku (\ref{fig:convolution_example}) zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB). Zastosowano filtr 3x3, z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
 
-\begin{table}[h]
-\centering
-\caption[Short Heading]{Przykładowe działanie konwolucji.}
-\resizebox{0.7\textwidth}{!}{%
-\begin{tabular}{lllllllllllllllllllllll}
-\multicolumn{5}{l}{wejście: (5x5x3)}                                                                                                                   &  &  &                       & \multicolumn{3}{l}{filtr: (3x3x3)}                                          &  &  &                       & \multicolumn{4}{l}{wynik: (2x2x3)}                     &                       & \multicolumn{4}{l}{wyjście: (2x2x1)}                   \\
-\multicolumn{5}{l}{x{[}:,:,1{]}}                                                                                                                       &  &  &                       & \multicolumn{3}{l}{f1{[}:,:,1{]}}                                           &  &  &                       & \multicolumn{2}{l}{a1{[}:,:,1{]}}                &  &  &                       & \multicolumn{2}{l}{y{[}:,:,1{]}}                 &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16} \cline{20-21}
-\multicolumn{1}{|l|}{1} & \multicolumn{1}{l|}{2}          & \multicolumn{1}{l|}{3}          & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{1} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{-1} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{4} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{4} & \multicolumn{1}{l|}{12} &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16} \cline{20-21}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{4}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{2} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{-1} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{4}  & \multicolumn{1}{l|}{4} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{9} & \multicolumn{1}{l|}{11} &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16} \cline{20-21}
-\multicolumn{1}{|l|}{1} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{0} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{-1} &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11}
-\multicolumn{1}{|l|}{4} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{\textbf{4}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{0} &  &  &                       &                         & \textbf{}               & \textbf{}               &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{1} &  &  &                       &                         &                         &                         &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\multicolumn{5}{l}{x{[}:,:,2{]}}                                                                                                                       &  &  &                       & \multicolumn{3}{l}{f1{[}:,:,2{]}}                                           &  &  &                       & \multicolumn{2}{l}{a1{[}:,:,2{]}}                &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{2}          & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{3} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{-1} & \multicolumn{1}{l|}{1}  &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{-1} & \multicolumn{1}{l|}{4} &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{0} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{-1} & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{-1} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{2} &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{1} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{0} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{-1} & \multicolumn{1}{l|}{1}  &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11}
-\multicolumn{1}{|l|}{2} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{0} &  &  &                       &                         &                         &                         &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\multicolumn{1}{|l|}{3} & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{1} &  &  &                       &                         &                         &                         &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\multicolumn{5}{l}{x{[}:,:,3{]}}                                                                                                                       &  &  &                       & \multicolumn{3}{l}{f1{[}:,:,3{]}}                                           &  &  &                       & \multicolumn{2}{l}{a1{[}:,:,3{]}}                &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{3} & \multicolumn{1}{l|}{0}          & \multicolumn{1}{l|}{4}          & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{0} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{0}  & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{0}  &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{4}  & \multicolumn{1}{l|}{4} &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{2} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{1}  &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{4}  & \multicolumn{1}{l|}{5} &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11} \cline{15-16}
-\multicolumn{1}{|l|}{2} & \multicolumn{1}{l|}{\textbf{3}} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{0}} & \multicolumn{1}{l|}{2} &  &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{-1} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{0}  &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5} \cline{9-11}
-\multicolumn{1}{|l|}{0} & \multicolumn{1}{l|}{\textbf{1}} & \multicolumn{1}{l|}{\textbf{2}} & \multicolumn{1}{l|}{\textbf{4}} & \multicolumn{1}{l|}{1} &  &  &                       &                         &                         &                         &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\multicolumn{1}{|l|}{3} & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{3}          & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{0} &  &  &                       &                         &                         &                         &  &  &                       &                         &                        &  &  &                       &                        &                         &  &  \\ \cline{1-5}
-\end{tabular}%
-}
-\label{tab:tabela_filtry_konwolucyjne}
-\end{table}
+\begin{figure}[h]
+	\centering
+	\centering
+		\includegraphics[scale=0.5]{convolution_use_example}	
+	\caption{Przykład działania konwolucji}.
+	\label{fig:convolution_example}
+\end{figure}
 
 %https://medium.com/the-theory-of-everything/understanding-activation-functions-in-neural-networks-9491262884e0
 Po przejściu przez konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do niej wartości błędu i zdecydowanie czy dana wartość pownna być uznana za aktywną czyli braną pod uwagę w dalszym działaniu.
 
-Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się w tabeli \ref{tab:tabela_max_pooling}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
+Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się w tabeli \ref{fig:max_pooling_example}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
-\begin{table}[h]
-\centering
-\caption[Short Heading]{}
-\resizebox{0.4\textwidth}{!}{%
-\begin{tabular}{llllllllll}
-\multicolumn{6}{l}{macierz wejściowa}                                                                                                                                                                                                                                                                 &  &                       & \multicolumn{2}{l}{wynik}                                                                        \\ \cline{1-6}
-\multicolumn{1}{|l|}{\cellcolor[HTML]{CBCEFB}1} & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}10} & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}2} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}6} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}6} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}2} &  &                       &                                                 &                                                \\ \cline{1-6}
-\multicolumn{1}{|l|}{\cellcolor[HTML]{CBCEFB}0} & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}2}  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}4} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}3} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}5} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}4} &  &                       &                                                 &                                                \\ \cline{1-6} \cline{9-10} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{CBCEFB}4} & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}0}  & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}1} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}2} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}8} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFE65}1} &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{CBCEFB}10} & \multicolumn{1}{l|}{\cellcolor[HTML]{FCFF2F}8} \\ \cline{1-6} \cline{9-10} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFCB2F}0} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}2}  & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}5} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}4} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}9} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}0} &  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFC702}5}  & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}9} \\ \cline{1-6} \cline{9-10} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFCB2F}4} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}5}  & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}3} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}7} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}5} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}3} &  &                       &                                                 &                                                \\ \cline{1-6}
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFCB2F}2} & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}1}  & \multicolumn{1}{l|}{\cellcolor[HTML]{FFCB2F}5} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}0} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}2} & \multicolumn{1}{l|}{\cellcolor[HTML]{32CB00}7} &  &                       &                                                 &                                                \\ \cline{1-6}
-\end{tabular}%
-}
-\label{tab:tabela_max_pooling}
-\end{table}
+\begin{figure}[h]
+	\centering
+	\centering
+		\includegraphics[scale=0.15]{max_pooling_example}	
+	\caption{Przykład działania redukcji max pooling}.
+	\label{fig:max_pooling_example}
+\end{figure}
 
 
 %https://www.freecodecamp.org/news/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050/
@@ -175,19 +155,22 @@ Ostatnia warstwa w pełni połączona powinna mieć wymiar równy liczbie klas, 
 W celu zapobiegnięcia przetrenowaniu sieci używa się warstw typu dropout, które usuwają pewne połączenia między neuronami. Dzięki temu sieć uczy się cech bardziej ogólnych oraz będzie mniej podatna na osiąganie wysokiej skuteczności na zbiorze walidacyjnym, ale niskich na zbiorze testowym \cite{Srivastava2014DropoutAS}.
 
 Temu samemu służą warstwy normalizacji wsadowej (ang. \textit{batch normalisation}), które standaryzują dane wyjściowe z poprzedniej warstwy przez nadanie im postaci rozkładu normalnego N(0,1). W przeciwieństwie do dropoutu nie powoduje utraty niektórych informacji przez usunięcie połączeń, lecz dodaje szum do każdej funkcji aktywacyjnej. Skutkiem jej stosowania jest zwiększenie niezależności warstw od siebie, generalizacja działania sieci oraz zwiększenie współczynnika uczenia. Najlepszym podejściem jest używanie obu typów wastw zmniejszających ryzyko przetrenowania \cite{Ioffe2015BatchNA}.
+}
 
 \subsection{Analiza parametrów sieci konwolucyjnej}
 
 Sieć konwolucyjna ma wiele parametrów, które można regulować w celu dobrania jak najlepszego sposobu działania. Parametry te mają wpływ na skuteczność i mimo, że w przypadku doboru funkcji aktywacji czy redukcji da się powiedzieć które formuły mają większe prawdopodobieństwo powodzenia, to jednak nie ma ścisłych reguł ich doboru.
 
+{\parindent0pt % disables indentation for all the text between { and }
 Parametry warstwy konwolucyjnej to ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i dobór funkji aktywacyjnej. W przypadku warstw redukcyjnych, na przykład używanej w niniejszej pracy redukcji maksymalizującej, dobera się wielkość bloków, krok i obecność dopełnienia zerami. Warstwa gęsto połączona ma regulowaną ilość segmentów i funkcję aktywacyjną, zaś w dropout ustala się współczynnik przepuszczalności danych.
 
 Podczas propagacji wstecznej w fazie uczenia używany jest algorytm do znajdowania minimum funkcji błędu. Minimum to można znaleźć na wiele sposobów, jednak najskuteczniejszym sposobem do szybkiej zbieżności jest użycie ADAM lub innej techniki adaptacyjnej \cite{gradient_decent}. Poniżej przedstawiono przykładowe funkcje optymalizacyjne.
 
 \begin{itemize}
-\item Naszybszy spadek,
+\item Naszybszy spadek (\ref{equ:gradient_decent}),
 \begin{equation}
 \theta_{i+1} = \theta_i - \alpha \nabla F(\theta_i)
+\label{equ:gradient_decent}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -195,38 +178,42 @@ gdzie,
 	\item[$\alpha$] szybkość uczenia (ang. \textit{learining rate}),
 	\item[$F$] funkcja błędu.
 \end{eqwhere}
-\item najszybszy spadek z regulacją bezwładności uczenia,
+\item najszybszy spadek z regulacją bezwładności uczenia (\ref{equ:gradient_decent_momentum}),
 \begin{equation}
 \theta_{i+1} = \theta_i - V_i
 V_{i+1} = \gamma V_i + \alpha \nabla F(\theta_i)
+\label{equ:gradient_decent_momentum}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
 	\item[$\gamma$] bezwładność uczenia (ang. \textit{momentum})
 \end{eqwhere}
-\item adapcyjne oszacowanie momentu (ang. \textit{adaptive moment estimation}, ADAM) \cite{Kingma2014AdamAM}.
+\item adapcyjne oszacowanie momentu (ang. \textit{adaptive moment estimation}, ADAM) (\ref{equ:adam}), \cite{Kingma2014AdamAM}.
 \begin{equation}
 \theta_{i+1} = \theta_i - \frac{\alpha}{\sqrt{v_i} + \epsilon} m_i
+\label{equ:adam}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
 	\item[$m_i$] pierwszy moment (wartość oczekiwana) gradientu funkcji,
 	\item[$v_i$] drugi moment (wariancja) gradientu funkcji.
 \end{eqwhere}
-\item apropagacja średniokwadratowa (ang. \textit{root mean square propagation}, RMSprop) \cite{Kurbiel2017TrainingOD}.
+\item apropagacja średniokwadratowa (ang. \textit{root mean square propagation}, RMSprop) (\ref{equ:rmsprop}), \cite{Kurbiel2017TrainingOD}.
 \begin{equation}
 \theta_{i+1} = \theta_i - \frac{\alpha}{\sqrt{v_i + \epsilon}} \nabla F(\theta_i)
+\label{equ:rmsprop}
 \end{equation}
 \end{itemize}
 
 Przykładowe funkcje aktywacyje:
 \begin{itemize}
-\item progowanie,
+\item progowanie (\ref{equ:activ_thresholding}),
 \begin{equation}
 \begin{aligned}
 Y < th, A = 0\\
 Y \geq th, A = 1
 \end{aligned}
+\label{equ:activ_thresholding}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -234,35 +221,40 @@ gdzie,
 	\item[$th$] próg aktywacji,
 	\item[$A$] aktywacja.
 \end{eqwhere}
-\item funkcja liniowa,
+\item funkcja liniowa (\ref{equ:activ_linear}),
 \begin{equation}
 A = cY
+\label{equ:activ_linear}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
 	\item[$c$] stała,
 \end{eqwhere}
-\item S-funkcja,
+\item S-funkcja (\ref{equ:activ_sfunction}),
 \begin{equation}
 A = \frac{1}{1+e^{-Y}}
+\label{equ:activ_sfunction}
 \end{equation}
-\item ReLu.
+\item ReLu (\ref{equ:activ_relu}).
 \begin{equation}
 A = max(0,Y)
+\label{equ:activ_relu}
 \end{equation}
 \end{itemize}
 
 Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
-
+}
 
 \subsection{Uczenie}
 %https://medium.com/free-code-camp/building-a-3-layer-neural-network-from-scratch-99239c4af5d3
 Proces uczenia sieci neuronowej dzieli się na epoki. Liczba epok jest regulowalnym parametrem i od przyjętej wartości zależy jakość działania modelu. Zbyt mała liczba epok skutkuje niedotrenowaniem (model mógłby klasyfikować lepiej), a zbyt duża przetrenowaniem (model zna zbiór na którym trenował bardzo dobrze, ale słabo radzi sobie z nowymi zbiorami). Poniżej przedstawiono kolejne procesy zachodzące podczas jednej epoki.
 
-Początkowo ustalane są wagi sieci $W_k$ i błędów $b_k$ przez inicjalizację małymi liczbami losowymi. W pierwszej części treningu odbywa się propagacja w przód (ang. \textit{forward popagation)}, która polega na przejściu przez sieć w kierunku od wejścia do wyjścia i obliczeniu liniowego kroku:
+{\parindent0pt % disables indentation for all the text between { and }
+Początkowo ustalane są wagi sieci $W_k$ i błędów $b_k$ przez inicjalizację małymi liczbami losowymi. W pierwszej części treningu odbywa się propagacja w przód (ang. \textit{forward popagation)}, która polega na przejściu przez sieć w kierunku od wejścia do wyjścia i obliczeniu liniowego kroku (\ref{equ:training_linear_step}):
 
 \begin{equation}
 y_1 = X_0 W_1 + b_1
+\label{equ:training_linear_step}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
@@ -277,15 +269,17 @@ Następnie zbiór liniowych kroków przechodzi przez funkcje aktywacyjne, wprowa
 Po zakończonej propagacji w przód następuje etap propagacji wstecznej (ang. \textit{backward propagation}), mający na celu poprawę wartości wag. Na podstwie funkcji błędu - różnicy między wyjściem z modelu (predykcją), a oczekiwanym wyjściem - szacuje się jakość rozwiązania. Używając pochodnej funkcji błędu względem wag minimalizuje się błąd metodą najszybszego spadku. Krok spadku jest determinowany przez parametr nazywany tempem uczenia (ang. \textit{learning rate}). 
 
 Najczęsciej nie wszystkie dane przepływają przez sieć jednocześnie. W przypadku dużych zbiorów danych dzieli się je na mniejsze podzbiory (ang. \textit{batches}), które przepływają kolejno przez sieć. Liczebność tego typu podzbioru jest parametrem modelu i wpływa na jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma przejść przez sieć od wejścia do wyjścia układu i spowrotem, aby epoka została uznana za skończoną. 
+}
 
-\subsection{Sieci pretrenowane - opcjonalnie}
+\subsection{Sieci pretrenowane}
 %https://www.analyticsvidhya.com/blog/2018/07/top-10-pretrained-models-get-started-deep-learning-part-1-computer-vision/
 
 %oraz: https://becominghuman.ai/how-do-pretrained-models-work-11fe2f64eaa2
 Trening sieci neuronowej jest procesem czasochłonnym. Co więcej, wymaga zgromadzenia odpowiedniej ilości opisanych danych, co bywa problematyczne. Z tego powodu zaczęto szukać metod, dzięki którym będzie można ten proces uprościć i stosować te same narzędzia do różnych problemów. Przenoszenie uczenia (ang. \textit{transfer learning}) jest stosowane w sieciach neronowych przez użycie pretrenowanych modeli. Tego typu model jest trenowany na dużym zbiorze danych i zawierającym nawet kilka milionów próbek i kilkadziesiąt tysięcy klas. 
 
+{\parindent0pt % disables indentation for all the text between { and }
 Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają coraz bardziej skomplikowane i szczegółowe wzorce na obrazie można zedytować raz przetrenowany model do przeznaczenia ogólnego. Należy zamrozić początkowe warstwy - rozpoznające generyczne wzorce - aby nie nadpisać ich wag oraz na nich dołożyć kolejne warstwy mające za zadanie nauczenie się szczegółów typowych dla konkretnego zbioru zdjęć. Dzięki temu można użyć pretrenowanego modelu do rozpoznawania kształtów w bazie zdjęć niezwiązanych wcale z oryginalnym zbiorem, na którym został przetrenowany. 
-
+}
 %MobileNet:
 %https://kopernio.com/viewer?doi=arXiv:1704.04861&route=6
 
@@ -293,11 +287,11 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 
 Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej. W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
 
-DOKOŃCZYĆ, to co w komentarzu
-%przejść do kodu tych rozwiązań i wypisać serio te parametry
-
-\subsection{Sieć trenowana od podstaw z warstwą redukcyjną maksymalizującą \cite{kaggle_1}}
+\subsection{Sieć trenowana od podstaw z warstwą redukcyjną maksymalizującą}
 \label{section_kaggle_1}
+
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty.
+{\parindent0pt % disables indentation for all the text between { and }
 %https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90
 %75\% na testowym
 %TEST: 623+620+620+624 = 2487
@@ -308,7 +302,6 @@ DOKOŃCZYĆ, to co w komentarzu
 Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. W publikcji nie ma zbioru testowego, co spowodowało brak informacji o jakości działania sieci. Z tego powodu więc eksperyment przedstawiony w artkule został przeze mnie powtórzony z dokładnością co do algorytmu, ale ze zmodyfiowanym podziałem bazy danych. Pierwotny zbiór walidacyjny o liczebności 2487 elementów podzielono w stosunku 80:20 na zbiory walidacyjny i testowy. 
 
 \begin{figure}[h]
-\caption{Podział bazy danych.}
 \begin{center}
 	\begin{tikzpicture} [scale = 0.6]
 		\pie [text=legend, sum = 100] 
@@ -317,6 +310,7 @@ Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walida
      	5/testowy (497 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\caption{Podział bazy danych.}
 \end{figure}
 
 
@@ -409,7 +403,7 @@ ___________________________________________________________________
 
 W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, z dopełnianiem ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z funkcją maksymalizującą obiliczną na podmacierzach wielkości 2x2. Sieć zakończono typowym klasyfikatorem stosowanym w modelach do problemów niebinarnych. 
 
-Przyjęty algorytm optymalizacji to RMSprop z szybkością uczenia 2e-5, funkcja liczenia błędu to binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a walidacja 62 iteracje.
+Przyjęty algorytm optymalizacji to RMSprop z szybkością uczenia \(2 \times 10^{-5}\), funkcja liczenia błędu to binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a walidacja 62 iteracje.
 \item Wyniki eksperymentu:
 
 Wyniki powtórzonego eksperymentu pokrywają się z wynikami w publikacji w zakresie dokładności zbioru uczącego i walidacyjnego.
@@ -425,16 +419,19 @@ Wyniki powtórzonego eksperymentu pokrywają się z wynikami w publikacji w zakr
 \end{table}
 
 \end{itemize}
+}
 
-\subsection{Sieć trenowana od podstaw z warstwą dropoutu \cite{kaggle_2}}
+\subsection{Sieć trenowana od podstaw z warstwą dropoutu}
 %https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty.
+
+{\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
 Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych.
 
 \begin{figure}[h]
-\caption{Podział bazy danych.}
 \begin{center}
 	\begin{tikzpicture}[scale = 0.7]
 		\pie [text=legend, sum = 100] 
@@ -443,6 +440,7 @@ Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walida
      	2.5/testowy (248 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\caption{Podział bazy danych.}
 \end{figure}
 
 Ramki zostały znormalizowane do zakresu wartości pikseli [0:1] i odchylenia standardowego równego 1. Zmniejszono ich rozmiar o połowę do 160x120. Następnie podzielono je na podzbiory o liczebności 16 ramek każdy.
@@ -525,16 +523,19 @@ Liczba filtrów wastw konwolucyjnych zmieniała się o połowę od 16 do 4 przy 
 \end{table}
 
 \end{itemize}
-\subsection{Pretrenowny model InceptionV3 \cite{kaggle_3}}
-%https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
+}
 
+\subsection{Pretrenowny model InceptionV3}
+%https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty.
+
+{\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
 Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano mały podzbiór dołączony do bazy, którego liczebnść stanowi niecałe 3\% zbioru walidacyjnego.
 
 \begin{figure}[h]
-\caption{Podział bazy danych.}
 \begin{center}
 	\begin{tikzpicture}[scale = 0.7]
 		\pie [text=legend, sum = 100] 
@@ -543,6 +544,7 @@ Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez mo
      	0.75/testowy (71 sztuk)}
 	\end{tikzpicture}
 \end{center}
+\caption{Podział bazy danych.}
 \end{figure}
 
 Ramki zostały użyte w oryginalnym rozmiarze 320x240, bez normalizacji i standaryzacji wartości pikseli. Podzielono je na podzbiory o liczebności 32 ramki każdy.
@@ -592,7 +594,7 @@ _________________________________________________________________
 \begin{itemize}
 \item Parametry sieci i treningu:
 
-Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co pozwala na przypisanie do ramki klasy "żadna". W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia 5e-5. Model był trenowany przez 30 epok.
+Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co pozwala na przypisanie do ramki klasy "żadna". W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia \(5 \times 10^{-5}\). Model był trenowany przez 30 epok.
 
 \item Wyniki eksperymentu:
 
@@ -607,7 +609,7 @@ Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co po
 \end{table}
 
 \end{itemize}
-
+}
 %PRZY ROBIENIU WLASNEGO PRETRENOWANEGO DODAĆ BATCH NORM!
 %"VGG doesn’t have a batch norm layer in it because batch normalization didn’t exist before VGG. If we train it with it from the start, the pre-trained weight will benefit from the normalization of the activations. So adding a batch norm layer actually improves ImageNet, which is cool. You can add it to dense layers, and also to convolutional layers."
 %źródło:

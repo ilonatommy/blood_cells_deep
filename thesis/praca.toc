@@ -1,6 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {polish}{}
-\contentsline {chapter}{\numberline {1}Wprowadzenie}{7}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}
 \contentsline {section}{\numberline {1.1}Motywacja pracy}{8}
 \contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{9}
 \contentsline {section}{\numberline {1.3}Zawarto\IeC {\'s}\IeC {\'c} pracy}{9}
@@ -12,11 +12,11 @@
 \contentsline {subsection}{\numberline {2.2.3}Warstwy sieci konwolucyjnych}{14}
 \contentsline {subsection}{\numberline {2.2.4}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{16}
 \contentsline {subsection}{\numberline {2.2.5}Uczenie}{18}
-\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane - opcjonalnie}{18}
+\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane}{18}
 \contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{19}
-\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a} \cite {kaggle_1}}{19}
-\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu \cite {kaggle_2}}{21}
-\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3 \cite {kaggle_3}}{22}
+\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{19}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu}{21}
+\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3}{22}
 \contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{25}
 \contentsline {section}{\numberline {3.1}Przygotowanie danych}{25}
 \contentsline {subsection}{\numberline {3.1.1}Powi\IeC {\k e}kszanie zbioru}{25}
