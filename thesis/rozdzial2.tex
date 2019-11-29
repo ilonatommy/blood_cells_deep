@@ -1,23 +1,22 @@
 \chapter{Analiza problemu badawczego}
 \label{cha:analiza_problemu_badawczego}
 
-\section{Aspekt medyczny - analiza elementów krwi}
+\section{Aspekt medyczny - analiza morfometrii krwi}
 Krwinki białe, będące komórkami systemu odpornościowego, w zależności od funkcji pełnionej w organiźmie można podzielić na pięć grup, z których cztery mają znaczny udział procentowy w składzie krwi (\ref{tab:blood_cells_percentage}).
 \begin{table}[h]
 \centering
-\caption[Short Heading]{Udział procentowy typów krwinek białych w składzie krwi.}
+\caption[Short Heading]{Udział procentowy typów krwinek białych w składzie krwi \cite{Wheater1979FunctionalHA}.}
 \label{tab:blood_cells_percentage}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \textbf{Nazwa}                               & Neutrofil & Eozynofil & Limfocyt & Monocyt \\ \hline
-\textbf{Udział \%}\cite{Wheater1979FunctionalHA} & 54-62   & 1-6    & 25-33  & 2-10  \\ \hline
-\textbf{Średnica  \textbf{$\mu$}m}\cite{Wheater1979FunctionalHA} & 10–12  & 10–12 & 7-15  & 15-30  \\ \hline
+\textbf{Udział \%} & 54-62   & 1-6    & 25-33  & 2-10  \\ \hline
+\textbf{Średnica  \textbf{$\mu$}m} & 10–12  & 10–12 & 7-15  & 15-30  \\ \hline
 \end{tabular}
 \end{table}
 
 {\parindent0pt % disables indentation for all the text between { and }
-Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Na rysunku (\ref{fig:subcaption_example}) przedstawiono przykładowe zjęcia pochodzące z bazy.
-
+Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Rys. \ref{fig:subcaption_example} przedstawia przykładowe zjęcia pochodzące z bazy.
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.35\textwidth}
@@ -41,16 +40,16 @@ Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważni
 		\subcaption{\label{subfigure_d}}
 	\end{subfigure}
 	
-	\caption{Zdjęcia przedstawiające \protect\subref{subfigure_a} eozynofil, \protect\subref{subfigure_b} neurofil,  \protect\subref{subfigure_c} limfocyt,  \protect\subref{subfigure_d} monocyt.}
+	\caption{Zdjęcia przedstawiające: \protect\subref{subfigure_a} eozynofil, \protect\subref{subfigure_b} neurofil,  \protect\subref{subfigure_c} limfocyt,  \protect\subref{subfigure_d} monocyt.}
 	\label{fig:subcaption_example}
 \end{figure}
 }
 \section{Głębokie sieci neuronowe}
 
-Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning artificial neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się impementacje bardzo głęboich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci tego typu miała trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
+Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się implementacje bardzo głębokich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci bazująca na reprezentacji wysokopoziomowej, maszyna Boltzmanna (ang. \textit{restricted boltzmann machine}, RBM), została opisana w 2006 roku. Miała tylko trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
 
 \subsection{Zasada działania sieci neuronowych}
-Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach (\ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. 
+Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. Schemat stryktury sieci został przedstawiony na Rys. \ref{fig:ann_visualisation}).
 
 \begin{figure}[h]
 	\centering
@@ -61,13 +60,15 @@ Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to 
 \end{figure}
 
 {\parindent0pt % disables indentation for all the text between { and }
-Typy sieci neuronowych ze względu na kierunek przepływu danych:
+Typy sieci neuronowych z podziałem na kierunek przepływu danych:
 \begin{itemize}
-\item{Jednokierunkowa (ang. \textit{feedfoward)} - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia. Do tego typu należą sieci konwolucyjne.}
-\item{Rekurencyjna - przepływ danych między dwoma połączonymi neuronami odbywa się w dowolnym kierunku.}
+\item{Jednokierunkowa (ang. \textit{feedfoward}) - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia, a uczenie sieci odbywa się dzięki zastosowaniu propagacji wstecznej. Do tego typu należą sieci konwolucyjne.}
+\item{Rekurencyjna (ang. \textit{recurrent}) - przepływ danych między dwoma połączonymi neuronami odbywa się w dowolnym kierunku, dopuszcza są też cykle.}
+\item{Ze sprzężeniem zwrotnym (ang. \textit{regulatory feedback}) - dane przepływają od wejścia do wyjścia, a w celu poprawy wag sieci stosowane jest ujemne sprzężenie zwrotne.}
+\item{Samoorganizujące się mapy (ang. \textit{self organizing maps}) - dane nie przepływają przez sieć. Sieć dopasowuje się do struktury zbiorów danych, na których jest uczona.}
 \end{itemize}
 
-Funkcję, realizowaną przez całą sieć można zapisać wzorem (\ref{equ:ann_formula}), \cite{tadeusiewicz_sn}:
+Funkcję, realizowaną przez całą sieć można zapisać wzorem (\ref{equ:ann_formula}) \cite{tadeusiewicz_sn}:
 
 \begin{equation}
 Y = W_k X
@@ -86,10 +87,10 @@ Celem trenowania sieci neuronowej jest dobranie wartości w macierzy \textit{$W_
 %wziąć trochę info stąd:
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 
-Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) są typem sieci głęboko uczonej. Zbudowane na bazie perceptonu wielowarstwowego (ang. \textit{multilayer perceton}, MLP) \cite{deep_learning} będącego  najpopularniejszym typem ANN w latach 80' \cite{Wasserman1988NeuralNI}. MLP są używane w większości modeli na końcu konwolucyjnej sieci neuronowej i może zawierać kilka tego typu warstw. Pełni rolę przekodowania wartości cech zwracanych przez warstwy konwolucyjne na klasy, do których przynależy obiekt \cite{Krizhevsky2012ImageNetCW}. Podczas gdy MLP charakteryzują się tym, że są w pełni połączone, co oznacza że każdy neuron z warstwy jest powiązany z każdym neuronem z kolejnej warstwy, CNN nie są już połączone tak gęsto. Pozwala to między innymi na ograniczenie w pewnym stopniu podatności na zjawisko nadmiernego dopasowania (ang. {overfittng}). 
+Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) należą do najczęściej używanych głębokich sieci neuronowych w wizji komputerowej. Zbudowane na bazie perceptonu wielowarstwowego (ang. \textit{multilayer perceton}, MLP) będącego  najpopularniejszym typem ANN w latach 80' \cite{deep_learning, Wasserman1988NeuralNI}. MLP są używane w większości modeli na końcu konwolucyjnej sieci neuronowej i może zawierać kilka tego typu warstw. Pełni rolę przekodowania wartości cech zwracanych przez warstwy konwolucyjne na klasy, do których przynależy obiekt \cite{Krizhevsky2012ImageNetCW}. Podczas gdy MLP charakteryzują się tym, że są w pełni połączone, co oznacza że każdy neuron z warstwy jest powiązany z każdym neuronem z kolejnej warstwy, CNN nie są już połączone tak gęsto. Pozwala to między innymi na ograniczenie w pewnym stopniu podatności na zjawisko nadmiernego dopasowania (ang. {overfitting}). 
 
 {\parindent0pt % disables indentation for all the text between { and }
-Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana (\ref{fig:brodmann_areas}) - obszary, na który została podzielona struktura mózgu \cite{Brodmann1985VergleichendeLD}. 
+Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana) - obszary, na który została podzielona struktura mózgu (Rys. \ref{fig:brodmann_areas}) \cite{Brodmann1985VergleichendeLD}. 
 
 \begin{figure}[h]
 	\centering
@@ -115,7 +116,7 @@ gdzie,
 \end{eqwhere}
 }
 
-\subsection{Warstwy sieci konwolucyjnych}
+\subsection{Warstwy jako podstawowe bloki konstrukcyjne}
 %https://medium.com/@gopalkalpande/biological-inspiration-of-convolutional-neural-network-cnn-9419668898ac
 
 Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN składają się z trzech etapów. W pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. W kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. Na koniec używana jest funkcja redukująca (ang. \textit{pooling function}) \cite{deep_learning}.
@@ -123,7 +124,7 @@ Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN skł
 {\parindent0pt % disables indentation for all the text between { and }
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 %wzorowane na artykule, ale mój przykład jest autorkski
-Na rysunku (\ref{fig:convolution_example}) zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB). Zastosowano filtr 3x3, z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
+Na Rys. \ref{fig:convolution_example} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB). Zastosowano filtr 3x3, z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
 
 \begin{figure}[h]
 	\centering
@@ -136,7 +137,7 @@ Na rysunku (\ref{fig:convolution_example}) zaprezentowano przykładowe działani
 %https://medium.com/the-theory-of-everything/understanding-activation-functions-in-neural-networks-9491262884e0
 Po przejściu przez konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do niej wartości błędu i zdecydowanie czy dana wartość pownna być uznana za aktywną czyli braną pod uwagę w dalszym działaniu.
 
-Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się w tabeli \ref{fig:max_pooling_example}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
+Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się na Rys. \ref{fig:max_pooling_example}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
 \begin{figure}[h]
 	\centering
@@ -162,7 +163,7 @@ Temu samemu służą warstwy normalizacji wsadowej (ang. \textit{batch normalisa
 Sieć konwolucyjna ma wiele parametrów, które można regulować w celu dobrania jak najlepszego sposobu działania. Parametry te mają wpływ na skuteczność i mimo, że w przypadku doboru funkcji aktywacji czy redukcji da się powiedzieć które formuły mają większe prawdopodobieństwo powodzenia, to jednak nie ma ścisłych reguł ich doboru.
 
 {\parindent0pt % disables indentation for all the text between { and }
-Parametry warstwy konwolucyjnej to ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i dobór funkji aktywacyjnej. W przypadku warstw redukcyjnych, na przykład używanej w niniejszej pracy redukcji maksymalizującej, dobera się wielkość bloków, krok i obecność dopełnienia zerami. Warstwa gęsto połączona ma regulowaną ilość segmentów i funkcję aktywacyjną, zaś w dropout ustala się współczynnik przepuszczalności danych.
+Parametry warstwy konwolucyjnej to ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i dobór funkji aktywacyjnej. W przypadku warstw redukcyjnych, na przykład używanej w niniejszej pracy redukcji maksymalizującej, dobiera się wielkość bloków, krok i obecność dopełnienia zerami. Warstwa gęsto połączona ma regulowaną ilość segmentów i funkcję aktywacyjną, zaś w dropout ustala się współczynnik przepuszczalności danych.
 
 Podczas propagacji wstecznej w fazie uczenia używany jest algorytm do znajdowania minimum funkcji błędu. Minimum to można znaleźć na wiele sposobów, jednak najskuteczniejszym sposobem do szybkiej zbieżności jest użycie ADAM lub innej techniki adaptacyjnej \cite{gradient_decent}. Poniżej przedstawiono przykładowe funkcje optymalizacyjne.
 
@@ -245,7 +246,7 @@ A = max(0,Y)
 Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
 }
 
-\subsection{Uczenie}
+\subsection{Uczenie głębokich sieci neuronowych}
 %https://medium.com/free-code-camp/building-a-3-layer-neural-network-from-scratch-99239c4af5d3
 Proces uczenia sieci neuronowej dzieli się na epoki. Liczba epok jest regulowalnym parametrem i od przyjętej wartości zależy jakość działania modelu. Zbyt mała liczba epok skutkuje niedotrenowaniem (model mógłby klasyfikować lepiej), a zbyt duża przetrenowaniem (model zna zbiór na którym trenował bardzo dobrze, ale słabo radzi sobie z nowymi zbiorami). Poniżej przedstawiono kolejne procesy zachodzące podczas jednej epoki.
 
@@ -271,7 +272,7 @@ Po zakończonej propagacji w przód następuje etap propagacji wstecznej (ang. \
 Najczęsciej nie wszystkie dane przepływają przez sieć jednocześnie. W przypadku dużych zbiorów danych dzieli się je na mniejsze podzbiory (ang. \textit{batches}), które przepływają kolejno przez sieć. Liczebność tego typu podzbioru jest parametrem modelu i wpływa na jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma przejść przez sieć od wejścia do wyjścia układu i spowrotem, aby epoka została uznana za skończoną. 
 }
 
-\subsection{Sieci pretrenowane}
+\subsection{Używanie sieci wytrenowanych}
 %https://www.analyticsvidhya.com/blog/2018/07/top-10-pretrained-models-get-started-deep-learning-part-1-computer-vision/
 
 %oraz: https://becominghuman.ai/how-do-pretrained-models-work-11fe2f64eaa2
@@ -283,11 +284,11 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 %MobileNet:
 %https://kopernio.com/viewer?doi=arXiv:1704.04861&route=6
 
-\section{Algorytmy klasyfikacji elementów morfologicznych}
+\section{Przykłady algorytmów do klasyfikacji elementów krwi}
 
 Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej. W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
 
-\subsection{Sieć trenowana od podstaw z warstwą redukcyjną maksymalizującą}
+\subsection{Sieć trenowana z warstwą redukcyjną maksymalizującą}
 \label{section_kaggle_1}
 
 Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty.
@@ -421,7 +422,7 @@ Wyniki powtórzonego eksperymentu pokrywają się z wynikami w publikacji w zakr
 \end{itemize}
 }
 
-\subsection{Sieć trenowana od podstaw z warstwą dropoutu}
+\subsection{Sieć trenowana z regularyzacją}
 %https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights
 Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty.
 
@@ -525,7 +526,7 @@ Liczba filtrów wastw konwolucyjnych zmieniała się o połowę od 16 do 4 przy 
 \end{itemize}
 }
 
-\subsection{Pretrenowny model InceptionV3}
+\subsection{Wytrenowana architektura sieci InceptionV3}
 %https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
 Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty.
 

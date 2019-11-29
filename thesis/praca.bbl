@@ -17,6 +17,25 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{diagnostyka_laboratoryjna}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=ASARS}{%
+         family={Andrzej\bibnamedelima Szutowicz},
+         familyi={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={Anna Raszeja-Specht},
+         giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod-S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASARS1}
+    \strng{fullhash}{ASARS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Diagnostyka laboratoryjna}
+    \field{year}{2009}
+  \endentry
+
   \entry{lymphocytes_nucleus}{inproceedings}{}
     \name{author}{6}{}{%
       {{hash=BA}{%
@@ -462,6 +481,24 @@
     \field{year}{2003}
   \endentry
 
+  \entry{kaggle_database}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MP}{%
+         family={Mooney},
+         familyi={M\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MP1}
+    \strng{fullhash}{MP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{\url{https://www.kaggle.com/paultimothymooney/blood-cells}}
+  \endentry
+
   \entry{database_kaggle}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=MP}{%
@@ -615,6 +652,31 @@
   overfitting}
     \field{journaltitle}{J. Mach. Learn. Res.}
     \field{year}{2014}
+  \endentry
+
+  \entry{morfologia_krwi_wyniki_interpretacja}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SE}{%
+         family={Stefanowicz},
+         familyi={S\bibinitperiod},
+         given={Ewelina},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SE1}
+    \strng{fullhash}{SE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+  \field{title}{\url{https://www.hellozdrowie.pl/wyniki-morfologii-krwi-interpretacja-odchylenia-od-normy/}}
+  \endentry
+
+  \entry{krwiodawcy_sklad_krwi}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{U}
+    \field{sortinithash}{U}
+    \field{title}{\url{https://krwiodawcy.org/krew-i-grupy-krwi}}
   \endentry
 
   \entry{gradient_decent}{inproceedings}{}

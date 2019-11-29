@@ -1,7 +1,7 @@
-\chapter{System do klasyfikacji elementów morfologicznych}
+\chapter{System do klasyfikacji elementów morometrycznych krwi}
 \label{cha:system_do_klasyfikacji_elementow_morfologicznych}
 
-\section{Przygotowanie danych}
+\section{Przygotowanie bazy danych}
 \label{przygotowanie_danych}
 
 Baza danych zawiera 12500 zdjęć krwinek białych w formacie JPEG wykonanych pod mikroskopem. Pogrupowane są w cztery foldery według przynależności do klas, każdy po około 3000 ramek. Uwzględnione typy krwnek to neutrofil, eozynofil, limfocyt, monocyt. Zbiór został stworzony z 410 obrazów przez operację powiększania zbioru (ang. \textit{data augmentation}) \cite{database_kaggle}.
@@ -22,7 +22,7 @@ gdzie,
 \end{eqwhere}
 }
 
-\subsection{Powiększanie zbioru}
+\subsection{Zastosowanie metody augmentacji danych}
 W przypadku małych zbiorów danych, rozumianych jako zbiór liczący kilka tysięcy elementów często stosowaną praktyką jest poszerzanie zboru danych. Ma ona na celu bezpośrednio powiększenie ilości danych wprowadzanych do modelu, a pośrednio polepszenie rezultatów klasyfikacji. Jednym z korzystnych efektów tego działania jest redukcja zjawiska nadmiernego dopasowania (\textit{ang. overfiting}). Objawia się ona zmniejszeniem różnicy między błędem zbioru, na którym się trenuje model a błędem zbioru, na którym model jest testowany. Szczególnie dużą poprawę w tym aspekcie obserwuje się właśnie dla sieci typu CNN \cite{Wong2016UnderstandingDA}.
 
 {\parindent0pt % disables indentation for all the text between { and }
@@ -47,12 +47,12 @@ W przypadku rozpoznawania typów komórek augmentacja z zastosowaną zmianą ska
 Baza danych użyta w pracy oryginalnie zawiera obrazy, będące wynikiem operacji powiększania zbioru. Z tego powodu nie jest wskazane dodatkowe przepowadzanie powiększania.
 }
 
-\section{Struktura sieci}
+\section{Zaproponowana struktura sieci neuronowej}
 
 \section{Dobór parametrów}
 \label{dobor_parametrow}
 
-\subsection{Ograniczenie overfittingu}
+\subsection{Ograniczenie przeuczenia modelu}
 CNN są sieciami posiadającymi poza warstwami konwolucyjnymi i redukcyjnymi warstwy w pełni połączone (ang. \textit{fully-connected network}). Charakteryzują się one tym, że każdy neuron posiada połączenie z dowolnym innym neuronem w poprzedniej warstwie. To sprawia, że są podatne na zjawisko nadmiernego dopasowania. 
 %teraz sposoby jak sobie z tym radzić poza augmentation
 %coś o regularyzacji: https://towardsdatascience.com/training-deep-neural-networks-9fdb1964b964, dorzuć podobny obrazek do overfittingu żeby było wiadomo co to

@@ -5,24 +5,24 @@
 \contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{9}
 \contentsline {section}{\numberline {1.3}Zawarto\IeC {\'s}\IeC {\'c} pracy}{9}
 \contentsline {chapter}{\numberline {2}Analiza problemu badawczego}{11}
-\contentsline {section}{\numberline {2.1}Aspekt medyczny - analiza element\IeC {\'o}w krwi}{11}
+\contentsline {section}{\numberline {2.1}Aspekt medyczny - analiza morfometrii krwi}{11}
 \contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\k e}bokie sieci neuronowe}{12}
 \contentsline {subsection}{\numberline {2.2.1}Zasada dzia\IeC {\l }ania sieci neuronowych}{12}
 \contentsline {subsection}{\numberline {2.2.2}Pocz\IeC {\k a}tki sieci konwolucyjnych}{13}
-\contentsline {subsection}{\numberline {2.2.3}Warstwy sieci konwolucyjnych}{14}
+\contentsline {subsection}{\numberline {2.2.3}Warstwy jako podstawowe bloki konstrukcyjne}{14}
 \contentsline {subsection}{\numberline {2.2.4}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{16}
-\contentsline {subsection}{\numberline {2.2.5}Uczenie}{18}
-\contentsline {subsection}{\numberline {2.2.6}Sieci pretrenowane}{18}
-\contentsline {section}{\numberline {2.3}Algorytmy klasyfikacji element\IeC {\'o}w morfologicznych}{19}
-\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{19}
-\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana od podstaw z warstw\IeC {\k a} dropoutu}{21}
-\contentsline {subsection}{\numberline {2.3.3}Pretrenowny model InceptionV3}{22}
-\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morfologicznych}{25}
-\contentsline {section}{\numberline {3.1}Przygotowanie danych}{25}
-\contentsline {subsection}{\numberline {3.1.1}Powi\IeC {\k e}kszanie zbioru}{25}
-\contentsline {section}{\numberline {3.2}Struktura sieci}{26}
+\contentsline {subsection}{\numberline {2.2.5}Uczenie g\IeC {\l }\IeC {\k e}bokich sieci neuronowych}{18}
+\contentsline {subsection}{\numberline {2.2.6}U\IeC {\.z}ywanie sieci wytrenowanych}{19}
+\contentsline {section}{\numberline {2.3}Przyk\IeC {\l }ady algorytm\IeC {\'o}w do klasyfikacji element\IeC {\'o}w krwi}{19}
+\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{19}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z regularyzacj\IeC {\k a}}{21}
+\contentsline {subsection}{\numberline {2.3.3}Wytrenowana architektura sieci InceptionV3}{22}
+\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morometrycznych krwi}{25}
+\contentsline {section}{\numberline {3.1}Przygotowanie bazy danych}{25}
+\contentsline {subsection}{\numberline {3.1.1}Zastosowanie metody augmentacji danych}{25}
+\contentsline {section}{\numberline {3.2}Zaproponowana struktura sieci neuronowej}{26}
 \contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{26}
-\contentsline {subsection}{\numberline {3.3.1}Ograniczenie overfittingu}{26}
+\contentsline {subsection}{\numberline {3.3.1}Ograniczenie przeuczenia modelu}{26}
 \contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{27}
 \contentsline {chapter}{\numberline {5}Podsumowanie}{29}
 \contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{29}
