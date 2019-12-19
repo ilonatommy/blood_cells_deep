@@ -15,14 +15,15 @@
 \contentsline {subsection}{\numberline {2.2.6}U\IeC {\.z}ywanie sieci wytrenowanych}{19}
 \contentsline {section}{\numberline {2.3}Przyk\IeC {\l }ady algorytm\IeC {\'o}w do klasyfikacji element\IeC {\'o}w krwi}{19}
 \contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{19}
-\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z regularyzacj\IeC {\k a}}{21}
-\contentsline {subsection}{\numberline {2.3.3}Wytrenowana architektura sieci InceptionV3}{22}
-\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morometrycznych krwi}{25}
-\contentsline {section}{\numberline {3.1}Przygotowanie bazy danych}{25}
-\contentsline {subsection}{\numberline {3.1.1}Zastosowanie metody augmentacji danych}{25}
-\contentsline {section}{\numberline {3.2}Zaproponowana struktura sieci neuronowej}{26}
-\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{26}
-\contentsline {subsection}{\numberline {3.3.1}Ograniczenie przeuczenia modelu}{26}
-\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{27}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{29}
-\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{29}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z regularyzacj\IeC {\k a}}{23}
+\contentsline {subsection}{\numberline {2.3.3}Wytrenowana architektura sieci InceptionV3}{25}
+\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morometrycznych krwi}{29}
+\contentsline {section}{\numberline {3.1}Przygotowanie bazy danych}{29}
+\contentsline {subsection}{\numberline {3.1.1}Zastosowanie metody augmentacji danych}{29}
+\contentsline {subsection}{\numberline {3.1.2}Podzia\IeC {\l } na podzbiory}{30}
+\contentsline {section}{\numberline {3.2}Zaproponowana struktura sieci neuronowej}{31}
+\contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{34}
+\contentsline {subsection}{\numberline {3.3.1}Ograniczenie przeuczenia modelu}{34}
+\contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{35}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{37}
+\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{37}

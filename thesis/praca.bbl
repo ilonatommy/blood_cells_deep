@@ -139,6 +139,17 @@
     \field{year}{2016}
   \endentry
 
+  \entry{deep_learning_w_keras}{inproceedings}{}
+    \list{publisher}{1}{%
+      {Packt Publishing}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Deep Learning With Keras}
+    \field{year}{2017}
+  \endentry
+
   \entry{brodmann_areas}{misc}{}
     \name{author}{1}{}{%
       {{hash=DM}{%
@@ -174,6 +185,28 @@
     \field{sortinithash}{D}
   \field{title}{\url{https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90}}
     \field{year}{2019}
+  \endentry
+
+  \entry{VGG16_article_online}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=uHM}{%
+         prefix={ul},
+         prefixi={u\bibinitperiod},
+         family={Hassan},
+         familyi={H\bibinitperiod},
+         given={Muneeb},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HMu1}
+    \strng{fullhash}{HMu1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{VGG16 – Convolutional Network for Classification and
+  Detection}
+    \field{year}{2018}
   \endentry
 
   \entry{He2015DeepRL}{inproceedings}{}
@@ -535,6 +568,22 @@
     \field{year}{2018}
   \endentry
 
+  \entry{VGG_16_structure}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={Nshafiei},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{\url{https://en.everybodywiki.com/File:VGG_structure.jpg}}
+  \endentry
+
   \entry{cells_microscope}{misc}{}
     \name{author}{1}{}{%
       {{hash=OJ}{%
@@ -576,6 +625,39 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{Ronneberger2015UNetCN}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=RO}{%
+         family={Ronneberger},
+         familyi={R\bibinitperiod},
+         given={Olaf},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fischer},
+         familyi={F\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Brox},
+         familyi={B\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ROFPBT1}
+    \strng{fullhash}{ROFPBT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{U-Net: Convolutional Networks for Biomedical Image
+  Segmentation}
+    \field{journaltitle}{ArXiv}
+    \field{year}{2015}
+  \endentry
+
   \entry{Scherer2010EvaluationOP}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=SD}{%
@@ -607,6 +689,94 @@
     \field{title}{Evaluation of Pooling Operations in Convolutional
   Architectures for Object Recognition}
     \field{year}{2010}
+  \endentry
+
+  \entry{Silburt2019LunarCI}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=SA}{%
+         family={Silburt},
+         familyi={S\bibinitperiod},
+         given={Ari},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ADM}{%
+         family={Ali-Dib},
+         familyi={A\bibinitperiod-D\bibinitperiod},
+         given={Mohamad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZC}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Chenchong},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=JA}{%
+         family={Jackson},
+         familyi={J\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VD}{%
+         family={Valencia},
+         familyi={V\bibinitperiod},
+         given={Diana},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kissin},
+         familyi={K\bibinitperiod},
+         given={Yevgeni},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=TD}{%
+         family={Tamayo},
+         familyi={T\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Menou},
+         familyi={M\bibinitperiod},
+         given={Kristen},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SA+1}
+    \strng{fullhash}{SAADMZCJAVDKYTDMK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Lunar crater identification via deep learning}
+    \field{year}{2019}
+  \endentry
+
+  \entry{VGG16_info}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=SK}{%
+         family={Simonyan},
+         familyi={S\bibinitperiod},
+         given={Karen},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=ZA}{%
+         family={Zisserman},
+         familyi={Z\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SKZA1}
+    \strng{fullhash}{SKZA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Very deep convolutional networks for large-scale image
+  recognition}
+    \field{journaltitle}{CoRR}
+    \field{year}{2014}
   \endentry
 
   \entry{Srivastava2014DropoutAS}{inproceedings}{}

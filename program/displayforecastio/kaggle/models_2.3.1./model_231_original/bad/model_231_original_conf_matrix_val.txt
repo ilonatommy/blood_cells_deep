@@ -1,0 +1,16 @@
+Confusion Matrix
+[[ 90 118  90 202]
+ [ 76 128 103 190]
+ [ 76 133  82 205]
+ [ 68 139  92 201]]
+Classification Report
+              precision    recall  f1-score   support
+
+  EOSINOPHIL       0.29      0.18      0.22       500
+  LYMPHOCYTE       0.25      0.26      0.25       497
+    MONOCYTE       0.22      0.17      0.19       496
+  NEUTROPHIL       0.25      0.40      0.31       500
+
+   micro avg       0.25      0.25      0.25      1993
+   macro avg       0.25      0.25      0.24      1993
+weighted avg       0.25      0.25      0.24      1993

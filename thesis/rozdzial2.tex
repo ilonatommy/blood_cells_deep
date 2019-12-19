@@ -3,11 +3,11 @@
 
 \section{Aspekt medyczny - analiza morfometrii krwi}
 Krwinki białe, będące komórkami systemu odpornościowego, w zależności od funkcji pełnionej w organiźmie można podzielić na pięć grup, z których cztery mają znaczny udział procentowy w składzie krwi (\ref{tab:blood_cells_percentage}).
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \caption[Short Heading]{Udział procentowy typów krwinek białych w składzie krwi \cite{Wheater1979FunctionalHA}.}
 \label{tab:blood_cells_percentage}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Nazwa}                               & Neutrofil & Eozynofil & Limfocyt & Monocyt \\ \hline
 \textbf{Udział \%} & 54-62   & 1-6    & 25-33  & 2-10  \\ \hline
@@ -17,7 +17,7 @@ Krwinki białe, będące komórkami systemu odpornościowego, w zależności od 
 
 {\parindent0pt % disables indentation for all the text between { and }
 Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Rys. \ref{fig:subcaption_example} przedstawia przykładowe zjęcia pochodzące z bazy.
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.35\textwidth}
 		\centering
@@ -51,7 +51,7 @@ Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learni
 \subsection{Zasada działania sieci neuronowych}
 Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. Schemat stryktury sieci został przedstawiony na Rys. \ref{fig:ann_visualisation}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.35]{schemat_ann}	
@@ -92,7 +92,7 @@ Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) 
 {\parindent0pt % disables indentation for all the text between { and }
 Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana) - obszary, na który została podzielona struktura mózgu (Rys. \ref{fig:brodmann_areas}) \cite{Brodmann1985VergleichendeLD}. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.6]{Brodmann_areas}	
@@ -126,7 +126,7 @@ Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN skł
 %wzorowane na artykule, ale mój przykład jest autorkski
 Na Rys. \ref{fig:convolution_example} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB). Zastosowano filtr 3x3, z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.5]{convolution_use_example}	
@@ -139,7 +139,7 @@ Po przejściu przez konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej
 
 Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się na Rys. \ref{fig:max_pooling_example}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.15]{max_pooling_example}	
@@ -289,9 +289,9 @@ Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają
 Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej. W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
 
 \subsection{Sieć trenowana z warstwą redukcyjną maksymalizującą}
-\label{section_kaggle_1}
+\label{sec:section_kaggle_1}
 
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty.
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na podstwie cytowanego modelu.
 {\parindent0pt % disables indentation for all the text between { and }
 %https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90
 %75\% na testowym
@@ -300,18 +300,19 @@ Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej 
 \begin{itemize}
 \item Przygotowanie danych:
 
-Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. W publikcji nie ma zbioru testowego, co spowodowało brak informacji o jakości działania sieci. Z tego powodu więc eksperyment przedstawiony w artkule został przeze mnie powtórzony z dokładnością co do algorytmu, ale ze zmodyfiowanym podziałem bazy danych. Pierwotny zbiór walidacyjny o liczebności 2487 elementów podzielono w stosunku 80:20 na zbiory walidacyjny i testowy. 
+Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. W publikcji nie ma zbioru testowego, co spowodowało brak informacji o jakości działania sieci. Z tego powodu więc eksperyment przedstawiony w artkule został przeze mnie powtórzony z dokładnością co do algorytmu, ale ze zmodyfiowanym podziałem bazy danych. Z pierwotnego zbioru treningowego o liczebności wydzielono 20\% obrazów wyodrębiając zbiór walidacyjny (Rys. \ref{fig:kaggle_1_db_share}). 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{center}
 	\begin{tikzpicture} [scale = 0.6]
 		\pie [text=legend, sum = 100] 
-    		{75/uczący (9957 sztuk),
-     	20/walidacyjny (1990 sztuk),
-     	5/testowy (497 sztuk)}
+    		{64/uczący (7964 sztuki),
+     	16/walidacyjny (1993 sztuki),
+     	20/testowy (2487 sztuk)}
 	\end{tikzpicture}
 \end{center}
 \caption{Podział bazy danych.}
+\label{fig:kaggle_1_db_share}
 \end{figure}
 
 
@@ -402,47 +403,131 @@ ___________________________________________________________________
 \begin{itemize}
 \item Parametry sieci i treningu:
 
-W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, z dopełnianiem ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z funkcją maksymalizującą obiliczną na podmacierzach wielkości 2x2. Sieć zakończono typowym klasyfikatorem stosowanym w modelach do problemów niebinarnych. 
+W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, z dopełnianiem ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z funkcją maksymalizującą obiliczną na podmacierzach wielkości 2x2. Jako klasyfikatora użyto warstwy gęsto połączonej z czterema wyjściami, a jako funkcję aktywującą - sigmoid. Jest to niespójna decyzja, gdyż dla więcej niż dwóch wyjść w problemach niebinarnych powinno się używać funkcji softmax, a nie sigmoid.
 
 Przyjęty algorytm optymalizacji to RMSprop z szybkością uczenia \(2 \times 10^{-5}\), funkcja liczenia błędu to binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a walidacja 62 iteracje.
-\item Wyniki eksperymentu:
 
-Wyniki powtórzonego eksperymentu pokrywają się z wynikami w publikacji w zakresie dokładności zbioru uczącego i walidacyjnego.
+\item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-\begin{table}[h]
+Proces uczenia nie wykazuje nieprawidłowych cech wskazujących na przetrenowanie lub niedotrenowanie (Rys. \ref{fig:kaggle_1_acc_loss_trening}). Skuteczność zbioru walidacyjnego nadąża za skutecznością zbioru treningowego, nie ma wyraźnych zmian skokowych skuteczności na przestrzeni epok, a krzywa uczenia ma przybliżony kształt funkcji eksponencjalnie rosnącej. Oznacza to poprawny przebieg uczenia.
+
+\begin{figure}[h!]
+	\centering
+	\centering
+		\includegraphics[scale=0.55]{model_231_original}	
+	\caption{Zależność skuteczności i błędu od epoki trenowania w modelu z klasyfikatorem binarnym.}.
+	\label{fig:kaggle_1_acc_loss_trening}
+\end{figure}
+
+Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z wynikami w publikacji w zakresie dokładności zbioru uczącego i walidacyjnego. Wygenerowana w eksperymencie macierz pomyłek zbioru walidacyjnego (\ref{tab:kaggle_1_conf_matrix_val_1}) i obliczone na jej podstawie parametry (\ref{tab:kaggle_1_params_val_1}) potwierdzają teorię, że użyty klasyfikator jest błędny i sieć rozpoznaje jedynie dwie klasy z niezerową skutecznością.
+
+\begin{table}[h!]
 \centering
 \caption[Short Heading]{Skuteczność modelu.}
-\begin{tabular}{|l|l|l|l|}
+\label{tab:kaggle_1_acc}
+\begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
-\textbf{skuteczność {[}\%{]}} & 92                  & 90                   & 75               \\ \hline
+\textbf{skuteczność {[}\%{]}} & 90                  & 89                   & 68               \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego modelu z klasyfikatorem binarnym.}
+\label{tab:kaggle_1_conf_matrix_val_1}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
+{\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
+                                    & E       & 0       & 484      & 0      & 15      \\ \cline{2-6} 
+                                    & L       & 0       & 486      & 0      & 11      \\ \cline{2-6} 
+                                    & M       & 0       & 475      & 0      & 21      \\ \cline{2-6} 
+                                    & N       & 0       & 493      & 0      & 7       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym modelu z klasyfikatorem binarnym.}
+\label{tab:kaggle_1_params_val_1}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
+\textbf{klasa eozynofil (E)} & 0.00   & 0.00   & 0.00  & 499  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.25  & 0.93 & 0.40  & 497  \\ \hline
+\textbf{klasa monocyt (M)} & 0.00   & 0.00    & 0.00  & 496  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.13   & 0.01    & 0.03  & 500  \\ \hline
+\end{tabular}
+\end{table}
+
+
+\item Modyfikacja oryginalnej sieci w celu poprawy klasyfikacji:
+
+Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax. Zmiana typu funkcji aktywacyjnej przy wyjściu z modelu wpłynęła w niewielkim stopniu negatywnie na proces uczenia (Rys. \ref{fig:kaggle_1_acc_loss_trening_2}). Sumaryczne skuteczności na zbiorze treningowym jak i waliacyjnym spadły (\ref{tab:kaggle_1_acc_2}), ale macierz pomyłek dla zbioru walidacyjnego znacząco się poprawiła (\ref{tab:kaggle_1_conf_matrix_2}, \ref{tab:kaggle_1_params_val_2}). 
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Skuteczność modelu z klasyfikatorem niebinarnym.}
+\label{tab:kaggle_1_acc_2}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
+\textbf{skuteczność {[}\%{]}} & 81                  & 77                   & 70               \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+	\centering
+	\centering
+		\includegraphics[scale=0.55]{model_231_corrected}	
+	\caption{Zależność skuteczności i błędu od epoki trenowania w modelu z klasyfikatorem niebinarnym}.
+	\label{fig:kaggle_1_acc_loss_trening_2}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego modelu z klasyfikatorem niebinarnym.}
+\label{tab:kaggle_1_conf_matrix_2}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
+{\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
+                                    & E       & 102       & 147      & 128      & 122      \\ \cline{2-6} 
+                                    & L       & 105       & 157      & 126      & 109      \\ \cline{2-6} 
+                                    & M       & 124       & 145      & 128      & 99      \\ \cline{2-6} 
+                                    & N       & 114       & 133      & 133      & 120       \\ \hline
 \end{tabular}
 \end{table}
 
 \end{itemize}
 }
 
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym modelu z klasyfikatorem niebinarnym.}
+\label{tab:kaggle_1_params_val_2}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
+\textbf{klasa eozynofil (E)} & 0.23   & 0.20   & 0.22 & 499  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.27  & 0.32 & 0.29  & 497  \\ \hline
+\textbf{klasa monocyt (M)} & 0.25   & 0.26    & 0.25  & 496  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.27   & 0.24    & 0.25  & 500  \\ \hline
+\end{tabular}
+\end{table}
+
+Sprawdzenie szczegółów dotyczących klasyfiacji, takich jak skuteczność dla poszczególnych klas jest bardzo ważnym krokiem ewaluacyji modelu. W podanym przypadku pozwoliło to na poprawę osiągnięć sieci, mimo że pozornie sumaryczna skuteczność na zbiorach treningowym i walidacyjnym zmalały. Mogą zostać poprawiona przez zwiększenie ilości epok treningu i strojenie parametrów sieci.
+
 \subsection{Sieć trenowana z regularyzacją}
 %https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty.
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na podstwie cytowanego modelu.
 
 {\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
-Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych.
-
-\begin{figure}[h]
-\begin{center}
-	\begin{tikzpicture}[scale = 0.7]
-		\pie [text=legend, sum = 100] 
-    		{75/uczący (9957 sztuk),
-     	22.5/walidacyjny (2239 sztuk),
-     	2.5/testowy (248 sztuk)}
-	\end{tikzpicture}
-\end{center}
-\caption{Podział bazy danych.}
-\end{figure}
+Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych (\ref{fig:kaggle_2_db_share}). W powtórzonym eksperymencie bazę podzielono tak jak w poprzednio rozpatrywanym algoytmie \ref{sec:section_kaggle_1}.
 
 Ramki zostały znormalizowane do zakresu wartości pikseli [0:1] i odchylenia standardowego równego 1. Zmniejszono ich rozmiar o połowę do 160x120. Następnie podzielono je na podzbiory o liczebności 16 ramek każdy.
 
@@ -511,42 +596,73 @@ ____________________________________________________________________
 \item Parametry sieci i treningu:
 
 Liczba filtrów wastw konwolucyjnych zmieniała się o połowę od 16 do 4 przy stałej wielkości filtra 5x5. Zastosowano dopełnianie zerami, funkcję ReLu w celu aktywacji oraz dropout na poziomie 0,2. Model był trenowany przez 200 epok.
-\item Wyniki eksperymentu:
 
-\begin{table}[h]
+\item Wyniki klasyfikacji przy użyciu podanej architektury:
+
+Duża liczba warstw głęboko połączonych na końcu sieci wprowadza ryzyko przetrenowania, nawet w sytuacji użycia warstw odrzucających niektóre połączenia neuronowe. Aby zweryfikować wpływ warstw gęsto połączonych na proces uczenia powtórzono eksperyment w celu dokładniejszego przeanalizowania wyniku. Proces uczenia w analizowanym modelu jest chaotyczny i niestabilny, co można zaobserwować na Rys. \ref{fig:kaggle_2_acc_trening}. Przyczyną może być użycie dużej ilości warstw gęsto połączonych. W rezultacie model jest przetrenowany, czyli liczba epok trening, jak i ilość parametrów modelu jest zbyt duża. Najczęściej powodue to wysokie rezultaty podczas treningu, zaś niskie w stosunku do nowych danych - testowych (\ref{tab:kaggle_2_acc_2}).
+
+\begin{figure}[h!]
+	\centering
+	\centering
+		\includegraphics[scale=0.55]{model_232_original}
+	\caption{Zależność skuteczności i błędu od epoki trenowania modelu.}.
+	\label{fig:kaggle_2_acc_trening}
+\end{figure}
+
+\begin{table}[h!]
 \centering
-\caption[Short Heading]{Skuteczność modelu.}
-\begin{tabular}{|l|l|l|l|}
+\caption[Short Heading]{Skuteczność modelu w powtórzonym eksperymencie.}
+\label{tab:kaggle_2_acc_2}
+\begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
-\textbf{skuteczność {[}\%{]}} & 99                  & 97                   & 83               \\ \hline
+\textbf{skuteczność {[}\%{]}} & 86                  & 92                   & 70               \\ \hline
+\end{tabular}
+\end{table}
+
+Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskazuje na równomierną klasyfikację każdej z klas. Jakość klasyfikacji jest porównywalna z modelem z rozdziału \ref{sec:section_kaggle_1} (\ref{tab:kaggle_2_params_val}).
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego.}
+\label{tab:kaggle_2_conf_matrix}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
+{\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
+                                    & E       & 133       & 132      & 175      & 183      \\ \cline{2-6} 
+                                    & L       & 128       & 108      & 162      & 192      \\ \cline{2-6} 
+                                    & M       & 153       & 110      & 161      & 196      \\ \cline{2-6} 
+                                    & N       & 76       & 66      & 91      & 125       \\ \hline
 \end{tabular}
 \end{table}
 
 \end{itemize}
 }
 
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym.}
+\label{tab:kaggle_2_params_val}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
+\textbf{klasa eozynofil (E)} & 0.26   & 0.21   & 0.23 & 499  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.23  & 0.23 & 0.23  & 497  \\ \hline
+\textbf{klasa monocyt (M)} & 0.25   & 0.24    & 0.24  & 496  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.24   & 0.30    & 0.27  & 500  \\ \hline
+\end{tabular}
+\end{table}
+
 \subsection{Wytrenowana architektura sieci InceptionV3}
 %https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty.
+Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperment na podstawie cytowanego modelu.
 
 {\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
-Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano mały podzbiór dołączony do bazy, którego liczebnść stanowi niecałe 3\% zbioru walidacyjnego.
-
-\begin{figure}[h]
-\begin{center}
-	\begin{tikzpicture}[scale = 0.7]
-		\pie [text=legend, sum = 100] 
-    		{75/uczący (9957 sztuk),
-     	24.25/walidacyjny (2416 sztuk),
-     	0.75/testowy (71 sztuk)}
-	\end{tikzpicture}
-\end{center}
-\caption{Podział bazy danych.}
-\end{figure}
+Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano raz jeszcze zbiór walidacyjny (\ref{fig:kaggle_3_db_share}). Taki sposób testowania nie daje faktycznej informacji o zdolności klasyfikacyjnej sieci, dlatego eksperyment musiał zostać powtórzony. Zastosowano taki sam podział bazy jak w rozdziale \ref{sec:section_kaggle_1}.
 
 Ramki zostały użyte w oryginalnym rozmiarze 320x240, bez normalizacji i standaryzacji wartości pikseli. Podzielono je na podzbiory o liczebności 32 ramki każdy.
 \item Struktura sieci:
@@ -595,17 +711,57 @@ _________________________________________________________________
 \begin{itemize}
 \item Parametry sieci i treningu:
 
-Znaczącą różnicą jest zastosowanie klasyfikatora pięciowyjściowego, co pozwala na przypisanie do ramki klasy "żadna". W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia \(5 \times 10^{-5}\). Model był trenowany przez 30 epok.
+Model był trenowany przez 30 epok. W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia \(5 \times 10^{-5}\). 
 
-\item Wyniki eksperymentu:
+\item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-\begin{table}[h]
+Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i także testowym są najwyższe w porównaniu z poprzednimi architekturami (\ref{tab:kaggle_3_acc_2}). Wyniki skuteczności dla zbioru walidacyjnego są mniej oscylują niż w modelu z regularyzacją (\ref{fig:kaggle_3_acc_trening}). Skuteczność klasyfikacji jest porównywalna w każdej z klas, co przedstawiają tabele \ref{tab:kaggle_3_conf_matrix} i \ref{tab:kaggle_3_params_val}.
+
+\begin{table}[h!]
 \centering
-\caption[Short Heading]{Skuteczność modelu.}
-\begin{tabular}{|l|l|l|l|}
+\caption[Short Heading]{Skuteczność modelu w powtórzonym eksperymencie.}
+\label{tab:kaggle_3_acc_2}
+\begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
-\textbf{skuteczność {[}\%{]}} & 99                  & 87                   & 86               \\ \hline
+\textbf{skuteczność {[}\%{]}} & 99                  & 99           & 84 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+	\centering
+	\centering
+		\includegraphics[scale=0.55]{model_233_original}
+	\caption{Zależność skuteczności i błędu od epoki trenowania modelu.}.
+	\label{fig:kaggle_3_acc_trening}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego.}
+\label{tab:kaggle_3_conf_matrix}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
+{\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
+                                    & E       & 138       & 131      & 117      & 114      \\ \cline{2-6} 
+                                    & L       & 136       & 127      & 122      & 112      \\ \cline{2-6} 
+                                    & M       & 122       & 114      & 125      & 135      \\ \cline{2-6} 
+                                    & N       & 123      & 120      & 125      & 132       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym.}
+\label{tab:kaggle_3_params_val}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
+\textbf{klasa eozynofil (E)} & 0.27   & 0.28   & 0.27 & 499  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.26  & 0.26 & 0.26  & 497  \\ \hline
+\textbf{klasa monocyt (M)} & 0.26   & 0.25    & 0.25  & 496  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.27   & 0.26    & 0.27  & 500  \\ \hline
 \end{tabular}
 \end{table}
 
