@@ -206,7 +206,8 @@ gdzie,
 \end{equation}
 \end{itemize}
 
-Przykładowe funkcje aktywacyje:
+Najlepiej działającymi funkcjami aktywacyjnymi są funkcje nieliniowe, gdyż pozwalają na reprezentację bardziej skomplikowanych odwzorowań. Ważną cechą, jaką powinna posiadać funkcja aktywacyjna jest różniczkowalność. Dzięki temu, że funkcja ma pochodną możliwa jest propagacja wsteczna. Ten krok zawiera w sobie liczenie gradientów błędów względem wag w celu optymalizacji działania sieci neuronowej i zredukowania wartości błędu do minimum. Przykładowe funkcje aktywacyje:
+
 \begin{itemize}
 \item progowanie (\ref{equ:activ_thresholding}),
 \begin{equation}
@@ -231,16 +232,36 @@ gdzie,
 \begin{eqwhere}[2cm]
 	\item[$c$] stała,
 \end{eqwhere}
-\item S-funkcja (\ref{equ:activ_sfunction}),
+\item eksponencjalna (\ref{equ:activ_exp}),
 \begin{equation}
-A = \frac{1}{1+e^{-Y}}
-\label{equ:activ_sfunction}
+A = e^{Y}
+\label{equ:activ_exp}
+\end{equation}
+\item tangens hiperboliczny (\ref{equ:activ_tanh}),
+\begin{equation}
+A = tanh(Y) =  \frac{e^{Y} - e^{-Y}}{e^{Y} + e^{-Y}}
+\label{equ:activ_tanh}
 \end{equation}
 \item ReLu (\ref{equ:activ_relu}).
 \begin{equation}
 A = max(0,Y)
 \label{equ:activ_relu}
 \end{equation}
+
+\item S-funkcja (ang. \textit{sigmoid}) (\ref{equ:activ_sigmoid}),
+\begin{equation}
+A = \frac{1}{1+e^{-Y}}
+\label{equ:activ_sigmoid}
+\end{equation}
+\item softmax (\ref{equ:activ_softmax}),
+\begin{equation}
+A = \frac{e^{Y}}{\sum_{j=0}^{k} e^{Y_j}}
+\label{equ:activ_softmax}
+\end{equation}
+gdzie,
+\begin{eqwhere}[2cm]
+	\item[$k$] ilość klas,
+\end{eqwhere}
 \end{itemize}
 
 Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
@@ -434,30 +455,30 @@ Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z wynik
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego modelu z klasyfikatorem binarnym.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z klasyfikatorem binarnym.}
 \label{tab:kaggle_1_conf_matrix_val_1}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
 {\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
-                                    & E       & 0       & 484      & 0      & 15      \\ \cline{2-6} 
-                                    & L       & 0       & 486      & 0      & 11      \\ \cline{2-6} 
-                                    & M       & 0       & 475      & 0      & 21      \\ \cline{2-6} 
-                                    & N       & 0       & 493      & 0      & 7       \\ \hline
+                                    & E       & 0       & 607      & 0      & 16      \\ \cline{2-6} 
+                                    & L       & 0       & 606      & 0      & 14      \\ \cline{2-6} 
+                                    & M       & 0       & 607      & 0      & 13      \\ \cline{2-6} 
+                                    & N       & 0       & 613      & 0      & 11       \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym modelu z klasyfikatorem binarnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym modelu z klasyfikatorem binarnym.}
 \label{tab:kaggle_1_params_val_1}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.00   & 0.00   & 0.00  & 499  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.25  & 0.93 & 0.40  & 497  \\ \hline
-\textbf{klasa monocyt (M)} & 0.00   & 0.00    & 0.00  & 496  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.13   & 0.01    & 0.03  & 500  \\ \hline
+\textbf{klasa eozynofil (E)} & 0.00   & 0.00   & 0.00  & 623  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.25  & 0.98 & 0.40  & 620  \\ \hline
+\textbf{klasa monocyt (M)} & 0.00   & 0.00    & 0.00  & 620  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.20   & 0.02    & 0.03  & 624  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -487,16 +508,16 @@ Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax.
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego modelu z klasyfikatorem niebinarnym.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z klasyfikatorem niebinarnym.}
 \label{tab:kaggle_1_conf_matrix_2}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
 {\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
-                                    & E       & 102       & 147      & 128      & 122      \\ \cline{2-6} 
-                                    & L       & 105       & 157      & 126      & 109      \\ \cline{2-6} 
-                                    & M       & 124       & 145      & 128      & 99      \\ \cline{2-6} 
-                                    & N       & 114       & 133      & 133      & 120       \\ \hline
+                                    & E       & 144       & 167      & 173      & 139      \\ \cline{2-6} 
+                                    & L       & 152       & 165      & 170      & 133      \\ \cline{2-6} 
+                                    & M       & 140       & 179      & 160      & 141      \\ \cline{2-6} 
+                                    & N       & 147       & 151      & 172      & 154       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -505,21 +526,22 @@ Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax.
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym modelu z klasyfikatorem niebinarnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym modelu z klasyfikatorem niebinarnym.}
 \label{tab:kaggle_1_params_val_2}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.23   & 0.20   & 0.22 & 499  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.27  & 0.32 & 0.29  & 497  \\ \hline
-\textbf{klasa monocyt (M)} & 0.25   & 0.26    & 0.25  & 496  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.27   & 0.24    & 0.25  & 500  \\ \hline
+\textbf{klasa eozynofil (E)} & 0.25   & 0.23   & 0.24 & 623  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.25  & 0.27 & 0.26  & 620  \\ \hline
+\textbf{klasa monocyt (M)} & 0.24   & 0.26    & 0.25  & 620  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.27   & 0.25    & 0.26  & 624  \\ \hline
 \end{tabular}
 \end{table}
 
 Sprawdzenie szczegółów dotyczących klasyfiacji, takich jak skuteczność dla poszczególnych klas jest bardzo ważnym krokiem ewaluacyji modelu. W podanym przypadku pozwoliło to na poprawę osiągnięć sieci, mimo że pozornie sumaryczna skuteczność na zbiorach treningowym i walidacyjnym zmalały. Mogą zostać poprawiona przez zwiększenie ilości epok treningu i strojenie parametrów sieci.
 
 \subsection{Sieć trenowana z regularyzacją}
+\label{sec:section_kaggle_2}
 %https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights
 Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na podstwie cytowanego modelu.
 
@@ -616,7 +638,7 @@ Duża liczba warstw głęboko połączonych na końcu sieci wprowadza ryzyko prz
 \begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
-\textbf{skuteczność {[}\%{]}} & 86                  & 92                   & 70               \\ \hline
+\textbf{skuteczność {[}\%{]}} & 86                  & 92                   & 77               \\ \hline
 \end{tabular}
 \end{table}
 
@@ -624,16 +646,16 @@ Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskaz
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego.}
 \label{tab:kaggle_2_conf_matrix}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
 {\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
-                                    & E       & 133       & 132      & 175      & 183      \\ \cline{2-6} 
-                                    & L       & 128       & 108      & 162      & 192      \\ \cline{2-6} 
-                                    & M       & 153       & 110      & 161      & 196      \\ \cline{2-6} 
-                                    & N       & 76       & 66      & 91      & 125       \\ \hline
+                                    & E       & 219       & 168      & 103      & 133     \\ \cline{2-6} 
+                                    & L       & 213       & 132      & 133      & 142      \\ \cline{2-6} 
+                                    & M       & 203       & 168      & 115      & 134      \\ \cline{2-6} 
+                                    & N       & 217       & 153      & 127      & 127       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -642,19 +664,20 @@ Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskaz
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym.}
 \label{tab:kaggle_2_params_val}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.26   & 0.21   & 0.23 & 499  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.23  & 0.23 & 0.23  & 497  \\ \hline
-\textbf{klasa monocyt (M)} & 0.25   & 0.24    & 0.24  & 496  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.24   & 0.30    & 0.27  & 500  \\ \hline
+\textbf{klasa eozynofil (E)} & 0.26   & 0.35   & 0.30 & 623  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.21  & 0.21 & 0.21  & 620  \\ \hline
+\textbf{klasa monocyt (M)} & 0.24   & 0.19    & 0.21  & 620  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.24   & 0.20    & 0.22  & 620  \\ \hline
 \end{tabular}
 \end{table}
 
 \subsection{Wytrenowana architektura sieci InceptionV3}
+\label{sec:section_kaggle_3}
 %https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
 Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperment na podstawie cytowanego modelu.
 
@@ -662,7 +685,7 @@ Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej 
 \begin{itemize}
 \item Przygotowanie danych:
 
-Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano raz jeszcze zbiór walidacyjny (\ref{fig:kaggle_3_db_share}). Taki sposób testowania nie daje faktycznej informacji o zdolności klasyfikacyjnej sieci, dlatego eksperyment musiał zostać powtórzony. Zastosowano taki sam podział bazy jak w rozdziale \ref{sec:section_kaggle_1}.
+Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano raz jeszcze zbiór walidacyjny. Taki sposób testowania nie daje faktycznej informacji o zdolności klasyfikacyjnej sieci, dlatego eksperyment musiał zostać powtórzony. Zastosowano taki sam podział bazy jak w rozdziale \ref{sec:section_kaggle_1}.
 
 Ramki zostały użyte w oryginalnym rozmiarze 320x240, bez normalizacji i standaryzacji wartości pikseli. Podzielono je na podzbiory o liczebności 32 ramki każdy.
 \item Struktura sieci:
@@ -724,7 +747,7 @@ Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i 
 \begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{typ zbioru}           & \textbf{treningowy} & \textbf{walidacyjny} & \textbf{testowy} \\ \hline
-\textbf{skuteczność {[}\%{]}} & 99                  & 99           & 84 \\ \hline
+\textbf{skuteczność {[}\%{]}} & 99                  & 99           & 86 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -738,30 +761,30 @@ Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i 
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru walidacyjnego.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego.}
 \label{tab:kaggle_3_conf_matrix}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \textbf{}                           & \multicolumn{5}{c|}{\textbf{predykcja}} \\ \hline
 {\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{klasa}}}} &         & E       & L        & M      & N       \\ \cline{2-6} 
-                                    & E       & 138       & 131      & 117      & 114      \\ \cline{2-6} 
-                                    & L       & 136       & 127      & 122      & 112      \\ \cline{2-6} 
-                                    & M       & 122       & 114      & 125      & 135      \\ \cline{2-6} 
-                                    & N       & 123      & 120      & 125      & 132       \\ \hline
+                                    & E       & 179       & 154      & 115      & 175      \\ \cline{2-6} 
+                                    & L       & 181       & 164      & 116      & 169      \\ \cline{2-6} 
+                                    & M       & 208       & 136      & 115      & 161      \\ \cline{2-6} 
+                                    & N       & 177      & 166     & 119      & 162       \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze walidacyjnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym.}
 \label{tab:kaggle_3_params_val}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.27   & 0.28   & 0.27 & 499  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.26  & 0.26 & 0.26  & 497  \\ \hline
-\textbf{klasa monocyt (M)} & 0.26   & 0.25    & 0.25  & 496  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.27   & 0.26    & 0.27  & 500  \\ \hline
+\textbf{klasa eozynofil (E)} & 0.24   & 0.29   & 0.26 & 623  \\ \hline
+\textbf{klasa limfocyt (L)} & 0.26  & 0.26 & 0.26  & 620  \\ \hline
+\textbf{klasa monocyt (M)} & 0.25   & 0.19    & 0.21  & 620  \\ \hline
+\textbf{klasa neutrofil (N)} & 0.25   & 0.26    & 0.25  & 624  \\ \hline
 \end{tabular}
 \end{table}
 
