@@ -16,7 +16,7 @@ Krwinki białe, będące komórkami systemu odpornościowego, w~zależności od~
 \end{table}
 
 {\parindent0pt % disables indentation for all the text between { and }
-Baza wykorzystana w~pracy zawiera zdjęcia w~każdej z~tych kategorii. Najważniejsze cechy, po~których można rozpoznać daną klasę to~wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na~segmenty, eozynofile jądra dwupłatowe, limfocyty są~okrągłe z~kulistymi jądrami, a~monocyty z~elipsodalnymi \cite{lymphocytes_nucleus}. Rys. \ref{fig:subcaption_example} przedstawia przykładowe zdjęcia pochodzące z~bazy.
+Baza wykorzystana w~pracy zawiera zdjęcia w~każdej z~tych kategorii. Najważniejsze cechy, po~których można rozpoznać daną klasę to~wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na~segmenty, eozynofile jądra dwupłatowe, limfocyty są~okrągłe z~kulistymi jądrami, a~monocyty z~elipsodalnymi \cite{lymphocytes_nucleus}. Rysunek \ref{fig:subcaption_example} przedstawia przykładowe zdjęcia pochodzące z~bazy.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.35\textwidth}
@@ -49,7 +49,7 @@ Baza wykorzystana w~pracy zawiera zdjęcia w~każdej z~tych kategorii. Najważni
 Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z~kilku do~kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się implementacje bardzo głębokich sieci z~więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z~pierwszych sieci bazująca na~reprezentacji wysokopoziomowej, maszyna Boltzmanna (ang. \textit{restricted boltzmann machine}, RBM), została opisana w~2006 roku. Miała tylko~trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie~będącą wejściem ani wyjściem z~układu \cite{Hinton2006AFL}. w~rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i~generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez~nie~zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na~przykład oczy, nos w~przypadku rozpoznawaniu twarzy.
 
 \subsection{Zasada działania sieci neuronowych}
-Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to~układ przetwarzania danych, składający się z~warstw sztucznych neuronów, połączonych synapsami o~konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na~wejściowych danych, a~wynik przesyłany jest do~kolejnego rzędu neuronów lub~do~wyjścia układu. Schemat struktury sieci przedstawa Rys. \ref{fig:ann_visualisation}).
+Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to~układ przetwarzania danych, składający się z~warstw sztucznych neuronów, połączonych synapsami o~konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na~wejściowych danych, a~wynik przesyłany jest do~kolejnego rzędu neuronów lub~do~wyjścia układu. Schemat struktury sieci przedstawa rysunek \ref{fig:ann_visualisation}).
 
 \begin{figure}[h!]
 	\centering
@@ -124,7 +124,7 @@ Neurony w~sieci są~pogrupowane w~warstwy. Typowe obliczenia w~warstwie CNN skł
 {\parindent0pt % disables indentation for all the text between { and }
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 %wzorowane na~artykule, ale~mój przykład jest autorkski
-Rys. \ref{fig:convolution_example} prezentuje przykładowe działanie konwolucji dla obrazu o~głębokości 3 (np. RGB). Zastosowano filtr $3\times3$, z~krokiem równym 2, co~znaczy że filtr jest stosowany co~2 piksele. Zmniejsza to~rozmiar ramki do~$3\times3$. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). z~każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. nie~zastosowano dopełnianie macierzy zerowymi wierszami i~kolumnami na~brzegach (ang. \textit{padding - valid}), więc~z tego powodu także następuje redukcja rozmiaru - do~$2\times2$. 
+Rysunek \ref{fig:convolution_example} prezentuje przykładowe działanie konwolucji dla obrazu o~głębokości 3 (np. RGB). Zastosowano filtr $3\times3$, z~krokiem równym 2, co~znaczy że filtr jest stosowany co~2 piksele. Zmniejsza to~rozmiar ramki do~$3\times3$. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). z~każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. nie~zastosowano dopełnianie macierzy zerowymi wierszami i~kolumnami na~brzegach (ang. \textit{padding - valid}), więc~z tego powodu także następuje redukcja rozmiaru - do~$2\times2$. 
 
 \begin{figure}[h!]
 	\centering
@@ -137,7 +137,7 @@ Rys. \ref{fig:convolution_example} prezentuje przykładowe działanie konwolucji
 %https://medium.com/the-theory-of-everything/understanding-activation-functions-in-neural-networks-9491262884e0
 Po przejściu przez~konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do~niej wartości błędu i~zdecydowanie czy~dana wartość pownna być uznana za~aktywną czyli braną pod~uwagę w~dalszym działaniu.
 
-Funkcja redukcyjna zastępuje wartość wyjściową w~danym węźle pewną warością obliczoną na~podstawie wyjść sąsiednich neuronów. w~ten sposób zmiejszana jest ilość próbek, a~także parametrów sieci, co~zmniejsza nakład obliczeniowy i~redukuje overfitting. Rys. \ref{fig:max_pooling_example} prezentuje przykład zastosowania funkcji redukcyjnej typu max pooling. Zastosowano podział na~bloki $3\times3$. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
+Funkcja redukcyjna zastępuje wartość wyjściową w~danym węźle pewną warością obliczoną na~podstawie wyjść sąsiednich neuronów. w~ten sposób zmiejszana jest ilość próbek, a~także parametrów sieci, co~zmniejsza nakład obliczeniowy i~redukuje overfitting. Rysunek \ref{fig:max_pooling_example} prezentuje przykład zastosowania funkcji redukcyjnej typu max pooling. Zastosowano podział na~bloki $3\times3$. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
 \begin{figure}[H]
 	\centering
@@ -621,7 +621,7 @@ Liczba filtrów wastw konwolucyjnych zmieniała się o~połowę od~16 do~4 przy 
 
 \item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-Duża liczba warstw głęboko połączonych na~końcu sieci wprowadza ryzyko przetrenowania, nawet w~sytuacji użycia warstw odrzucających niektóre połączenia neuronowe. Aby zweryfikować wpływ warstw gęsto połączonych na~proces uczenia powtórzono eksperyment w~celu dokładniejszego przeanalizowania wyniku. Proces uczenia w~analizowanym modelu jest chaotyczny i~niestabilny, co~można zaobserwować na~Rys. \ref{fig:kaggle_2_acc_trening}. Przyczyną może być użycie dużej ilości warstw gęsto połączonych. w~rezultacie model jest wytrenowany, czyli liczba epok trening, jak i~ilość parametrów modelu jest zbyt duża. Najczęściej powodjue to~wysokie rezultaty podczas treningu, zaś niskie w~stosunku do~nowych danych - testowych (\ref{tab:kaggle_2_acc_2}).
+Duża liczba warstw głęboko połączonych na~końcu sieci wprowadza ryzyko przetrenowania, nawet w~sytuacji użycia warstw odrzucających niektóre połączenia neuronowe. Aby zweryfikować wpływ warstw gęsto połączonych na~proces uczenia powtórzono eksperyment w~celu dokładniejszego przeanalizowania wyniku. Proces uczenia w~analizowanym modelu jest chaotyczny i~niestabilny, co~można zaobserwować na~rysunku \ref{fig:kaggle_2_acc_trening}. Przyczyną może być użycie dużej ilości warstw gęsto połączonych. w~rezultacie model jest wytrenowany, czyli liczba epok trening, jak i~ilość parametrów modelu jest zbyt duża. Najczęściej powodjue to~wysokie rezultaty podczas treningu, zaś niskie w~stosunku do~nowych danych - testowych (\ref{tab:kaggle_2_acc_2}).
 
 \begin{figure}[h!]
 	\centering

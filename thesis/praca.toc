@@ -17,19 +17,19 @@
 \contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana z~warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{20}
 \contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z~regularyzacj\IeC {\k a}}{24}
 \contentsline {subsection}{\numberline {2.3.3}Wytrenowana architektura sieci InceptionV3}{26}
-\contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morometrycznych krwi}{29}
+\contentsline {chapter}{\numberline {3}System do~klasyfikacji element\IeC {\'o}w morometrycznych krwi}{29}
 \contentsline {section}{\numberline {3.1}Przygotowanie bazy danych}{29}
 \contentsline {subsection}{\numberline {3.1.1}Zastosowanie metody augmentacji danych}{29}
-\contentsline {subsection}{\numberline {3.1.2}Podzia\IeC {\l } na podzbiory}{30}
+\contentsline {subsection}{\numberline {3.1.2}Podzia\IeC {\l } na~podzbiory}{30}
 \contentsline {section}{\numberline {3.2}Zaproponowana struktura sieci neuronowej}{31}
-\contentsline {subsection}{\numberline {3.2.1}Cechy architektury zaczerpni\IeC {\k e}te z modelu VGGNet.}{31}
-\contentsline {subsection}{\numberline {3.2.2}Cechy architektury zaczerpni\IeC {\k e}te z modelu U-Net.}{32}
-\contentsline {subsection}{\numberline {3.2.3}Cechy architektury zaczerpni\IeC {\k e}te z modelu ResNet.}{34}
+\contentsline {subsection}{\numberline {3.2.1}Cechy architektury zaczerpni\IeC {\k e}te z~modelu VGGNet.}{31}
+\contentsline {subsection}{\numberline {3.2.2}Cechy architektury zaczerpni\IeC {\k e}te z~modelu U-Net.}{32}
+\contentsline {subsection}{\numberline {3.2.3}Cechy architektury zaczerpni\IeC {\k e}te z~modelu ResNet.}{35}
 \contentsline {section}{\numberline {3.3}Dob\IeC {\'o}r parametr\IeC {\'o}w}{36}
-\contentsline {subsection}{\numberline {3.3.1}Dob\IeC {\'o}r optymalizatora i szybko\IeC {\'s}ci uczenia}{37}
+\contentsline {subsection}{\numberline {3.3.1}Dob\IeC {\'o}r algorytmu optymalizacji i~szybko\IeC {\'s}ci uczenia}{37}
 \contentsline {subsection}{\numberline {3.3.2}Ograniczenie przeuczenia modelu}{38}
-\contentsline {subsection}{\numberline {3.3.3}Wp\IeC {\l }yw przygotowania danych na jako\IeC {\'s}\IeC {\'c} klasyfikacji}{39}
-\contentsline {subsection}{\numberline {3.3.4}Wyb\IeC {\'o}r funkcji redukcyjnej}{41}
+\contentsline {subsection}{\numberline {3.3.3}Wp\IeC {\l }yw przygotowania danych na~jako\IeC {\'s}\IeC {\'c} klasyfikacji}{39}
+\contentsline {subsection}{\numberline {3.3.4}Wyb\IeC {\'o}r funkcji redukcyjnej}{42}
 \contentsline {subsection}{\numberline {3.3.5}Wyb\IeC {\'o}r funkcji aktywacyjnej warstw konwolucyjnych}{44}
 \contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{47}
 \contentsline {section}{\numberline {4.1}Wizualizacja dzia\IeC {\l }ania}{50}

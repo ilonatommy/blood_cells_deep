@@ -1,7 +1,7 @@
 \chapter{Analiza wyników}
 \label{cha:analiza_wynikow}
 
-Ostateczny model klasyfikatora po dobraniu odpowiedniej architektury i dostrojeniu parametrów został przetrenowany przez 36 epok, a ostatnia poprawa wartości funkcji błedu nastąpiła w 29 epoce. Przebieg procesu uczenia został przedstawiony na Rys. \ref{fig:trening_model_4}. Krzywa walidacji prawie w każdym punkcie nadąża za krzywą uczenia, co oznacza stabilność algorytmu. Wartość skuteczności modelu na zbiorze testowym wynosi 85\% (\ref{tab:acc}).
+Ostateczny model klasyfikatora po dobraniu odpowiedniej architektury i dostrojeniu parametrów został przetrenowany przez 36 epok, a ostatnia poprawa wartości funkcji błedu nastąpiła w 29 epoce. Przebieg procesu uczenia został przedstawiony na rysunku \ref{fig:trening_model_4}. Krzywa walidacji prawie w każdym punkcie nadąża za krzywą uczenia, co oznacza stabilność algorytmu. Wartość skuteczności modelu na zbiorze testowym wynosi 85\% (\ref{tab:acc}).
 
 \begin{figure}[h!]
 	\centering
@@ -172,11 +172,11 @@ Precyzja klasyfikacji jest stosunkiem właściwych sklasyfikowań do całkowitej
 \label{tab:params_test}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Swoistość} & \textbf{Miara F1} & \textbf{Ilość próbek}\\ \hline
-\textbf{klasa E} & 0.25   & 0.23   & 0.77 & 0.24 & 623 \\ \hline
-\textbf{klasa L} & 0.27  & 0.24 & 0.78 & 0.25 & 620 \\ \hline
-\textbf{klasa M} & 0.26   & 0.23    & 0.78 & 0.24  & 620 \\ \hline
-\textbf{klasa N} & 0.25   & 0.33   & 0.67 & 0.29 & 624  \\ \hline
+\textbf{Parametr}                              & \textbf{Liczba próbek} & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Swoistość} & \textbf{Miara F1} \\ \hline
+\textbf{klasa E} & 623 & 0.25   & 0.23   & 0.77 & 0.24  \\ \hline
+\textbf{klasa L} & 620 & 0.27  & 0.24 & 0.78 & 0.25 \\ \hline
+\textbf{klasa M}  & 620 & 0.26   & 0.23    & 0.78 & 0.24  \\ \hline
+\textbf{klasa N}  & 624 & 0.25   & 0.33   & 0.67 & 0.29\\ \hline
 \end{tabular}
 \end{table}
 }
@@ -189,16 +189,16 @@ Kolejne filry konwolucyjne są odpowiedzialne za znajdowanie coraz bardziej szcz
 	\centering
 	\centering
 		\includegraphics[scale=0.5]{E5}	
-	\caption{Obraz z klasy E, dla którego zwizualizowano filtry na Rys. \ref{fig:filters_1}, \ref{fig:e_conv_148},   \ref{fig:e_conv_151},  \ref{fig:e_conv_154},  \ref{fig:e_conv_156}.}\label{fig:e_conv_148}
+	\caption{Obraz z klasy E, dla którego zwizualizowano filtry na rysunku \ref{fig:filters_1}, \ref{fig:e_conv_148},   \ref{fig:e_conv_151},  \ref{fig:e_conv_154},  \ref{fig:e_conv_156}.}\label{fig:e_conv_148}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.60\textwidth}
+    \begin{subfigure}[b]{0.65\textwidth}
         \includegraphics[width=\textwidth]{e_bn_output}\caption{}
         \label{fig:e_bn_output}
     \end{subfigure}
-    \begin{subfigure}[b]{0.60\textwidth}
+    \begin{subfigure}[b]{0.65\textwidth}
         \includegraphics[width=\textwidth]{e_conv_145}\caption{}
         \label{fig:e_conv_145}
     \end{subfigure}
@@ -234,6 +234,7 @@ Kolejne filry konwolucyjne są odpowiedzialne za znajdowanie coraz bardziej szcz
 	\caption{Trzynasta i ostatnia warstwa konwolucyjna z 12 filtrami.}\label{fig:e_conv_156}
 \end{figure}
 
+\clearpage  
 W celu zbadania jakie dokładnie piksele i w jakim stopniu decydują o zaklasyfikowaniu ramki do danej klasy można stworzyć mapę aktywacji na podstawie wag modelu. W ten sposób można stwierdzić czy klasyfikacja przebiega na podstawie oczekiwanych cech. Jest to ważna część weryfikacji, gdyż sieć neuronowa może działać z wysoką skutecznością z powodu cechy bazy danych nie branej pod uwagę przy doborze zdjęć, na przykład charakterystyczne tło \cite{Mller2012IntroductionPA}. Należy wybrać losowo ramkę z bazy, sprawdzić do jakiej klasy sieć ją przypisuje i dla tej klasy pobrać wektor wag z ostatniej warstwy konwolucyjnej sieci. Następnie 
 % superimposed_heatmap_e
 % heatmap_e

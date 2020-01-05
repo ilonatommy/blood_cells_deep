@@ -75,9 +75,6 @@
          giveni={W\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Edinburgh: Churchill Livingstone}%
-    }
     \strng{namehash}{BA+1}
     \strng{fullhash}{BAAJMLMRKRPW1}
     \field{labelnamesource}{author}
@@ -86,6 +83,7 @@
     \field{sortinithash}{B}
     \field{title}{Leukocyte also known as macrophages functions and percentage
   breakdown}
+    \field{journaltitle}{Edinburgh: Churchill Livingstone}
     \field{year}{2002}
   \endentry
 
@@ -146,6 +144,34 @@
     \field{year}{2017}
   \endentry
 
+  \entry{deep_learning_w_keras}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CA}{%
+         family={Culli},
+         familyi={C\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Pal},
+         familyi={P\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Packt Publishing}%
+    }
+    \strng{namehash}{CAPS1}
+    \strng{fullhash}{CAPS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Deep Learning With Keras}
+    \field{year}{2017}
+  \endentry
+
   \entry{Res_Net_architecture}{misc}{}
     \name{author}{1}{}{%
       {{hash=DS}{%
@@ -162,28 +188,6 @@
     \field{sortinit}{D}
     \field{sortinithash}{D}
   \field{title}{\url{https://medium.com/analytics-vidhya/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5}}
-  \endentry
-
-  \entry{deep_learning}{inproceedings}{}
-    \list{publisher}{1}{%
-      {The MIT Press}%
-    }
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{title}{Deep learning}
-    \field{year}{2016}
-  \endentry
-
-  \entry{deep_learning_w_keras}{inproceedings}{}
-    \list{publisher}{1}{%
-      {Packt Publishing}%
-    }
-    \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{title}{Deep Learning With Keras}
-    \field{year}{2017}
   \endentry
 
   \entry{brodmann_areas}{misc}{}
@@ -204,7 +208,26 @@
   \field{title}{\url{http://lcni.uoregon.edu/~dow/Space_software/renderings.html}}
   \endentry
 
-  \entry{kaggle_1}{inproceedings}{}
+  \entry{Dozat2016IncorporatingNM}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=DT}{%
+         family={Dozat},
+         familyi={D\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DT1}
+    \strng{fullhash}{DT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Incorporating Nesterov Momentum into Adam}
+    \field{year}{2016}
+  \endentry
+
+  \entry{kaggle_1}{misc}{}
     \name{author}{1}{}{%
       {{hash=DM}{%
          family={Drobchak},
@@ -221,6 +244,75 @@
     \field{sortinithash}{D}
   \field{title}{\url{https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90}}
     \field{year}{2019}
+  \endentry
+
+  \entry{deep_learning}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=GIG}{%
+         family={Goodfellow},
+         familyi={G\bibinitperiod},
+         given={Ian\bibnamedelima G},
+         giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CAC}{%
+         family={Courville},
+         familyi={C\bibinitperiod},
+         given={Aaron\bibnamedelima C.},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GIGBYCAC1}
+    \strng{fullhash}{GIGBYCAC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Deep Learning}
+    \field{journaltitle}{Nature}
+    \field{year}{2015}
+  \endentry
+
+  \entry{standarisation}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=HA}{%
+         family={Harding},
+         familyi={H\bibinitperiod},
+         given={Ann},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CJA}{%
+         family={Cochran},
+         familyi={C\bibinitperiod},
+         given={James\bibnamedelima Alan},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=WHC}{%
+         family={Wiser},
+         familyi={W\bibinitperiod},
+         given={H.\bibnamedelima C.},
+         giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=RBJ}{%
+         family={Rice},
+         familyi={R\bibinitperiod},
+         given={Bernard\bibnamedelima J.},
+         giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HA+1}
+    \strng{fullhash}{HACJAWHCRBJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Advanced engineering mathematics}
+    \field{year}{1979}
   \endentry
 
   \entry{VGG16_article_online}{inproceedings}{}
@@ -335,29 +427,7 @@
     \field{year}{2017}
   \endentry
 
-  \entry{batch_normalisation}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=ICSS}{%
-         family={Ioffe},
-         familyi={I\bibinitperiod},
-         suffix={Sergey;\bibnamedelima Szegedy},
-         suffixi={S\bibinitperiod\bibinitdelim S\bibinitperiod},
-         given={Christian},
-         giveni={C\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ISSC1}
-    \strng{fullhash}{ISSC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{I}
-    \field{sortinithash}{I}
-    \field{title}{Batch Normalization: Accelerating Deep Network Training by
-  Reducing Internal Covariate Shift}
-    \field{year}{2015}
-  \endentry
-
-  \entry{Ioffe2015BatchNA}{article}{}
+  \entry{Ioffe2015BatchNA}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=IS}{%
          family={Ioffe},
@@ -372,8 +442,8 @@
          giveni={C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{ISSC2}
-    \strng{fullhash}{ISSC2}
+    \strng{namehash}{ISSC1}
+    \strng{fullhash}{ISSC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{I}
@@ -384,7 +454,34 @@
     \field{year}{2015}
   \endentry
 
-  \entry{kaggle_3}{inproceedings}{}
+  \entry{batch_normalisation}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=IS}{%
+         family={Ioffe},
+         familyi={I\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Szegedy},
+         familyi={S\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ISSC1}
+    \strng{fullhash}{ISSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Batch Normalization: Accelerating Deep Network Training by
+  Reducing Internal Covariate Shift}
+    \field{journaltitle}{ArXiv}
+    \field{year}{2015}
+  \endentry
+
+  \entry{kaggle_3}{misc}{}
     \name{author}{1}{}{%
       {{hash=JLSU}{%
          family={Jung},
@@ -404,7 +501,7 @@
     \field{year}{2019}
   \endentry
 
-  \entry{cnn_website}{inproceedings}{}
+  \entry{cnn_website}{misc}{}
     \name{author}{1}{}{%
       {{hash=KG}{%
          family={Kalpande},
@@ -465,6 +562,7 @@
     \field{sortinithash}{K}
     \field{title}{On Large-Batch Training for Deep Learning: Generalization Gap
   and Sharp Minima}
+    \field{journaltitle}{ArXiv}
     \field{year}{2016}
   \endentry
 
@@ -517,25 +615,6 @@
     \field{year}{2019}
   \endentry
 
-  \entry{standarisation}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=KE}{%
-         family={Kreyszig},
-         familyi={K\bibinitperiod},
-         given={E.},
-         giveni={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{KE1}
-    \strng{fullhash}{KE1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{K}
-    \field{sortinithash}{K}
-    \field{title}{Advanced Engineering Mathematics}
-    \field{year}{1979}
-  \endentry
-
   \entry{Krizhevsky2012ImageNetCW}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=KA}{%
@@ -563,7 +642,6 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{K}
     \field{sortinithash}{K}
-    \field{booktitle}{NIPS}
     \field{title}{ImageNet Classification with Deep Convolutional Neural
   Networks}
     \field{year}{2012}
@@ -652,24 +730,6 @@
     \field{sortinit}{M}
     \field{sortinithash}{M}
     \field{title}{\url{https://www.kaggle.com/paultimothymooney/blood-cells}}
-  \endentry
-
-  \entry{database_kaggle}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=MP}{%
-         family={Mooney},
-         familyi={M\bibinitperiod},
-         given={Paul},
-         giveni={P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MP1}
-    \strng{fullhash}{MP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{title}{\url{https://www.kaggle.com/paultimothymooney/blood-cells}}
     \field{year}{2017}
   \endentry
 
@@ -690,10 +750,11 @@
     \field{sortinithash}{M}
     \field{title}{Introduction: Philosophy and Theory of Artificial
   Intelligence}
+    \field{journaltitle}{Minds and Machines}
     \field{year}{2012}
   \endentry
 
-  \entry{kaggle_2}{inproceedings}{}
+  \entry{kaggle_2}{misc}{}
     \name{author}{1}{}{%
       {{hash=n}{%
          family={nh4cl},
@@ -760,11 +821,7 @@
     \field{sortinit}{R}
     \field{sortinithash}{R}
     \field{title}{Sieci neuronowe}
-    \list{location}{1}{%
-      {Kraków, Wykład plenarny XXXII Zjazdu Fizyków Polskich}%
-    }
     \field{year}{1993}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{Ronneberger2015UNetCN}{inproceedings}{}
@@ -827,7 +884,6 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{S}
     \field{sortinithash}{S}
-    \field{booktitle}{ICANN}
     \field{title}{Evaluation of Pooling Operations in Convolutional
   Architectures for Object Recognition}
     \field{year}{2010}
@@ -915,8 +971,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{S}
     \field{sortinithash}{S}
-    \field{title}{Very deep convolutional networks for large-scale image
-  recognition}
+    \field{title}{Very Deep Convolutional Networks for Large-Scale Image
+  Recognition}
     \field{journaltitle}{CoRR}
     \field{year}{2014}
   \endentry
@@ -1009,7 +1065,7 @@
   \field{title}{\url{https://towardsdatascience.com/activation-functions-and-its-types-which-is-better-a9a5310cc8f/}}
   \endentry
 
-  \entry{gradient_decent}{inproceedings}{}
+  \entry{gradient_decent}{misc}{}
     \name{author}{1}{}{%
       {{hash=WAS}{%
          family={Walia},
@@ -1144,7 +1200,7 @@
     \field{year}{2016}
   \endentry
 
-  \entry{You2017ScalingSB}{article}{}
+  \entry{You2017ScalingSB}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=YY}{%
          family={You},
