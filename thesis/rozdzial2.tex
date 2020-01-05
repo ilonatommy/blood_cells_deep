@@ -2,10 +2,10 @@
 \label{cha:analiza_problemu_badawczego}
 
 \section{Aspekt medyczny - analiza morfometrii krwi}
-Krwinki białe, będące komórkami systemu odpornościowego, w zależności od funkcji pełnionej w organiźmie można podzielić na pięć grup, z których cztery mają znaczny udział procentowy w składzie krwi (\ref{tab:blood_cells_percentage}).
+Krwinki białe, będące komórkami systemu odpornościowego, w~zależności od~funkcji pełnionej w~organiźmie można podzielić na~pięć grup, z~których cztery mają znaczny udział procentowy w~składzie krwi (\ref{tab:blood_cells_percentage}).
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Udział procentowy typów krwinek białych w składzie krwi \cite{Wheater1979FunctionalHA}.}
+\caption[Short Heading]{Udział procentowy typów krwinek białych w~składzie krwi \cite{Wheater1979FunctionalHA}.}
 \label{tab:blood_cells_percentage}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -16,7 +16,7 @@ Krwinki białe, będące komórkami systemu odpornościowego, w zależności od 
 \end{table}
 
 {\parindent0pt % disables indentation for all the text between { and }
-Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważniejsze cechy, po których można rozpoznać daną klasę to wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na segmenty, eozynofile jądra dwupłatowe, limfocyty są okrągłe z kulistymi jądrami, a monocyty z elipsodalnymi \cite{lymphocytes_nucleus}. Rys. \ref{fig:subcaption_example} przedstawia przykładowe zjęcia pochodzące z bazy.
+Baza wykorzystana w~pracy zawiera zdjęcia w~każdej z~tych kategorii. Najważniejsze cechy, po~których można rozpoznać daną klasę to~wielkość komórki, kształt oraz typ jądra komórkowego. Neurofile mają jądra podzielone na~segmenty, eozynofile jądra dwupłatowe, limfocyty są~okrągłe z~kulistymi jądrami, a~monocyty z~elipsodalnymi \cite{lymphocytes_nucleus}. Rys. \ref{fig:subcaption_example} przedstawia przykładowe zdjęcia pochodzące z~bazy.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.35\textwidth}
@@ -46,10 +46,10 @@ Baza wykorzystana w pracy zawiera zdjęcia w każdej z tych kategorii. Najważni
 }
 \section{Głębokie sieci neuronowe}
 
-Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z kilku do kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się implementacje bardzo głębokich sieci z więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z pierwszych sieci bazująca na reprezentacji wysokopoziomowej, maszyna Boltzmanna (ang. \textit{restricted boltzmann machine}, RBM), została opisana w 2006 roku. Miała tylko trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie będącą wejściem ani wyjściem z układu \cite{Hinton2006AFL}. W rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez nie zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na przykład oczy, nos w przypadku rozpoznawaniu twarzy.
+Cechą charakterystyczną głębokich seci neuronowych (ang. \textit{deep learning neural networks}) jest uczenie się wysokopoziomowej reprezentacji wzorców. Struktura sieci składa się zwykle z~kilku do~kilkunastu warstw (ang. \textit{layers}), chociaż czasem zdarzają się implementacje bardzo głębokich sieci z~więcej niż 1000 ukytych warstw \cite{He2015DeepRL}. Jedna z~pierwszych sieci bazująca na~reprezentacji wysokopoziomowej, maszyna Boltzmanna (ang. \textit{restricted boltzmann machine}, RBM), została opisana w~2006 roku. Miała tylko~trzy gęsto połączone ukryte warstwy, gdzie warstwę ukrytą należy rozumieć jako część sieci nie~będącą wejściem ani wyjściem z~układu \cite{Hinton2006AFL}. w~rozpoznawaniu obrazów początkowe warstwy służą identyfikacji ogólnych i~generycznych wzorców, jak rozpoznawanie krawędzi. Im głębsza warstwa tym bardziej kształty przez~nie~zapamiętywane przypominają reprezentacje obiektów znane człowiekowi, na~przykład oczy, nos w~przypadku rozpoznawaniu twarzy.
 
 \subsection{Zasada działania sieci neuronowych}
-Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to układ przetwarzania danych, składający się z warstw sztucznych neuronów, połączonych synapsami o konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na wejściowych danych, a wynik przesyłany jest do kolejnego rzędu neuronów lub do wyjścia układu. Schemat stryktury sieci został przedstawiony na Rys. \ref{fig:ann_visualisation}).
+Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to~układ przetwarzania danych, składający się z~warstw sztucznych neuronów, połączonych synapsami o~konkretnych wagach (Rys. \ref{fig:ann_visualisation}). Neurony wykonują pewne operacje matematyczne na~wejściowych danych, a~wynik przesyłany jest do~kolejnego rzędu neuronów lub~do~wyjścia układu. Schemat struktury sieci przedstawa Rys. \ref{fig:ann_visualisation}).
 
 \begin{figure}[h!]
 	\centering
@@ -60,15 +60,15 @@ Sztuczna sieć neuronowa (ang. \textit{artificial neural network}, ANN) jest to 
 \end{figure}
 
 {\parindent0pt % disables indentation for all the text between { and }
-Typy sieci neuronowych z podziałem na kierunek przepływu danych:
+Typy sieci neuronowych z~podziałem na~kierunek przepływu danych:
 \begin{itemize}
-\item{Jednokierunkowa (ang. \textit{feedfoward}) - dane w sieci przepływają tylko w kierunku od wejścia do wyjścia, a uczenie sieci odbywa się dzięki zastosowaniu propagacji wstecznej. Do tego typu należą sieci konwolucyjne.}
-\item{Rekurencyjna (ang. \textit{recurrent}) - przepływ danych między dwoma połączonymi neuronami odbywa się w dowolnym kierunku, dopuszcza są też cykle.}
-\item{Ze sprzężeniem zwrotnym (ang. \textit{regulatory feedback}) - dane przepływają od wejścia do wyjścia, a w celu poprawy wag sieci stosowane jest ujemne sprzężenie zwrotne.}
-\item{Samoorganizujące się mapy (ang. \textit{self organizing maps}) - dane nie przepływają przez sieć. Sieć dopasowuje się do struktury zbiorów danych, na których jest uczona.}
+\item{Jednokierunkowa (ang. \textit{feedfoward}) - dane w~sieci przepływają tylko~w~kierunku od~wejścia do~wyjścia, a~uczenie sieci odbywa się dzięki zastosowaniu propagacji wstecznej. do~tego typu należą sieci konwolucyjne.}
+\item{Rekurencyjna (ang. \textit{recurrent}) - przepływ danych między dwoma połączonymi neuronami odbywa się w~dowolnym kierunku, dopuszcza są~też cykle.}
+\item{Ze sprzężeniem zwrotnym (ang. \textit{regulatory feedback}) - dane przepływają od~wejścia do~wyjścia, a~w~celu poprawy wag sieci stosowane jest ujemne sprzężenie zwrotne.}
+\item{Samoorganizujące się mapy (ang. \textit{self organizing maps}) - dane nie~przepływają przez~sieć. Sieć dopasowuje się do~struktury zbiorów danych, na~których jest uczona.}
 \end{itemize}
 
-Funkcję, realizowaną przez całą sieć można zapisać wzorem (\ref{equ:ann_formula}) \cite{tadeusiewicz_sn}:
+Funkcję, realizowaną przez~całą sieć można zapisać wzorem (\ref{equ:ann_formula}) \cite{tadeusiewicz_sn}:
 
 \begin{equation}
 Y = W_k X
@@ -76,33 +76,33 @@ Y = W_k X
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
-	\item[$W_k$] macierz współczynników wagowych połączeń między neuronami. Ma wymiar \textit{[k x n]}, gdzie \textit{k} - liczba warstw, \textit{n} - liczba neuronów w jednej warstwie,
+	\item[$W_k$] macierz współczynników wagowych połączeń między neuronami. ma~wymiar \textit{[k x n]}, gdzie \textit{k} - liczba warstw, \textit{n} - liczba neuronów w~jednej warstwie,
 	\item[$X$] wektor danych wejściowych,
 	\item[$Y$] wektor sygnałów wyjściowych.
 \end{eqwhere}
 
-Celem trenowania sieci neuronowej jest dobranie wartości w macierzy \textit{$W_k$} tak, aby odwzorowała wektor X w wektor Y. 
+Celem trenowania sieci neuronowej jest dobranie wartości w~macierzy \textit{$W_k$} tak, aby odwzorowała wektor X w~wektor Y. 
 }
 \subsection{Początki sieci konwolucyjnych}
 %wziąć trochę info stąd:
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
 
-Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) należą do najczęściej używanych głębokich sieci neuronowych w wizji komputerowej. Zbudowane na bazie perceptonu wielowarstwowego (ang. \textit{multilayer perceton}, MLP) będącego  najpopularniejszym typem ANN w latach 80' \cite{deep_learning, Wasserman1988NeuralNI}. MLP są używane w większości modeli na końcu konwolucyjnej sieci neuronowej i może zawierać kilka tego typu warstw. Pełni rolę przekodowania wartości cech zwracanych przez warstwy konwolucyjne na klasy, do których przynależy obiekt \cite{Krizhevsky2012ImageNetCW}. Podczas gdy MLP charakteryzują się tym, że są w pełni połączone, co oznacza że każdy neuron z warstwy jest powiązany z każdym neuronem z kolejnej warstwy, CNN nie są już połączone tak gęsto. Pozwala to między innymi na ograniczenie w pewnym stopniu podatności na zjawisko nadmiernego dopasowania (ang. {overfitting}). 
+Konwolucyjne sieci neuronowe (ang. \textit{convolutional neural networks}, CNN) należą do~najczęściej używanych głębokich sieci neuronowych w~wizji komputerowej. Zbudowane na~bazie perceptonu wielowarstwowego (ang. \textit{multilayer perceton}, MLP) będącego  najpopularniejszym typem ANN w~latach 80' \cite{deep_learning, Wasserman1988NeuralNI}. MLP są~używane w~większości modeli na~końcu konwolucyjnej sieci neuronowej i~może zawierać kilka tego typu warstw. Pełni rolę przekodowania wartości cech zwracanych przez~warstwy konwolucyjne na~klasy, do~których przynależy obiekt \cite{Krizhevsky2012ImageNetCW}. Podczas gdy MLP charakteryzują się tym, że są~w~pełni połączone, co~oznacza że każdy neuron z~warstwy jest powiązany z~każdym neuronem z~kolejnej warstwy, CNN nie~są już połączone tak~gęsto. Pozwala to~między innymi na~ograniczenie w~pewnym stopniu podatności na~zjawisko nadmiernego dopasowania (ang. \textit{overfitting}). 
 
 {\parindent0pt % disables indentation for all the text between { and }
-Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmana) - obszary, na który została podzielona struktura mózgu (Rys. \ref{fig:brodmann_areas}) \cite{Brodmann1985VergleichendeLD}. 
+Powstanie sieci tego typu zostało zainspirowane budową części mózgu odpowiedzialnej za~odbiór wrażeń wizyjnych - kory wzrokowej \cite{Matsugu2003SubjectIF}. Narząd ten zawiera liczne drobne i~gęsto ułożone komórki nerwowe. Zajmuje trzy pola Brodmanna) - obszary, na~który została podzielona struktura mózgu (Rys. \ref{fig:brodmann_areas}) \cite{Brodmann1985VergleichendeLD}. 
 
 \begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.6]{Brodmann_areas}	
-	\caption{Struktura mózgu podzielona na pola Brodmanna z zaznaczoną korą wzrokową \cite{brodmann_areas}.}
+	\caption{Struktura mózgu podzielona na~pola Brodmanna z~zaznaczoną korą wzrokową \cite{brodmann_areas}.}
 	\label{fig:brodmann_areas}
 \end{figure}
 
-Informacja wizyjna jest przekazywana z jednego obszaru do drugiego, przy czym każdy kolejny obszar jest bardziej wyspecjalizowany niż poprzedni. Pola różnią się między sobą funkcjami, przez co neurony w danym obszarze wykonują tylko konkretne zadania. Przykładowo obszar, do którego w pierwszej kolejności trafiają informacje wizyjne, nazwany bruzdą ostrogową zachowuje lokalizację przestrzenną widzianych obiektów. Przekazuje on informację do asocjacyjnej kory wzrokowej, która z kolei jest odpowiedzialna za rozpoznawanie kształtów, rozmiarów i kolorów, a potem do innych obszarów mózgu zajmujących się kojarzeniem obiektu z jego reprezentacją w pamięci. Z kolei trzeciorzędowa kora wzrokowa (ang. \textit{middle temporal}) rozpoznaje ruch obieków, a przedczołowa (ang. \textit{dorsomedial prefrontal cortex}) ruch samego obiektu rejestrująccego obraz \cite{cnn_website}. Analogicznie działają sieci konwolucyjne, w których kolejne warstwy są odpowiedzialne za detekcję różnych typów wzorców, a dane są przekazywane między warstwami i analizowane na różnych poziomach abstrakcji.
+Informacja wizyjna jest przekazywana z~jednego obszaru do~drugiego, przy czym każdy kolejny obszar jest bardziej wyspecjalizowany niż poprzedni. Pola różnią się między sobą funkcjami, przez~co neurony w~danym obszarze wykonują tylko~konkretne zadania. Przykładowo obszar, do~którego w~pierwszej kolejności trafiają informacje wizyjne, nazwany bruzdą ostrogową zachowuje lokalizację przestrzenną widzianych obiektów. Przekazuje on informację do~asocjacyjnej kory wzrokowej, która z~kolei jest odpowiedzialna za~rozpoznawanie kształtów, rozmiarów i~kolorów, a~potem do~innych obszarów mózgu zajmujących się kojarzeniem obiektu z~jego reprezentacją w~pamięci. z~kolei trzeciorzędowa kora wzrokowa (ang. \textit{middle temporal}) rozpoznaje ruch obieków, a~przedczołowa (ang. \textit{dorsomedial prefrontal cortex}) ruch samego obiektu rejestrująccego obraz \cite{cnn_website}. Analogicznie działają sieci konwolucyjne, w~których kolejne warstwy są~odpowiedzialne za~detekcję różnych typów wzorców, a~dane są~przekazywane między warstwami i~analizowane na~różnych poziomach abstrakcji.
 
-Sieci kowolucyjne znalazły zastosowanie w rozpoznawaniu obrazów, ze względu na inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są w postaci tensora trójwymiarowego, a operacja konwolucji (oznaczona gwiazdką), która zachodzi w warstwach sieci może być opisana równaniem (\ref{equ:convolution_formula}), \cite{deep_learning}:
+Sieci kowolucyjne znalazły zastosowanie w~rozpoznawaniu obrazów, ze~względu na~inwariancję względem translacji oraz zdolność uczenia się wzorców lokalnych \cite{Chollet2017DeepLW}. Dane wejściowe są~w~postaci tensora trójwymiarowego, a~operacja konwolucji (oznaczona gwiazdką), która zachodzi w~warstwach sieci może być opisana równaniem (\ref{equ:convolution_formula}) \cite{deep_learning}:
 
 \begin{equation}
 S(i,j) = (I * K)(i,j) = \sum_{m}^{}\sum_{n}^{} I(m,n)K(i-m,j-n).
@@ -119,53 +119,53 @@ gdzie,
 \subsection{Warstwy jako podstawowe bloki konstrukcyjne}
 %https://medium.com/@gopalkalpande/biological-inspiration-of-convolutional-neural-network-cnn-9419668898ac
 
-Neurony w sieci są pogrupowane w warstwy. Typowe obliczenia w warstwie CNN składają się z trzech etapów. W pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. W kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. Na koniec używana jest funkcja redukująca (ang. \textit{pooling function}) \cite{deep_learning}.
+Neurony w~sieci są~pogrupowane w~warstwy. Typowe obliczenia w~warstwie CNN składają się z~trzech etapów. w~pierwszym przeprowadzane jest kilka równoległych konwolucji, których wyniki nazywamy liniowymi aktywacjami. w~kolejnym etapie, nazywanym detekcyjnym, każda aktywacja liniowa poddawana jest działaniu nieliniowej funkcji aktywacji. na~koniec używana jest funkcja redukująca (ang. \textit{pooling function}) \cite{deep_learning}.
 
 {\parindent0pt % disables indentation for all the text between { and }
 %https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47
-%wzorowane na artykule, ale mój przykład jest autorkski
-Na Rys. \ref{fig:convolution_example} zaprezentowano przykładowe działanie konwolucji dla obrazu o głębokości 3 (np. RGB). Zastosowano filtr 3x3, z krokiem równym 2, co znaczy że filtr jest stosowany co 2 piksele. Zmniejsza to rozmiar ramki do 3x3. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). Z każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. Nie zastosowano dopełnianie macierzy zerowymi wierszami i kolumnami na brzegach (ang. \textit{padding - valid}), więc z tego powodu także następuje redukcja rozmiaru - do 2x2. 
+%wzorowane na~artykule, ale~mój przykład jest autorkski
+Rys. \ref{fig:convolution_example} prezentuje przykładowe działanie konwolucji dla obrazu o~głębokości 3 (np. RGB). Zastosowano filtr $3\times3$, z~krokiem równym 2, co~znaczy że filtr jest stosowany co~2 piksele. Zmniejsza to~rozmiar ramki do~$3\times3$. Wyjściem tej operacji jest mapa cech (ang. \textit{feature map}). z~każdym filtrem (inaczej jądrem, (ang. \textit{kernel}) powiązana jest wartość błędu (ang. \textit{bias)}. nie~zastosowano dopełnianie macierzy zerowymi wierszami i~kolumnami na~brzegach (ang. \textit{padding - valid}), więc~z tego powodu także następuje redukcja rozmiaru - do~$2\times2$. 
 
 \begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.5]{convolution_use_example}	
-	\caption{Przykład działania konwolucji}.
+	\caption{Przykład zastosowania konwolucji wymiaru $3\times3$ dla obrazu trójkanałowego o~rozmiarze $5\times5$.}.
 	\label{fig:convolution_example}
 \end{figure}
 
 %https://medium.com/the-theory-of-everything/understanding-activation-functions-in-neural-networks-9491262884e0
-Po przejściu przez konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do niej wartości błędu i zdecydowanie czy dana wartość pownna być uznana za aktywną czyli braną pod uwagę w dalszym działaniu.
+Po przejściu przez~konwolucję macierz poddawana jest funkcji aktywacyjnej. Jej celem jest obliczenie ważonej sumy macierzy, dodanie do~niej wartości błędu i~zdecydowanie czy~dana wartość pownna być uznana za~aktywną czyli braną pod~uwagę w~dalszym działaniu.
 
-Funkcja redukcyjna zastępuje wartość wyjściową w danym węźle pewną warością obliczoną na podstawie wyjść sąsiednich neuronów. W ten sposób zmiejszana jest ilość próbek, a także parametrów sieci, co zmniejsza nakład obliczeniowy i redukuje overfitting. Przykład zasosowania funkcji redukcyjnej typu max pooling znajduje się na Rys. \ref{fig:max_pooling_example}. Zastosowano podział na bloki 3x3. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
+Funkcja redukcyjna zastępuje wartość wyjściową w~danym węźle pewną warością obliczoną na~podstawie wyjść sąsiednich neuronów. w~ten sposób zmiejszana jest ilość próbek, a~także parametrów sieci, co~zmniejsza nakład obliczeniowy i~redukuje overfitting. Rys. \ref{fig:max_pooling_example} prezentuje przykład zastosowania funkcji redukcyjnej typu max pooling. Zastosowano podział na~bloki $3\times3$. Dzięki tej operacji uzyskuje się niezmienność wyjścia względem małych translacji wejścia.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\centering
 		\includegraphics[scale=0.15]{max_pooling_example}	
-	\caption{Przykład działania redukcji max pooling}.
+	\caption{Przykład działania redukcji maksymalizującej.}.
 	\label{fig:max_pooling_example}
 \end{figure}
 
 
 %https://www.freecodecamp.org/news/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050/
-Na warstwy konwolucyjne nakładane są warstwy gęsto połączone (ang. \textit{dense layers}), służące do klasyfikacji. Na  ich wejściu wymagane są dane jednowymiarowe, a wyjściem konwolucji są dane trójwymiarowe. Z tego powodu łączy się je warstwą spłaszczającą (ang. \textit{flatten layer}), która transformuje macierze cech w wektor cech.
+Na warstwy konwolucyjne nakładane są~warstwy gęsto połączone (ang. \textit{dense layers}), służące do~klasyfikacji. na~ ich wejściu wymagane są~dane jednowymiarowe, a~wyjściem konwolucji są~dane trójwymiarowe. z~tego powodu łączy się je warstwą spłaszczającą (ang. \textit{flatten layer}), która transformuje macierze cech w~wektor cech.
 
-Ostatnia warstwa w pełni połączona powinna mieć wymiar równy liczbie klas, do których jest klasyfikowany zbiór danych oraz odpowiednią funkcję aktywacyjną. Dla klasyfikacji binarnej używana jest S-funkcja, a do niebinarnej funkcja softmax \cite{Chollet2017DeepLW}.
+Ostatnia warstwa w~pełni połączona powinna mieć wymiar równy liczbie klas, do~których jest klasyfikowany zbiór danych oraz odpowiednią funkcję aktywacyjną. Dla klasyfikacji binarnej używana jest S-funkcja, a~do~niebinarnej funkcja softmax \cite{Chollet2017DeepLW}.
 
-W celu zapobiegnięcia przetrenowaniu sieci używa się warstw typu dropout, które usuwają pewne połączenia między neuronami. Dzięki temu sieć uczy się cech bardziej ogólnych oraz będzie mniej podatna na osiąganie wysokiej skuteczności na zbiorze walidacyjnym, ale niskich na zbiorze testowym \cite{Srivastava2014DropoutAS}.
+W celu zapobiegnięcia przetrenowaniu sieci używa się warstw typu dropout, które usuwają pewne połączenia między neuronami. Dzięki temu sieć uczy się cech bardziej ogólnych oraz będzie mniej podatna na~osiąganie wysokiej skuteczności na~zbiorze walidacyjnym, ale~niskich na~zbiorze testowym \cite{Srivastava2014DropoutAS}.
 
-Temu samemu służą warstwy normalizacji wsadowej (ang. \textit{batch normalisation}), które standaryzują dane wyjściowe z poprzedniej warstwy przez nadanie im postaci rozkładu normalnego N(0,1). W przeciwieństwie do dropoutu nie powoduje utraty niektórych informacji przez usunięcie połączeń, lecz dodaje szum do każdej funkcji aktywacyjnej. Skutkiem jej stosowania jest zwiększenie niezależności warstw od siebie, generalizacja działania sieci oraz zwiększenie współczynnika uczenia. Najlepszym podejściem jest używanie obu typów wastw zmniejszających ryzyko przetrenowania \cite{Ioffe2015BatchNA}.
+Temu samemu służą warstwy normalizacji wsadowej (ang. \textit{batch normalisation}), które standaryzują dane wyjściowe z~poprzedniej warstwy przez~nadanie im postaci rozkładu normalnego N(0,1). w~przeciwieństwie do~dropoutu nie~powoduje utraty niektórych informacji przez~usunięcie połączeń, lecz dodaje szum do~każdej funkcji aktywacyjnej. Skutkiem jej stosowania jest zwiększenie niezależności warstw od~siebie, generalizacja działania sieci oraz zwiększenie współczynnika uczenia. Najlepszym podejściem jest używanie obu typów wastw zmniejszających ryzyko przetrenowania \cite{Ioffe2015BatchNA}.
 }
 
 \subsection{Analiza parametrów sieci konwolucyjnej}
 
-Sieć konwolucyjna ma wiele parametrów, które można regulować w celu dobrania jak najlepszego sposobu działania. Parametry te mają wpływ na skuteczność i mimo, że w przypadku doboru funkcji aktywacji czy redukcji da się powiedzieć które formuły mają większe prawdopodobieństwo powodzenia, to jednak nie ma ścisłych reguł ich doboru.
+Sieć konwolucyjna ma~wiele parametrów, które można optymalzować w~celu dobrania jak najlepszego sposobu działania. Parametry te mają wpływ na~skuteczność i~mimo, że w~przypadku doboru funkcji aktywacji czy~redukcji da się powiedzieć, które formuły mają większe prawdopodobieństwo powodzenia, to~jednak nie~ma ścisłych reguł ich doboru.
 
 {\parindent0pt % disables indentation for all the text between { and }
-Parametry warstwy konwolucyjnej to ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i dobór funkji aktywacyjnej. W przypadku warstw redukcyjnych, na przykład używanej w niniejszej pracy redukcji maksymalizującej, dobiera się wielkość bloków, krok i obecność dopełnienia zerami. Warstwa gęsto połączona ma regulowaną ilość segmentów i funkcję aktywacyjną, zaś w dropout ustala się współczynnik przepuszczalności danych.
+Parametry warstwy konwolucyjnej to~ilość filtrów, ich rozmiar, krok filtracji, dopełnianie zerami bądź jego brak i~dobór funkji aktywacyjnej. w~przypadku warstw redukcyjnych, na~przykład używanej w~niniejszej pracy redukcji maksymalizującej, dobiera się wielkość bloków, krok i~obecność dopełnienia zerami. Warstwa gęsto połączona ma~regulowaną ilość segmentów i~funkcję aktywacyjną, zaś w~dropout ustala się współczynnik przepuszczalności danych.
 
-Podczas propagacji wstecznej w fazie uczenia używany jest algorytm do znajdowania minimum funkcji błędu. Minimum to można znaleźć na wiele sposobów, jednak najskuteczniejszym sposobem do szybkiej zbieżności jest użycie ADAM lub innej techniki adaptacyjnej \cite{gradient_decent}. Poniżej przedstawiono przykładowe funkcje optymalizacyjne.
+Podczas propagacji wstecznej w~fazie uczenia używany jest algorytm do~znajdowania minimum funkcji błędu. Minimum to~można znaleźć na~wiele sposobów, jednak najskuteczniejszym sposobem do~szybkiej zbieżności jest użycie algorytmu optymalizacji adapcyjnego oszacowania momentu (ang. \textit{adaptive moment estimation}, ADAM) lub~innej techniki adaptacyjnej \cite{gradient_decent}. Poniżej przedstawiono przykładowe funkcje optymalizacyjne.
 
 \begin{itemize}
 \item Naszybszy spadek (\ref{equ:gradient_decent}),
@@ -175,11 +175,11 @@ Podczas propagacji wstecznej w fazie uczenia używany jest algorytm do znajdowan
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
-	\item[$\theta$] argument minimalizowanej funkjcji w i-tym kroku algorytmu,
+	\item[$\theta$] argument minimalizowanej funkjcji w~i-tym kroku algorytmu,
 	\item[$\alpha$] szybkość uczenia (ang. \textit{learining rate}),
 	\item[$F$] funkcja błędu.
 \end{eqwhere}
-\item najszybszy spadek z regulacją bezwładności uczenia (\ref{equ:gradient_decent_momentum}),
+\item najszybszy spadek z~regulacją bezwładności uczenia (\ref{equ:gradient_decent_momentum}),
 \begin{equation}
 \theta_{i+1} = \theta_i - V_i
 V_{i+1} = \gamma V_i + \alpha \nabla F(\theta_i)
@@ -189,7 +189,7 @@ gdzie,
 \begin{eqwhere}[2cm]
 	\item[$\gamma$] bezwładność uczenia (ang. \textit{momentum})
 \end{eqwhere}
-\item adapcyjne oszacowanie momentu (ang. \textit{adaptive moment estimation}, ADAM) (\ref{equ:adam}), \cite{Kingma2014AdamAM}.
+\item adapcyjne oszacowanie momentu (ang. \textit{adaptive moment estimation}, ADAM) (\ref{equ:adam}) \cite{Kingma2014AdamAM}.
 \begin{equation}
 \theta_{i+1} = \theta_i - \frac{\alpha}{\sqrt{v_i} + \epsilon} m_i
 \label{equ:adam}
@@ -206,20 +206,20 @@ gdzie,
 \end{equation}
 \end{itemize}
 
-Najlepiej działającymi funkcjami aktywacyjnymi są funkcje nieliniowe, gdyż pozwalają na reprezentację bardziej skomplikowanych odwzorowań. Ważną cechą, jaką powinna posiadać funkcja aktywacyjna jest różniczkowalność. Dzięki temu, że funkcja ma pochodną możliwa jest propagacja wsteczna. Ten krok zawiera w sobie liczenie gradientów błędów względem wag w celu optymalizacji działania sieci neuronowej i zredukowania wartości błędu do minimum. Przykładowe funkcje aktywacyje:
+Najlepiej działającymi funkcjami aktywacyjnymi są~funkcje nieliniowe, gdyż pozwalają na~reprezentację bardziej skomplikowanych odwzorowań. Ważną cechą, jaką powinna posiadać funkcja aktywacyjna jest różniczkowalność. Dzięki temu, że funkcja ma~pochodną możliwa jest propagacja wsteczna. Ten krok zawiera w~sobie liczenie gradientów błędów względem wag w~celu optymalizacji działania sieci neuronowej i~zredukowania wartości błędu do~minimum. Przykładowe funkcje aktywacyje:
 
 \begin{itemize}
 \item progowanie (\ref{equ:activ_thresholding}),
 \begin{equation}
 \begin{aligned}
-Y < th, A = 0\\
-Y \geq th, A = 1
+Y < th, a~= 0\\
+Y \geq th, a~= 1
 \end{aligned}
 \label{equ:activ_thresholding}
 \end{equation}
 gdzie,
 \begin{eqwhere}[2cm]
-	\item[$Y$] wynik sumy ważonej i błędu,
+	\item[$Y$] wynik sumy ważonej i~błędu,
 	\item[$th$] próg aktywacji,
 	\item[$A$] aktywacja.
 \end{eqwhere}
@@ -242,7 +242,7 @@ A = e^{Y}
 A = tanh(Y) =  \frac{e^{Y} - e^{-Y}}{e^{Y} + e^{-Y}}
 \label{equ:activ_tanh}
 \end{equation}
-\item ReLu (\ref{equ:activ_relu}).
+\item ReLU (\ref{equ:activ_relu}).
 \begin{equation}
 A = max(0,Y)
 \label{equ:activ_relu}
@@ -264,15 +264,15 @@ gdzie,
 \end{eqwhere}
 \end{itemize}
 
-Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
+Przykładowymi funkcjami reducyjnymi są: maksimum, minimum, średnia, norma \begin{math}L^{2}\end{math}, średnia ważona odległością od~centralego piksela. Najczęściej stosowana jest jednak funkcja maksimum, gdyż daje najlepsze efekty \cite{Scherer2010EvaluationOP}.
 }
 
 \subsection{Uczenie głębokich sieci neuronowych}
 %https://medium.com/free-code-camp/building-a-3-layer-neural-network-from-scratch-99239c4af5d3
-Proces uczenia sieci neuronowej dzieli się na epoki. Liczba epok jest regulowalnym parametrem i od przyjętej wartości zależy jakość działania modelu. Zbyt mała liczba epok skutkuje niedotrenowaniem (model mógłby klasyfikować lepiej), a zbyt duża przetrenowaniem (model zna zbiór na którym trenował bardzo dobrze, ale słabo radzi sobie z nowymi zbiorami). Poniżej przedstawiono kolejne procesy zachodzące podczas jednej epoki.
+Proces uczenia sieci neuronowej dzieli się na~epoki. Liczba epok jest regulowalnym parametrem i~od~przyjętej wartości zależy jakość działania modelu. Zbyt mała liczba epok skutkuje niedotrenowaniem (model mógłby klasyfikować lepiej), a~zbyt duża przetrenowaniem (model zna zbiór na~którym trenował bardzo dobrze, ale~słabo radzi sobie z~nowymi zbiorami). Poniżej przedstawiono kolejne procesy zachodzące podczas jednej epoki.
 
 {\parindent0pt % disables indentation for all the text between { and }
-Początkowo ustalane są wagi sieci $W_k$ i błędów $b_k$ przez inicjalizację małymi liczbami losowymi. W pierwszej części treningu odbywa się propagacja w przód (ang. \textit{forward popagation)}, która polega na przejściu przez sieć w kierunku od wejścia do wyjścia i obliczeniu liniowego kroku (\ref{equ:training_linear_step}):
+Początkowo ustalane są~wagi sieci $W_k$ i~błędów $b_k$ przez~inicjalizację małymi liczbami losowymi. w~pierwszej części treningu odbywa się propagacja w~przód (ang. \textit{forward popagation)}, która polega na~przejściu przez~sieć w~kierunku od~wejścia do~wyjścia i~obliczeniu liniowego kroku (\ref{equ:training_linear_step}):
 
 \begin{equation}
 y_1 = X_0 W_1 + b_1
@@ -286,42 +286,42 @@ gdzie,
 	\item[$y_1$] pierwszy liniowy krok.
 \end{eqwhere}
 
-Następnie zbiór liniowych kroków przechodzi przez funkcje aktywacyjne, wprowadzając do modelu cechy nieliniowe i pozwalając na reprezentację bardziej skomplikowanych odwzorowań.
+Następnie zbiór liniowych kroków przechodzi przez~funkcje aktywacyjne, wprowadzając do~modelu cechy nieliniowe i~pozwalając na~reprezentację bardziej skomplikowanych odwzorowań.
 
-Po zakończonej propagacji w przód następuje etap propagacji wstecznej (ang. \textit{backward propagation}), mający na celu poprawę wartości wag. Na podstwie funkcji błędu - różnicy między wyjściem z modelu (predykcją), a oczekiwanym wyjściem - szacuje się jakość rozwiązania. Używając pochodnej funkcji błędu względem wag minimalizuje się błąd metodą najszybszego spadku. Krok spadku jest determinowany przez parametr nazywany tempem uczenia (ang. \textit{learning rate}). 
+Po zakończonej propagacji w~przód następuje etap propagacji wstecznej (ang. \textit{backward propagation}), mający na~celu poprawę wartości wag. na~podstwie funkcji błędu - różnicy między wyjściem z~modelu (predykcją), a~oczekiwanym wyjściem - szacuje się jakość rozwiązania. Używając pochodnej funkcji błędu względem wag minimalizuje się błąd metodą najszybszego spadku. Krok spadku jest determinowany przez~parametr nazywany tempem uczenia (ang. \textit{learning rate}). 
 
-Najczęsciej nie wszystkie dane przepływają przez sieć jednocześnie. W przypadku dużych zbiorów danych dzieli się je na mniejsze podzbiory (ang. \textit{batches}), które przepływają kolejno przez sieć. Liczebność tego typu podzbioru jest parametrem modelu i wpływa na jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma przejść przez sieć od wejścia do wyjścia układu i spowrotem, aby epoka została uznana za skończoną. 
+Najczęsciej nie~wszystkie dane przepływają przez~sieć jednocześnie. w~przypadku dużych zbiorów danych dzieli się je na~mniejsze podzbiory (ang. \textit{batches}), które przepływają kolejno przez~sieć. Liczebność tego typu podzbioru jest parametrem modelu i~wpływa na~jakość klasyfikacji. Liczba iteracji definiuje ile podzbiorów ma~przejść przez~sieć od~wejścia do~wyjścia układu i~spowrotem, aby epoka została uznana za~skończoną. 
 }
 
 \subsection{Używanie sieci wytrenowanych}
 %https://www.analyticsvidhya.com/blog/2018/07/top-10-pretrained-models-get-started-deep-learning-part-1-computer-vision/
 
 %oraz: https://becominghuman.ai/how-do-pretrained-models-work-11fe2f64eaa2
-Trening sieci neuronowej jest procesem czasochłonnym. Co więcej, wymaga zgromadzenia odpowiedniej ilości opisanych danych, co bywa problematyczne. Z tego powodu zaczęto szukać metod, dzięki którym będzie można ten proces uprościć i stosować te same narzędzia do różnych problemów. Przenoszenie uczenia (ang. \textit{transfer learning}) jest stosowane w sieciach neronowych przez użycie pretrenowanych modeli. Tego typu model jest trenowany na dużym zbiorze danych i zawierającym nawet kilka milionów próbek i kilkadziesiąt tysięcy klas. 
+Trening sieci neuronowej jest procesem czasochłonnym. co~więcej, wymaga zgromadzenia odpowiedniej ilości opisanych danych, co~bywa problematyczne. z~tego powodu zaczęto szukać metod, dzięki którym będzie można ten proces uprościć i~stosować te same narzędzia do~różnych problemów. Przenoszenie uczenia (ang. \textit{transfer learning}) jest stosowane w~sieciach neronowych przez~użycie uprzednio wytrenowanych modeli. Tego typu model jest trenowany na~dużym zbiorze danych i~zawierającym nawet kilka milionów próbek i~kilkadziesiąt tysięcy klas. 
 
 {\parindent0pt % disables indentation for all the text between { and }
-Korzystając z faktu, że coraz głębsze warstwy sieci uczą się i rozpoznają coraz bardziej skomplikowane i szczegółowe wzorce na obrazie można zedytować raz przetrenowany model do przeznaczenia ogólnego. Należy zamrozić początkowe warstwy - rozpoznające generyczne wzorce - aby nie nadpisać ich wag oraz na nich dołożyć kolejne warstwy mające za zadanie nauczenie się szczegółów typowych dla konkretnego zbioru zdjęć. Dzięki temu można użyć pretrenowanego modelu do rozpoznawania kształtów w bazie zdjęć niezwiązanych wcale z oryginalnym zbiorem, na którym został przetrenowany. 
+Korzystając z~faktu, że coraz głębsze warstwy sieci uczą się i~rozpoznają coraz bardziej skomplikowane i~szczegółowe wzorce na~obrazie można zedytować raz wytrenowany model do~przeznaczenia ogólnego. Należy zamrozić początkowe warstwy - rozpoznające generyczne wzorce - aby nie~nadpisać ich wag oraz na~nich dołożyć kolejne warstwy mające za~zadanie nauczenie się szczegółów typowych dla konkretnego zbioru zdjęć. Dzięki temu można użyć wytrenowanego modelu do~rozpoznawania kształtów w~bazie zdjęć niezwiązanych wcale z~oryginalnym zbiorem, na~którym został wytrenowany. 
 }
 %MobileNet:
 %https://kopernio.com/viewer?doi=arXiv:1704.04861&route=6
 
-\section{Przykłady algorytmów do klasyfikacji elementów krwi}
+\section{Przykłady algorytmów do~klasyfikacji elementów krwi}
 
-Podejścia do problemu klasyfikacji krwinek białych spotykane w literaturze wykazują pewne wspólne cechy charakterystyczne. W przypadku sieci trenowanych od podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na warstwach konwolucji i normalizacji wsadowej. W ten sposób osiągnięto nawet 80\% skuteczności na zbiorze testowym. Mimo, że skuteczność sieci budowanych od podstaw jest wysoka, to użycie sieci pretrenowanych daje jeszcze lepsze rezultaty, bo ponad 85\%. Poniżej przedstawiono najważniejsze informacje o wybranych, najskuteczniejszych algorytmach.
+Podejścia do~problemu klasyfikacji krwinek białych spotykane w~literaturze wykazują pewne wspólne cechy charakterystyczne. w~przypadku sieci trenowanych od~podstaw (ang. \textit{trained from scratch}) najlepsze efekty osiągały modele bazujące na~warstwach konwolucji i~normalizacji wsadowej. w~ten sposób osiągnięto nawet 80\% skuteczności na~zbiorze testowym. Mimo, że skuteczność sieci budowanych od~podstaw jest wysoka, to~użycie sieci wytrenowanych daje jeszcze lepsze rezultaty, bo~ponad 85\%. Poniżej przedstawiono najważniejsze informacje o~wybranych, najskuteczniejszych algorytmach.
 
-\subsection{Sieć trenowana z warstwą redukcyjną maksymalizującą}
+\subsection{Sieć trenowana z~warstwą redukcyjną maksymalizującą}
 \label{sec:section_kaggle_1}
 
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na podstwie cytowanego modelu.
+Przytoczony algorytm w~całości bazuje na~publikacji \cite{kaggle_1}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na~podstwie cytowanego modelu.
 {\parindent0pt % disables indentation for all the text between { and }
 %https://www.kaggle.com/drobchak1988/blood-cell-images-acc-92-val-acc-90
-%75\% na testowym
+%75\% na~testowym
 %TEST: 623+620+620+624 = 2487
 %TRAIN: 247+2483+2478+2499 = 9957
 \begin{itemize}
 \item Przygotowanie danych:
 
-Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. W publikcji nie ma zbioru testowego, co spowodowało brak informacji o jakości działania sieci. Z tego powodu więc eksperyment przedstawiony w artkule został przeze mnie powtórzony z dokładnością co do algorytmu, ale ze zmodyfiowanym podziałem bazy danych. Z pierwotnego zbioru treningowego o liczebności wydzielono 20\% obrazów wyodrębiając zbiór walidacyjny (Rys. \ref{fig:kaggle_1_db_share}). 
+Oryginalnie baza została podzielona w~stosunku 75:25 na~zbiory uczący i~walidacyjny. w~publikcji nie~ma zbioru testowego, co~spowodowało brak informacji o~jakości działania sieci. z~tego powodu więc~eksperyment przedstawiony w~artkule został przeze mnie powtórzony z~dokładnością co~do~algorytmu, ale~ze zmodyfiowanym podziałem bazy danych. z~pierwotnego zbioru treningowego o~liczebności wydzielono 20\% obrazów wyodrębiając zbiór walidacyjny (Rys. \ref{fig:kaggle_1_db_share}). 
 
 \begin{figure}[h!]
 \begin{center}
@@ -337,7 +337,7 @@ Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walida
 \end{figure}
 
 
-Ramki zostały przeskalowane do zakresu wartości pikseli [0:1] i rozmiaru 128x128. Następnie przetasowano każdy ze zbiorów i  podzielono je na podzbiory (ang. \textit{batches}) o liczebności 32 ramek każdy.
+Ramki zostały przeskalowane do~zakresu wartości pikseli [0:1] i~rozmiaru $128\times128$. Następnie przetasowano każdy ze~zbiorów i~ podzielono je na~podzbiory (ang. \textit{batches}) o~liczebności 32 ramek każdy.
 
 \item Struktura sieci:
 \end{itemize}
@@ -422,25 +422,25 @@ ___________________________________________________________________
 \resizebox{0.75\textwidth}{!}{\usebox\myvvvvv}
 
 \begin{itemize}
-\item Parametry sieci i treningu:
+\item Parametry sieci i~treningu:
 
-W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLu, z dopełnianiem ramek zerami na brzegach (ang. \textit{padding - same}) i wielkością filtra zmieniającą się od 1 do 3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z funkcją maksymalizującą obiliczną na podmacierzach wielkości 2x2. Jako klasyfikatora użyto warstwy gęsto połączonej z czterema wyjściami, a jako funkcję aktywującą - sigmoid. Jest to niespójna decyzja, gdyż dla więcej niż dwóch wyjść w problemach niebinarnych powinno się używać funkcji softmax, a nie sigmoid.
+W warstwach konwolucyjnych użyto funkcji aktywacyjnej ReLU, z~dopełnianiem ramek zerami na~brzegach (ang. \textit{padding - same}) i~wielkością filtra zmieniającą się od~1 do~3. Warstwy normalizacji wsadowej mają bezwładność uczenia równą 0.85. Użyte warstwy redukcyjne z~funkcją maksymalizującą obiliczną na~podmacierzach wielkości $2\times2$. Jako klasyfikatora użyto warstwy gęsto połączonej z~czterema wyjściami, a~jako funkcję aktywującą - sigmoid. Jest to~niespójna decyzja, gdyż dla więcej niż dwóch wyjść w~problemach niebinarnych powinno się używać funkcji softmax, a~nie~sigmoid.
 
-Przyjęty algorytm optymalizacji to RMSprop z szybkością uczenia \(2 \times 10^{-5}\), funkcja liczenia błędu to binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a walidacja 62 iteracje.
+Przyjęty algorytm optymalizacji to~RMSprop z~szybkością uczenia \(2 \times 10^{-5}\), funkcja liczenia błędu to~binarna entrpia krzyżowa (ang. \textit{binary cross entropy}). Uczenie trwało 25 epok, każda epoka trwała 248 iteracji, a~walidacja 62 iteracje.
 
 \item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-Proces uczenia nie wykazuje nieprawidłowych cech wskazujących na przetrenowanie lub niedotrenowanie (Rys. \ref{fig:kaggle_1_acc_loss_trening}). Skuteczność zbioru walidacyjnego nadąża za skutecznością zbioru treningowego, nie ma wyraźnych zmian skokowych skuteczności na przestrzeni epok, a krzywa uczenia ma przybliżony kształt funkcji eksponencjalnie rosnącej. Oznacza to poprawny przebieg uczenia.
+Proces uczenia nie~wykazuje nieprawidłowych cech wskazujących na~przetrenowanie lub~niedotrenowanie (Rys. \ref{fig:kaggle_1_acc_loss_trening}). Skuteczność zbioru walidacyjnego nadąża za~skutecznością zbioru treningowego, nie~ma wyraźnych zmian skokowych skuteczności na~przestrzeni epok, a~krzywa uczenia ma~przybliżony kształt funkcji eksponencjalnie rosnącej. Oznacza to~poprawny przebieg uczenia.
 
 \begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.55]{model_231_original}	
-	\caption{Zależność skuteczności i błędu od epoki trenowania w modelu z klasyfikatorem binarnym.}.
+	\caption{Zależność skuteczności i~błędu od~epoki trenowania w~modelu z~klasyfikatorem binarnym.}.
 	\label{fig:kaggle_1_acc_loss_trening}
 \end{figure}
 
-Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z wynikami w publikacji w zakresie dokładności zbioru uczącego i walidacyjnego. Wygenerowana w eksperymencie macierz pomyłek zbioru walidacyjnego (\ref{tab:kaggle_1_conf_matrix_val_1}) i obliczone na jej podstawie parametry (\ref{tab:kaggle_1_params_val_1}) potwierdzają teorię, że użyty klasyfikator jest błędny i sieć rozpoznaje jedynie dwie klasy z niezerową skutecznością.
+Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z~wynikami w~publikacji w~zakresie dokładności zbioru uczącego i~walidacyjnego. Wygenerowana w~eksperymencie macierz pomyłek zbioru walidacyjnego (\ref{tab:kaggle_1_conf_matrix_val_1}) i~obliczone na~jej podstawie parametry (\ref{tab:kaggle_1_params_val_1}) potwierdzają teorię, że użyty klasyfikator jest błędny i~sieć rozpoznaje jedynie dwie klasy z~niezerową skutecznością.
 
 \begin{table}[h!]
 \centering
@@ -455,7 +455,7 @@ Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z wynik
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z klasyfikatorem binarnym.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z~klasyfikatorem binarnym.}
 \label{tab:kaggle_1_conf_matrix_val_1}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -470,26 +470,26 @@ Wyniki dotyczące skuteczności (\ref{tab:kaggle_1_acc}) pokrywają się z wynik
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym modelu z klasyfikatorem binarnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na~zbiorze testowym modelu z~klasyfikatorem binarnym.}
 \label{tab:kaggle_1_params_val_1}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.00   & 0.00   & 0.00  & 623  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.25  & 0.98 & 0.40  & 620  \\ \hline
-\textbf{klasa monocyt (M)} & 0.00   & 0.00    & 0.00  & 620  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.20   & 0.02    & 0.03  & 624  \\ \hline
+\textbf{Parametr}                               & \textbf{Liczba próbek} & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} \\ \hline
+\textbf{klasa eozynofil (E)} & 623 & 0.00   & 0.00   & 0.00   \\ \hline
+\textbf{klasa limfocyt (L)} & 620 & 0.25  & 0.98 & 0.40    \\ \hline
+\textbf{klasa monocyt (M)} & 620 & 0.00   & 0.00    & 0.00   \\ \hline
+\textbf{klasa neutrofil (N)} & 624 & 0.20   & 0.02    & 0.03    \\ \hline
 \end{tabular}
 \end{table}
 
 
-\item Modyfikacja oryginalnej sieci w celu poprawy klasyfikacji:
+\item Modyfikacja oryginalnej sieci w~celu poprawy klasyfikacji:
 
-Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax. Zmiana typu funkcji aktywacyjnej przy wyjściu z modelu wpłynęła w niewielkim stopniu negatywnie na proces uczenia (Rys. \ref{fig:kaggle_1_acc_loss_trening_2}). Sumaryczne skuteczności na zbiorze treningowym jak i waliacyjnym spadły (\ref{tab:kaggle_1_acc_2}), ale macierz pomyłek dla zbioru walidacyjnego znacząco się poprawiła (\ref{tab:kaggle_1_conf_matrix_2}, \ref{tab:kaggle_1_params_val_2}). 
+Zamieniono klasyfikator binarny na~wieloklasowy z~funkcją aktywacyjną softmax. Zmiana typu funkcji aktywacyjnej przy wyjściu z~modelu wpłynęła w~niewielkim stopniu negatywnie na~proces uczenia (Rys. \ref{fig:kaggle_1_acc_loss_trening_2}). Sumaryczne skuteczności na~zbiorze treningowym jak i~waliacyjnym spadły (\ref{tab:kaggle_1_acc_2}), ale~macierz pomyłek dla zbioru walidacyjnego znacząco się poprawiła (\ref{tab:kaggle_1_conf_matrix_2}, \ref{tab:kaggle_1_params_val_2}). 
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Skuteczność modelu z klasyfikatorem niebinarnym.}
+\caption[Short Heading]{Skuteczność modelu z~klasyfikatorem niebinarnym.}
 \label{tab:kaggle_1_acc_2}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -502,13 +502,13 @@ Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax.
 	\centering
 	\centering
 		\includegraphics[scale=0.55]{model_231_corrected}	
-	\caption{Zależność skuteczności i błędu od epoki trenowania w modelu z klasyfikatorem niebinarnym}.
+	\caption{Zależność skuteczności i~błędu od~epoki trenowania w~modelu z~klasyfikatorem niebinarnym}.
 	\label{fig:kaggle_1_acc_loss_trening_2}
 \end{figure}
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z klasyfikatorem niebinarnym.}
+\caption[Short Heading]{Macierz pomyłek zbioru testowego modelu z~klasyfikatorem niebinarnym.}
 \label{tab:kaggle_1_conf_matrix_2}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -526,32 +526,32 @@ Zamieniono klasyfikator binarny na wieloklasowy z funkcją aktywacyjną softmax.
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym modelu z klasyfikatorem niebinarnym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na~zbiorze testowym modelu z~klasyfikatorem niebinarnym.}
 \label{tab:kaggle_1_params_val_2}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.25   & 0.23   & 0.24 & 623  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.25  & 0.27 & 0.26  & 620  \\ \hline
-\textbf{klasa monocyt (M)} & 0.24   & 0.26    & 0.25  & 620  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.27   & 0.25    & 0.26  & 624  \\ \hline
+\textbf{Parametr}                              & \textbf{Liczba próbek}  & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} \\ \hline
+\textbf{klasa eozynofil (E)} & 623 & 0.25   & 0.23   & 0.24  \\ \hline
+\textbf{klasa limfocyt (L)} & 620 & 0.25  & 0.27 & 0.26    \\ \hline
+\textbf{klasa monocyt (M)} & 620 & 0.24   & 0.26    & 0.25   \\ \hline
+\textbf{klasa neutrofil (N)} & 624 & 0.27   & 0.25    & 0.26   \\ \hline
 \end{tabular}
 \end{table}
 
-Sprawdzenie szczegółów dotyczących klasyfiacji, takich jak skuteczność dla poszczególnych klas jest bardzo ważnym krokiem ewaluacyji modelu. W podanym przypadku pozwoliło to na poprawę osiągnięć sieci, mimo że pozornie sumaryczna skuteczność na zbiorach treningowym i walidacyjnym zmalały. Mogą zostać poprawiona przez zwiększenie ilości epok treningu i strojenie parametrów sieci.
+Sprawdzenie szczegółów dotyczących klasyfiacji, takich jak skuteczność dla poszczególnych klas jest bardzo ważnym krokiem ewaluacji modelu. W~podanym przypadku pozwoliło to~na~poprawę osiągnięć sieci, mimo że pozornie sumaryczna skuteczność na~zbiorach treningowym i~walidacyjnym zmalały. Mogą zostać poprawiona przez~zwiększenie ilości epok treningu i~strojenie parametrów sieci.
 
-\subsection{Sieć trenowana z regularyzacją}
+\subsection{Sieć trenowana z~regularyzacją}
 \label{sec:section_kaggle_2}
 %https://www.kaggle.com/placidpanda/deep-learning-from-scratch-insights
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na podstwie cytowanego modelu.
+Przytoczony algorytm w~całości bazuje na~publikacji \cite{kaggle_2}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperyment na~podstwie cytowanego modelu.
 
 {\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
-Oryginalnie baza została podzielona w stosunku 75:25 na zbiory uczący i walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych (\ref{fig:kaggle_2_db_share}). W powtórzonym eksperymencie bazę podzielono tak jak w poprzednio rozpatrywanym algoytmie \ref{sec:section_kaggle_1}.
+Oryginalnie baza została podzielona w~stosunku 75:25 na~zbiory uczący i~walidacyjny. Zbiór testowy uzyskano oddzielając 10\% danych walidacyjnych. W~powtórzonym eksperymencie bazę podzielono tak~jak w~poprzednio rozpatrywanym algorytmie \ref{sec:section_kaggle_1}.
 
-Ramki zostały znormalizowane do zakresu wartości pikseli [0:1] i odchylenia standardowego równego 1. Zmniejszono ich rozmiar o połowę do 160x120. Następnie podzielono je na podzbiory o liczebności 16 ramek każdy.
+Ramki zostały znormalizowane do~zakresu wartości pikseli [0:1] i~odchylenia standardowego równego 1. Zmniejszono ich rozmiar o~połowę do~$160\times120$. Następnie podzielono je na~podzbiory o~liczebności 16 ramek każdy.
 
 \item Struktura sieci:
 \end{itemize}
@@ -615,25 +615,25 @@ ____________________________________________________________________
 \resizebox{0.75\textwidth}{!}{\usebox\myvqq}
 
 \begin{itemize}
-\item Parametry sieci i treningu:
+\item Parametry sieci i~treningu:
 
-Liczba filtrów wastw konwolucyjnych zmieniała się o połowę od 16 do 4 przy stałej wielkości filtra 5x5. Zastosowano dopełnianie zerami, funkcję ReLu w celu aktywacji oraz dropout na poziomie 0,2. Model był trenowany przez 200 epok.
+Liczba filtrów wastw konwolucyjnych zmieniała się o~połowę od~16 do~4 przy stałej wielkości filtra $5\times5$. Zastosowano dopełnianie zerami, funkcję ReLU w~celu aktywacji oraz dropout na~poziomie 0,2. Model był trenowany przez~200 epok.
 
 \item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-Duża liczba warstw głęboko połączonych na końcu sieci wprowadza ryzyko przetrenowania, nawet w sytuacji użycia warstw odrzucających niektóre połączenia neuronowe. Aby zweryfikować wpływ warstw gęsto połączonych na proces uczenia powtórzono eksperyment w celu dokładniejszego przeanalizowania wyniku. Proces uczenia w analizowanym modelu jest chaotyczny i niestabilny, co można zaobserwować na Rys. \ref{fig:kaggle_2_acc_trening}. Przyczyną może być użycie dużej ilości warstw gęsto połączonych. W rezultacie model jest przetrenowany, czyli liczba epok trening, jak i ilość parametrów modelu jest zbyt duża. Najczęściej powodue to wysokie rezultaty podczas treningu, zaś niskie w stosunku do nowych danych - testowych (\ref{tab:kaggle_2_acc_2}).
+Duża liczba warstw głęboko połączonych na~końcu sieci wprowadza ryzyko przetrenowania, nawet w~sytuacji użycia warstw odrzucających niektóre połączenia neuronowe. Aby zweryfikować wpływ warstw gęsto połączonych na~proces uczenia powtórzono eksperyment w~celu dokładniejszego przeanalizowania wyniku. Proces uczenia w~analizowanym modelu jest chaotyczny i~niestabilny, co~można zaobserwować na~Rys. \ref{fig:kaggle_2_acc_trening}. Przyczyną może być użycie dużej ilości warstw gęsto połączonych. w~rezultacie model jest wytrenowany, czyli liczba epok trening, jak i~ilość parametrów modelu jest zbyt duża. Najczęściej powodjue to~wysokie rezultaty podczas treningu, zaś niskie w~stosunku do~nowych danych - testowych (\ref{tab:kaggle_2_acc_2}).
 
 \begin{figure}[h!]
 	\centering
 	\centering
 		\includegraphics[scale=0.55]{model_232_original}
-	\caption{Zależność skuteczności i błędu od epoki trenowania modelu.}.
+	\caption{Zależność skuteczności i~błędu od~epoki trenowania dla modelu z regularyzacją.}.
 	\label{fig:kaggle_2_acc_trening}
 \end{figure}
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Skuteczność modelu w powtórzonym eksperymencie.}
+\caption[Short Heading]{Skuteczność modelu w~powtórzonym eksperymencie.}
 \label{tab:kaggle_2_acc_2}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -642,7 +642,7 @@ Duża liczba warstw głęboko połączonych na końcu sieci wprowadza ryzyko prz
 \end{tabular}
 \end{table}
 
-Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskazuje na równomierną klasyfikację każdej z klas. Jakość klasyfikacji jest porównywalna z modelem z rozdziału \ref{sec:section_kaggle_1} (\ref{tab:kaggle_2_params_val}).
+Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskazuje na~równomierną klasyfikację każdej z~klas. Jakość klasyfikacji jest porównywalna z~modelem z~rozdziału \ref{sec:section_kaggle_1} (\ref{tab:kaggle_2_params_val}).
 
 \begin{table}[h!]
 \centering
@@ -664,30 +664,30 @@ Macierz pomyłek dla zbioru walidacyjnego (\ref{tab:kaggle_2_conf_matrix}) wskaz
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na~zbiorze testowym.}
 \label{tab:kaggle_2_params_val}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.26   & 0.35   & 0.30 & 623  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.21  & 0.21 & 0.21  & 620  \\ \hline
-\textbf{klasa monocyt (M)} & 0.24   & 0.19    & 0.21  & 620  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.24   & 0.20    & 0.22  & 620  \\ \hline
+\textbf{Parametr}                               & \textbf{Liczba próbek} & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} \\ \hline
+\textbf{klasa eozynofil (E)} & 623 & 0.26   & 0.35   & 0.30   \\ \hline
+\textbf{klasa limfocyt (L)} & 620 & 0.21  & 0.21 & 0.21    \\ \hline
+\textbf{klasa monocyt (M)} & 620 & 0.24   & 0.19    & 0.21   \\ \hline
+\textbf{klasa neutrofil (N)} & 620 & 0.24   & 0.20    & 0.22   \\ \hline
 \end{tabular}
 \end{table}
 
 \subsection{Wytrenowana architektura sieci InceptionV3}
 \label{sec:section_kaggle_3}
 %https://www.kaggle.com/jcruxsu/blood-cell-85-kernal-with-inception-v3
-Przytoczony algorytm w całości bazuje na publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperment na podstawie cytowanego modelu.
+Przytoczony algorytm w~całości bazuje na~publikacji \cite{kaggle_3}. Poniżej przedstawiono najważniejsze fragmenty oraz autorski eksperment na~podstawie cytowanego modelu.
 
 {\parindent0pt % disables indentation for all the text between { and }
 \begin{itemize}
 \item Przygotowanie danych:
 
-Zbiór uczący i testowy z oryginalnej bazy zostały użyty w całości i bez modyfikacji. Jako zbiór testowy wykorzystano raz jeszcze zbiór walidacyjny. Taki sposób testowania nie daje faktycznej informacji o zdolności klasyfikacyjnej sieci, dlatego eksperyment musiał zostać powtórzony. Zastosowano taki sam podział bazy jak w rozdziale \ref{sec:section_kaggle_1}.
+Zbiór uczący i~testowy z~oryginalnej bazy zostały użyty w~całości i~bez modyfikacji. Jako zbiór testowy wykorzystano raz jeszcze zbiór walidacyjny. Taki sposób testowania nie~daje faktycznej informacji o~zdolności klasyfikacyjnej sieci, dlatego eksperyment musiał zostać powtórzony. Zastosowano taki sam podział bazy jak w~rozdziale \ref{sec:section_kaggle_1}.
 
-Ramki zostały użyte w oryginalnym rozmiarze 320x240, bez normalizacji i standaryzacji wartości pikseli. Podzielono je na podzbiory o liczebności 32 ramki każdy.
+Ramki zostały użyte w~oryginalnym rozmiarze $320\times240$, bez~normalizacji i~standaryzacji wartości pikseli. Podzielono je na~podzbiory o~liczebności 32 ramki każdy.
 \item Struktura sieci:
 \end{itemize}
 
@@ -732,17 +732,17 @@ _________________________________________________________________
 \resizebox{0.75\textwidth}{!}{\usebox\myvff}
 
 \begin{itemize}
-\item Parametry sieci i treningu:
+\item Parametry sieci i~treningu:
 
-Model był trenowany przez 30 epok. W warstwach gęsto połączonych użyto aktywacji ReLu, a wartości dropoutu ustalono na od 0,7 do 0,3. Użyty optymalizator to ADAM z krokiem uczenia \(5 \times 10^{-5}\). 
+Model był trenowany przez~30 epok. w~warstwach gęsto połączonych użyto aktywacji ReLU, a~wartości dropoutu ustalono na~od~0,7 do~0,3. Użyty algorytmu optymalizacji to~ADAM z~krokiem uczenia \(5 \times 10^{-5}\). 
 
 \item Wyniki klasyfikacji przy użyciu podanej architektury:
 
-Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i także testowym są najwyższe w porównaniu z poprzednimi architekturami (\ref{tab:kaggle_3_acc_2}). Wyniki skuteczności dla zbioru walidacyjnego są mniej oscylują niż w modelu z regularyzacją (\ref{fig:kaggle_3_acc_trening}). Skuteczność klasyfikacji jest porównywalna w każdej z klas, co przedstawiają tabele \ref{tab:kaggle_3_conf_matrix} i \ref{tab:kaggle_3_params_val}.
+Uzyskane wyniki dotyczące skuteczności na~zbiorze treningowym, walidacyjnym i~także testowym są~najwyższe w~porównaniu z~poprzednimi architekturami (\ref{tab:kaggle_3_acc_2}). Wyniki skuteczności dla zbioru walidacyjnego są~mniej oscylują niż w~modelu z~regularyzacją (\ref{fig:kaggle_3_acc_trening}). Skuteczność klasyfikacji jest porównywalna w~każdej z~klas, co~przedstawiają tabele \ref{tab:kaggle_3_conf_matrix} i~\ref{tab:kaggle_3_params_val}.
 
 \begin{table}[h!]
 \centering
-\caption[Short Heading]{Skuteczność modelu w powtórzonym eksperymencie.}
+\caption[Short Heading]{Skuteczność modelu w~powtórzonym eksperymencie.}
 \label{tab:kaggle_3_acc_2}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -755,7 +755,7 @@ Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i 
 	\centering
 	\centering
 		\includegraphics[scale=0.55]{model_233_original}
-	\caption{Zależność skuteczności i błędu od epoki trenowania modelu.}.
+	\caption{Zależność skuteczności i~błędu od~epoki trenowania dla modelu InceptionV3.}.
 	\label{fig:kaggle_3_acc_trening}
 \end{figure}
 
@@ -774,23 +774,23 @@ Uzyskane wyniki dotyczące skuteczności na zbiorze treningowym, walidacyjnym i 
 \end{tabular}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[t]
 \centering
-\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na zbiorze testowym.}
+\caption[Short Heading]{Parametry mierzące jakość klasyfikacji na~zbiorze testowym.}
 \label{tab:kaggle_3_params_val}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Parametr}                               & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} & \textbf{Ilość próbek} \\ \hline
-\textbf{klasa eozynofil (E)} & 0.24   & 0.29   & 0.26 & 623  \\ \hline
-\textbf{klasa limfocyt (L)} & 0.26  & 0.26 & 0.26  & 620  \\ \hline
-\textbf{klasa monocyt (M)} & 0.25   & 0.19    & 0.21  & 620  \\ \hline
-\textbf{klasa neutrofil (N)} & 0.25   & 0.26    & 0.25  & 624  \\ \hline
+\textbf{Parametr}                               & \textbf{Liczba próbek} & \textbf{Precyzja} & \textbf{Czułość} & \textbf{Miara F1} \\ \hline
+\textbf{klasa eozynofil (E)} & 623 & 0.24   & 0.29   & 0.26  \\ \hline
+\textbf{klasa limfocyt (L)}  & 620 & 0.26  & 0.26 & 0.26  \\ \hline
+\textbf{klasa monocyt (M)}  & 620 & 0.25   & 0.19    & 0.21  \\ \hline
+\textbf{klasa neutrofil (N)}  & 624 & 0.25   & 0.26    & 0.25  \\ \hline
 \end{tabular}
 \end{table}
 
 \end{itemize}
 }
 %PRZY ROBIENIU WLASNEGO PRETRENOWANEGO DODAĆ BATCH NORM!
-%"VGG doesn’t have a batch norm layer in it because batch normalization didn’t exist before VGG. If we train it with it from the start, the pre-trained weight will benefit from the normalization of the activations. So adding a batch norm layer actually improves ImageNet, which is cool. You can add it to dense layers, and also to convolutional layers."
+%"VGG doesn’t have a~batch norm layer in it because batch normalization didn’t exist before VGG. If we train it with it from the start, the pre-trained weight will benefit from the normalization of the activations. So adding a~batch norm layer actually improves ImageNet, which is cool. You can add it to~dense layers, and also to~convolutional layers."
 %źródło:
 %https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c

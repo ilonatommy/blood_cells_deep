@@ -2,7 +2,7 @@
 \babel@toc {polish}{}
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}
 \contentsline {section}{\numberline {1.1}Motywacja pracy}{8}
-\contentsline {section}{\numberline {1.2}Cel i zrealizowane zadania}{9}
+\contentsline {section}{\numberline {1.2}Cel i~zrealizowane zadania}{9}
 \contentsline {section}{\numberline {1.3}Zawarto\IeC {\'s}\IeC {\'c} pracy}{9}
 \contentsline {chapter}{\numberline {2}Analiza problemu badawczego}{11}
 \contentsline {section}{\numberline {2.1}Aspekt medyczny - analiza morfometrii krwi}{11}
@@ -13,9 +13,9 @@
 \contentsline {subsection}{\numberline {2.2.4}Analiza parametr\IeC {\'o}w sieci konwolucyjnej}{16}
 \contentsline {subsection}{\numberline {2.2.5}Uczenie g\IeC {\l }\IeC {\k e}bokich sieci neuronowych}{18}
 \contentsline {subsection}{\numberline {2.2.6}U\IeC {\.z}ywanie sieci wytrenowanych}{19}
-\contentsline {section}{\numberline {2.3}Przyk\IeC {\l }ady algorytm\IeC {\'o}w do klasyfikacji element\IeC {\'o}w krwi}{19}
-\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana z warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{20}
-\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z regularyzacj\IeC {\k a}}{24}
+\contentsline {section}{\numberline {2.3}Przyk\IeC {\l }ady algorytm\IeC {\'o}w do~klasyfikacji element\IeC {\'o}w krwi}{19}
+\contentsline {subsection}{\numberline {2.3.1}Sie\IeC {\'c} trenowana z~warstw\IeC {\k a} redukcyjn\IeC {\k a} maksymalizuj\IeC {\k a}c\IeC {\k a}}{20}
+\contentsline {subsection}{\numberline {2.3.2}Sie\IeC {\'c} trenowana z~regularyzacj\IeC {\k a}}{24}
 \contentsline {subsection}{\numberline {2.3.3}Wytrenowana architektura sieci InceptionV3}{26}
 \contentsline {chapter}{\numberline {3}System do klasyfikacji element\IeC {\'o}w morometrycznych krwi}{29}
 \contentsline {section}{\numberline {3.1}Przygotowanie bazy danych}{29}
@@ -32,5 +32,6 @@
 \contentsline {subsection}{\numberline {3.3.4}Wyb\IeC {\'o}r funkcji redukcyjnej}{41}
 \contentsline {subsection}{\numberline {3.3.5}Wyb\IeC {\'o}r funkcji aktywacyjnej warstw konwolucyjnych}{44}
 \contentsline {chapter}{\numberline {4}Analiza wynik\IeC {\'o}w}{47}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{49}
-\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{49}
+\contentsline {section}{\numberline {4.1}Wizualizacja dzia\IeC {\l }ania}{50}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{57}
+\contentsline {section}{\numberline {5.1}Kierunki dalszych bada\IeC {\'n}}{57}

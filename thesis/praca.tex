@@ -13,13 +13,13 @@
 % dodatkowe pakiety
 
 \usepackage{mathtools}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}	
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
 
 %------------ścieżka do folderu z grafikami---------
-\graphicspath{ {./images/} }
+\graphicspath{ {./images/} {./filters/} }
 
 
 
@@ -150,6 +150,10 @@ backend=bibtex
 \acknowledgements{
 %Serdecznie dziękuję promotor dr inż. Joannie Jaworek-Korjakowskiej za okazane wsparcie podczas pisania pracy dyplomowej.
 }
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 
 
 \setlength{\cftsecnumwidth}{10mm}

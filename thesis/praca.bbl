@@ -673,6 +673,26 @@
     \field{year}{2017}
   \endentry
 
+  \entry{Mller2012IntroductionPA}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MVC}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Vincent\bibnamedelima C.},
+         giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MVC1}
+    \strng{fullhash}{MVC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Introduction: Philosophy and Theory of Artificial
+  Intelligence}
+    \field{year}{2012}
+  \endentry
+
   \entry{kaggle_2}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=n}{%

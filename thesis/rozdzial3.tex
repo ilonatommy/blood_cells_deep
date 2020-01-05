@@ -72,7 +72,6 @@ VGGNet jest to architektura sieci kowolucyjnej opublikowanej przez Visual Geomet
 		\includegraphics[scale=0.35]{VGG_16_structure}	
 	\caption{Wizualizacja architektury sieci VGG16 \cite{VGG_16_structure}.}
 	\label{fig:vgg_16_stucture}
-	\label{fig:ann_visualisation}
 \end{figure}
 
 {\parindent0pt
@@ -110,7 +109,6 @@ Biblioteka Keras udostępnia przetrenowany model sieci VGG16. Z uwagi na bardzo 
 		\includegraphics[scale=0.55]{VGG16_trainable_14_trening}	
 	\caption{Zależność skuteczności i błędu od epoki trenowania modelu VGG16.}
 	\label{fig:VGG16_trainable_14_trening}
-	\label{fig:ann_visualisation}
 \end{figure}
 
 Sieć VGG została zbudowana w celu zwiększenia jakości klasyfikacji nie przez ilość warstw, ale przez wzrost liczby filtrów w poszczególnych warstwach. Wielkość filtrów jest stała i wynosi 3x3, są stosowane z krokiem jednego piksela. Użycie tak dużej ilości filtrów do stosunkowo małej bazy o czterech klasach w sytuacji, gdy wszystkie wagi modelu byłyby edytowalne, mógłby spowodować przetrenowanie zbioru. Z tego powodu w budowanej sieci zdecydowano się na zmniejszenie ilości filtrów do liczby dwucyfrowej w pojedynczej warstwie. Z sieci VGGNet zaczerpnięto logikę ułożenia typów warstw, gdyż po co dwóch lub trzech warstwach konwolucyjnych pojawia się warstwa redukcji maksymalizującej. Zastosowano też taką samą liczbę warstw redukcyjnych.
@@ -134,11 +132,11 @@ Architektura zaprezentowana w rozdziale \ref{sec:section_kaggle_1} wykazuje cech
 	\centering
 		\includegraphics[scale=0.25]{my_model_structure_edited}	
 	\caption{Wizualizacja struktury zaproponowanej sieci VGG-UNet.}
-	\label{fig:ann_visualisation}
+	\label{fig:vgg_unet_visualisation}
 \end{figure}
 
 {\parindent0pt
-W żadnej ze wspomnianych architektur nie jest używana normalizacja wsadowa, zapewne dlatego, że zostały one opracowane zanim ten typ warstwy opisano i opublikowano w 2015 roku \cite{batch_normalisation}. W zaproponowanym modelu przed każdorazowym wejściem do warstwy konwolucyjnej są poddawane normalizacji. Jest to technika poprawiająca stabilność i jakość sieci neuronowych. Wyniki skuteczności klasyfikacji architektury z Rys. \ref{fig:ann_visualisation} są niższe niż sieci uprzednio przetrenowanej z powodu znacznie mniejszej sumarycznej liczby danych przepływających przez sieć w trakcie uczenia. Jednak fakt, że ponad połowa próbek została poprawnie zaklasyfikowana (\ref{tab:VGG_1_acc}) oraz nie ma klasy, która byłaby gorzej rozpoznawana niż inne (\ref{tab:VGG_1_params_val}) oznacza, że przy odpowiedniej edycji obecnego modelu można uzyskać wyższą skuteczność. Z wykresu treningu wynika, że opowiednia zmiana parametrów mogłaby pozwolić na wyższe osiągnięcia na zbiorze walidacyjnym, gdyż w obecnej postaci wyniki na tym zbiorze są mocno zaniżone (Rys. \ref{fig:VGG_1_trening}).
+W żadnej ze wspomnianych architektur nie jest używana normalizacja wsadowa, zapewne dlatego, że zostały one opracowane zanim ten typ warstwy opisano i opublikowano w 2015 roku \cite{batch_normalisation}. W zaproponowanym modelu przed każdorazowym wejściem do warstwy konwolucyjnej są poddawane normalizacji. Jest to technika poprawiająca stabilność i jakość sieci neuronowych. Wyniki skuteczności klasyfikacji architektury z Rys. \ref{fig:vgg_unet_visualisation} są niższe niż sieci uprzednio przetrenowanej z powodu znacznie mniejszej sumarycznej liczby danych przepływających przez sieć w trakcie uczenia. Jednak fakt, że ponad połowa próbek została poprawnie zaklasyfikowana (\ref{tab:VGG_1_acc}) oraz nie ma klasy, która byłaby gorzej rozpoznawana niż inne (\ref{tab:VGG_1_params_val}) oznacza, że przy odpowiedniej edycji obecnego modelu można uzyskać wyższą skuteczność. Z wykresu treningu wynika, że opowiednia zmiana parametrów mogłaby pozwolić na wyższe osiągnięcia na zbiorze walidacyjnym, gdyż w obecnej postaci wyniki na tym zbiorze są mocno zaniżone (Rys. \ref{fig:VGG_1_trening}).
 
 %VGG_1:
  \begin{table}[h!]
@@ -190,7 +188,7 @@ Warstwy w architekturze z rozdziału \ref{sec:section_kaggle_1} nie były połą
 
 %ResNet_1
 {\parindent0pt
-Archiekturą, która także stosuje niesekwencyjne połączenie warstw jest rezydualna sieć (ang. \textit{residual neural network}, ResNet). Jej konstrukcja jest podobna do połączeń neuronów piramidowych w korze mózgowej. Wejścia w niej są połączone ze skonktenowanym wjściami warstwy bezpośrednio poprzedzającej oraz warstwy położonej kilka poziomów wcześniej \ref{fig:resnet_50}. W ten sposób omijane są połączenia z niektórymi warstwami. Najczęśćiej dotyczy to co drugiej lub co trzeciej warstwy. Pomijanie upraszcza sieć, co przyśpiesza proces uczenia. Inną korzyścią jest zmniejszenie problemu zanikajacych gradientów. Problem ten powstaje na etapie uczenia sieci korzystając z metod gradientowych. Poprawa wag w każdej iteracji jest proporcjnalna do pochodnej cząstkowej błędu funkcji względem obecnej wagi. Czasami może to prowadzić do sytuacji, gdzie gradient będzie tak mały, że waga nie zostanie zmieniona i postęp w nauce zostanie zatrzymany. Dzięki użyciu wag nie tylko z aktualnej warstwy, ale też z poprzedzającej \cite{vanishing_gradinets}. W przypadku modelu VGG-UNet nie używano funkcji aktywacyjnej mogącej spowodować zanikanie gradientu, gdyż aktywacją była funkcja ReLU. Mimo to po dołączeniu do modelu z Rys. \ref{fig:ann_visualisation}  połączenia typu ResNet, jak na Rys. \ref{fig:VGG_UNet_ResNet_structure}, wyniki na zbiorze testowym znacząco się poprawiły (\ref{tab:ResNet_1_acc}, \ref{tab:ResNet_1_params_val}). Z wykresów zależności skuteczności i błędu od epoki trenowania (\ref{fig:model_22_resnet_1_trening}) wynika, że klasyfikator należy dostroić, żeby zniwelować wahania wartości.
+Archiekturą, która także stosuje niesekwencyjne połączenie warstw jest rezydualna sieć (ang. \textit{residual neural network}, ResNet). Jej konstrukcja jest podobna do połączeń neuronów piramidowych w korze mózgowej. Wejścia w niej są połączone ze skonktenowanym wjściami warstwy bezpośrednio poprzedzającej oraz warstwy położonej kilka poziomów wcześniej \ref{fig:resnet_50}. W ten sposób omijane są połączenia z niektórymi warstwami. Najczęśćiej dotyczy to co drugiej lub co trzeciej warstwy. Pomijanie upraszcza sieć, co przyśpiesza proces uczenia. Inną korzyścią jest zmniejszenie problemu zanikajacych gradientów. Problem ten powstaje na etapie uczenia sieci korzystając z metod gradientowych. Poprawa wag w każdej iteracji jest proporcjnalna do pochodnej cząstkowej błędu funkcji względem obecnej wagi. Czasami może to prowadzić do sytuacji, gdzie gradient będzie tak mały, że waga nie zostanie zmieniona i postęp w nauce zostanie zatrzymany. Dzięki użyciu wag nie tylko z aktualnej warstwy, ale też z poprzedzającej \cite{vanishing_gradinets}. W przypadku modelu VGG-UNet nie używano funkcji aktywacyjnej mogącej spowodować zanikanie gradientu, gdyż aktywacją była funkcja ReLU. Mimo to po dołączeniu do modelu z Rys. \ref{fig:vgg_unet_visualisation}  połączenia typu ResNet, jak na Rys. \ref{fig:VGG_UNet_ResNet_structure}, wyniki na zbiorze testowym znacząco się poprawiły (\ref{tab:ResNet_1_acc}, \ref{tab:ResNet_1_params_val}). Z wykresów zależności skuteczności i błędu od epoki trenowania (\ref{fig:model_22_resnet_1_trening}) wynika, że klasyfikator należy dostroić, żeby zniwelować wahania wartości.
 
 \begin{figure}[h!]
 	\centering
